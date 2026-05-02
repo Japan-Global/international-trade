@@ -170,12 +170,12 @@ ul { list-style: none; }
 .nav-logo-jc .lc { font-size: 28px; color: var(--text); margin-left: -3px; }
 .nav-logo-name {
   font-family: 'Inter', sans-serif;
-  font-size: 15px; font-weight: 800; letter-spacing: .04em;
+  font-size: 18px; font-weight: 800; letter-spacing: .04em;
   color: var(--navy-dark);
 }
 .nav-links { display: flex; align-items: center; gap: 34px; }
 .nav-links a {
-  font-size: 13px; font-weight: 500; color: var(--text-lt);
+  font-size: 14px; font-weight: 500; color: var(--text-lt);
   transition: color .2s ease;
 }
 .nav-links a:hover { color: var(--text); }
@@ -350,34 +350,40 @@ ul { list-style: none; }
 .process-head .section-heading { max-width: 680px; margin: 0 auto; }
 
 .steps {
-  display: grid; grid-template-columns: repeat(5, 1fr); gap: 20px;
-  position: relative; z-index: 1;
+  display: flex; flex-direction: column;
+  position: relative; z-index: 1; max-width: 720px; margin: 0 auto;
 }
-/* Connector line */
-.steps::before {
-  content: '';
-  position: absolute; top: 32px;
-  left: calc(10% + 20px); right: calc(10% + 20px);
-  height: 1px; background: var(--border);
+.step {
+  display: flex; flex-direction: row; align-items: flex-start;
+  gap: 32px; padding: 36px 0; position: relative;
+  border-bottom: 1px solid var(--border);
 }
-.step { display: flex; flex-direction: column; align-items: center; text-align: center; position: relative; }
+.step:last-child { border-bottom: none; }
+.step-left {
+  display: flex; flex-direction: column; align-items: center; flex-shrink: 0; gap: 8px;
+}
 .step-num {
-  width: 64px; height: 64px; border-radius: 50%; flex-shrink: 0;
+  width: 56px; height: 56px; border-radius: 50%; flex-shrink: 0;
   background: var(--white); border: 2px solid var(--border);
   display: flex; align-items: center; justify-content: center;
   font-family: 'Inter', sans-serif; font-size: 17px; font-weight: 900;
-  color: var(--navy-dark); margin-bottom: 20px;
-  transition: background .2s ease, border-color .2s ease, color .2s ease;
-  position: relative; z-index: 1;
+  color: var(--navy-dark);
 }
-.step:hover .step-num {
-  background: var(--navy); border-color: var(--navy); color: white;
+.step-week {
+  font-size: 11px; font-weight: 700; letter-spacing: .08em; text-transform: uppercase;
+  color: var(--accent); white-space: nowrap;
 }
 .step-title {
-  font-family: 'Inter', sans-serif; font-size: 14px; font-weight: 700;
-  color: var(--text); margin-bottom: 8px; line-height: 1.35;
+  font-family: 'Inter', sans-serif; font-size: 20px; font-weight: 800;
+  color: var(--text); margin-bottom: 10px; line-height: 1.3;
 }
-.step-desc { font-size: 13px; color: var(--text-lt); line-height: 1.6; }
+.step-desc { font-size: 16px; color: var(--text-lt); line-height: 1.7; }
+.step-icon {
+  flex-shrink: 0; width: 72px; height: 72px; margin-left: auto;
+  display: flex; align-items: center; justify-content: center;
+  background: var(--bg-alt); border-radius: 18px;
+  color: var(--accent);
+}
 
 /* ════════════════════════════════════════
    STRENGTHS
@@ -523,6 +529,15 @@ ul { list-style: none; }
   font-size: 10px; color: var(--text-lt); letter-spacing: .04em;
 }
 .res-stat-pct { color: #16a34a; }
+
+.plat-inline-wrap {
+  margin-top: 56px; padding-top: 40px;
+  border-top: 1px solid var(--border);
+}
+.plat-inline-label {
+  font-size: 12px; font-weight: 600; letter-spacing: .08em; text-transform: uppercase;
+  color: var(--text-lt); text-align: center; margin-bottom: 24px;
+}
 
 /* ── Platforms ── */
 .platforms {
@@ -705,10 +720,11 @@ ul { list-style: none; }
   .stats-2x2 { grid-template-columns: 1fr 1fr !important; gap: 14px !important; }
 
   .process { padding: 72px 0 !important; }
-  .steps { grid-template-columns: 1fr !important; gap: 28px !important; }
-  .steps::before { display: none; }
-  .step { flex-direction: row !important; text-align: left !important; gap: 18px !important; align-items: flex-start !important; }
-  .step-num { flex-shrink: 0 !important; margin-bottom: 0 !important; }
+  .step { gap: 20px; padding: 28px 0; }
+  .step-left { min-width: 56px; }
+  .step-title { font-size: 17px; }
+  .step-desc { font-size: 15px; }
+  .step-icon { display: none; }
 
   .strengths { padding: 72px 0 !important; }
   .str-grid { grid-template-columns: 1fr !important; }
@@ -784,8 +800,8 @@ ul { list-style: none; }
         <span class="ja">あなたの製品を<br><span class="hi">日本市場</span>へ。</span>
       </h1>
       <p class="hero-sub">
-        <span class="en">We establish your product in the Japanese market through leading crowdfunding platforms — managing everything from certification to launch and into wholesale and retail.</span>
-        <span class="ja">日本の主要クラウドファンディングを通じて製品を市場参入させ、認証からローンチ、卸売・小売展開まで一貫サポートします。</span>
+        <span class="en">We establish your product in the Japanese market through leading crowdfunding platforms — with zero upfront risk, managing everything from certification to launch and into wholesale and retail.</span>
+        <span class="ja">初期リスクゼロで、日本の主要クラウドファンディングを通じて製品を市場参入させ、認証からローンチ、卸売・小売展開まで一貫サポートします。</span>
       </p>
       <div class="hero-btns">
         <a href="#contact" class="btn-primary">
@@ -805,58 +821,6 @@ ul { list-style: none; }
 
 </section>
 
-<!-- ══════════ WHY JAPAN ══════════ -->
-<section class="why" id="why">
-  <div class="container">
-    <div class="why-inner">
-      <div class="why-photo-wrap">
-        <img src="https://images.unsplash.com/photo-1526481280693-3bfa7568e0f3?w=900&auto=format&fit=crop&q=80"
-             alt="Mount Fuji Japan iconic landscape" loading="lazy" width="900" height="675">
-      </div>
-      <div class="why-text">
-        <div class="section-label">
-          <span class="en">THE OPPORTUNITY</span>
-          <span class="ja">市場の魅力</span>
-        </div>
-        <h2 class="section-heading">
-          <span class="en">Japan Is Ready for<br>Your <span class="hi">Innovation</span></span>
-          <span class="ja">日本市場は<br><span class="hi">イノベーション</span>を待っています</span>
-        </h2>
-        <p style="color:var(--text-lt);font-size:16px;margin-top:16px;line-height:1.8;">
-          <span class="en">Japan's consumers are among the world's most tech-savvy — with a strong appetite for globally-proven innovative products that aren't yet available locally.</span>
-          <span class="ja">日本の消費者は世界でも有数のテクノロジー感度を持っています。グローバルで実証済みでも、まだ日本に来ていない革新的な製品への需要が高まっています。</span>
-        </p>
-        <div class="stats-2x2">
-          <div class="stat-box">
-            <div class="stat-box-icon">
-              <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 256 256" fill="currentColor"><path d="M117.25,157.92a60,60,0,1,0-66.5,0A95.83,95.83,0,0,0,3.53,195.05a8,8,0,1,0,13.4,8.74,80,80,0,0,1,134.14,0,8,8,0,0,0,13.4-8.74A95.83,95.83,0,0,0,117.25,157.92ZM40,108a44,44,0,1,1,44,44A44.05,44.05,0,0,1,40,108Zm210.14,98.7a8,8,0,0,1-10.07-5.31,96.06,96.06,0,0,0-45.36-53.96,8,8,0,1,1,7.9-13.88,112.07,112.07,0,0,1,52.83,62.88A8,8,0,0,1,250.14,206.7ZM168,104a44.1,44.1,0,0,0-28,10.12,8,8,0,0,0,10.12,12.4A28,28,0,1,1,172,148a28.11,28.11,0,0,1-4.74-.41,8,8,0,0,0-2.7,15.76A44,44,0,1,0,168,104Z"/></svg>
-            </div>
-            <div class="stat-box-l"><span class="en">Large, tech-savvy consumer base eager for innovation</span><span class="ja">革新的な製品を求めるテクノロジー感度の高い消費者層</span></div>
-          </div>
-          <div class="stat-box">
-            <div class="stat-box-icon">
-              <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 256 256" fill="currentColor"><path d="M128,24A104,104,0,1,0,232,128,104.11,104.11,0,0,0,128,24Zm87.63,96H175.8a152.18,152.18,0,0,0-23.56-63.2A88.2,88.2,0,0,1,215.63,120ZM128,40c11.59,0,30.55,18.36,40.63,80H87.37C97.45,58.36,116.41,40,128,40ZM40.37,120A88.2,88.2,0,0,1,103.76,56.8,152.18,152.18,0,0,0,80.2,120ZM40.37,136H80.2a152.18,152.18,0,0,0,23.56,63.2A88.2,88.2,0,0,1,40.37,136Zm47.63,0h80c-10.08,41.64-29.04,64-40,80-10.96-16-29.92-38.36-40-80ZM152.24,199.2A152.18,152.18,0,0,0,175.8,136h39.83A88.2,88.2,0,0,1,152.24,199.2Z"/></svg>
-            </div>
-            <div class="stat-box-l"><span class="en">One of the world's top e-commerce markets with strong purchasing power</span><span class="ja">世界トップクラスのEC市場と高い購買力</span></div>
-          </div>
-          <div class="stat-box">
-            <div class="stat-box-icon">
-              <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 256 256" fill="currentColor"><path d="M240,208H224V96a16,16,0,0,0-16-16H144V48a16,16,0,0,0-16-16H48A16,16,0,0,0,32,48V208H16a8,8,0,0,0,0,16H240a8,8,0,0,0,0-16ZM144,208H112V176a8,8,0,0,1,8-8h16a8,8,0,0,1,8,8Zm64,0H160V176a24,24,0,0,0-24-24H120a24,24,0,0,0-24,24v32H48V48h80V208H128V96H208Z"/></svg>
-            </div>
-            <div class="stat-box-l"><span class="en">Established crowdfunding platforms with proven reach and high success rates</span><span class="ja">高い成功率を誇る確立されたクラファンプラットフォーム</span></div>
-          </div>
-          <div class="stat-box">
-            <div class="stat-box-icon">
-              <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 256 256" fill="currentColor"><path d="M208,40H48A16,16,0,0,0,32,56V152c0,72.37,83.64,110,92.28,113.79a12,12,0,0,0,7.44,0C140.36,262,224,224.37,224,152V56A16,16,0,0,0,208,40Zm0,112c0,56-60.78,90.51-80,99.41C108.78,242.51,48,208,48,152V56H208ZM173.66,98.34a8,8,0,0,1,0,11.32l-56,56a8,8,0,0,1-11.32,0l-28-28a8,8,0,0,1,11.32-11.32L112,148.69l50.34-50.35A8,8,0,0,1,173.66,98.34Z"/></svg>
-            </div>
-            <div class="stat-box-l"><span class="en">Strict quality expectations that reward globally-proven, innovative products</span><span class="ja">グローバルで実証済みの革新的な製品が評価される品質重視の市場</span></div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
-
 <!-- ══════════ PROCESS ══════════ -->
 <section class="process" id="process">
   <div class="dot-bg" aria-hidden="true"></div>
@@ -874,46 +838,376 @@ ul { list-style: none; }
     <div class="steps">
 
       <div class="step">
-        <div class="step-num">01</div>
-        <div>
-          <div class="step-title"><span class="en">Product Research</span><span class="ja">製品リサーチ</span></div>
-          <div class="step-desc"><span class="en">We identify your product on Kickstarter / Indiegogo and analyze Japan market fit</span><span class="ja">Kickstarter・Indiegogo上でリサーチし、日本市場との適合性を分析</span></div>
+        <div class="step-left">
+          <div class="step-num">01</div>
+          <div class="step-week"><span class="en">Week 1–2</span><span class="ja">Week 1–2</span></div>
+        </div>
+        <div style="flex:1;">
+          <div class="step-title"><span class="en">Discovery & Market Fit</span><span class="ja">市場調査・適合性確認</span></div>
+          <div class="step-desc"><span class="en">We analyze your product, identify the right Japan consumer segment, research competitors, and validate demand — delivering a clear go/no-go recommendation.</span><span class="ja">製品を分析し、日本の消費者層を特定、競合調査と需要検証を行い、明確な推奨をお伝えします。</span></div>
+        </div>
+        <div class="step-icon" aria-hidden="true">
+          <!-- MagnifyingGlass -->
+          <svg xmlns="http://www.w3.org/2000/svg" width="36" height="36" viewBox="0 0 256 256" fill="currentColor"><path d="M229.66,218.34l-50.07-50.06a88.11,88.11,0,1,0-11.31,11.31l50.06,50.07a8,8,0,0,0,11.32-11.32ZM40,112a72,72,0,1,1,72,72A72.08,72.08,0,0,1,40,112Z"/></svg>
         </div>
       </div>
 
       <div class="step">
-        <div class="step-num">02</div>
-        <div>
-          <div class="step-title"><span class="en">Partnership Agreement</span><span class="ja">パートナー契約</span></div>
-          <div class="step-desc"><span class="en">We reach out, align on terms, and establish a formal partnership</span><span class="ja">条件を擦り合わせ、正式なパートナーシップを締結</span></div>
+        <div class="step-left">
+          <div class="step-num">02</div>
+          <div class="step-week"><span class="en">Week 3–6</span><span class="ja">Week 3–6</span></div>
+        </div>
+        <div style="flex:1;">
+          <div class="step-title"><span class="en">Localization & Campaign Build</span><span class="ja">ローカライズ・キャンペーン構築</span></div>
+          <div class="step-desc"><span class="en">Professional Japanese copywriting, culturally adapted visuals, landing pages, certification handling (PSE/TELEC), and platform strategy — fully prepared for launch.</span><span class="ja">日本語コピー、文化適合ビジュアル、認証取得（PSE/TELEC）、ランディングページ、プラットフォーム戦略を整備します。</span></div>
+        </div>
+        <div class="step-icon" aria-hidden="true">
+          <!-- Translate -->
+          <svg xmlns="http://www.w3.org/2000/svg" width="36" height="36" viewBox="0 0 256 256" fill="currentColor"><path d="M239.15,212.42l-56-112a8,8,0,0,0-14.31,0l-21.71,43.43A88,88,0,0,1,100,126.93,103.25,103.25,0,0,0,127.69,64H152a8,8,0,0,0,0-16H104V32a8,8,0,0,0-16,0V48H40a8,8,0,0,0,0,16H111.62A87.3,87.3,0,0,1,96,109.12,87.57,87.57,0,0,1,73.58,80a8,8,0,1,0-14.92,5.92,103.84,103.84,0,0,0,24.72,34A88,88,0,0,1,40,128a8,8,0,0,0,0,16,103.93,103.93,0,0,0,55.93-16.32A104,104,0,0,0,120,144a8,8,0,0,0,0-16,87.64,87.64,0,0,1-18.94-2.06,103.6,103.6,0,0,0,8.42-8.56A104,104,0,0,0,176,136a8,8,0,0,0,0-16,87.6,87.6,0,0,1-28.43-4.72L176,61.65,211.85,208H184a8,8,0,0,0,0,16h40a8,8,0,0,0,7.15-11.58Z"/></svg>
         </div>
       </div>
 
       <div class="step">
-        <div class="step-num">03</div>
-        <div>
-          <div class="step-title"><span class="en">Japan Certification</span><span class="ja">日本認証取得</span></div>
-          <div class="step-desc"><span class="en">PSE, TELEC and all required certifications — handled end-to-end</span><span class="ja">PSE・TELEC等、必要な認証を一括サポート</span></div>
+        <div class="step-left">
+          <div class="step-num">03</div>
+          <div class="step-week"><span class="en">Week 7–9</span><span class="ja">Week 7–9</span></div>
+        </div>
+        <div style="flex:1;">
+          <div class="step-title"><span class="en">Crowdfunding Launch</span><span class="ja">クラウドファンディング・ローンチ</span></div>
+          <div class="step-desc"><span class="en">We go live on Makuake, CAMPFIRE, or GREEN FUNDING using a proven pre-launch playbook — PR, LINE, and Meta Ads.</span><span class="ja">MakuakeやCAMPFIRE等で公開。PR・LINE・Meta広告を活用した実証済みのローンチ戦略を展開します。</span></div>
+        </div>
+        <div class="step-icon" aria-hidden="true">
+          <!-- Globe -->
+          <svg xmlns="http://www.w3.org/2000/svg" width="36" height="36" viewBox="0 0 256 256" fill="currentColor"><path d="M128,24A104,104,0,1,0,232,128,104.11,104.11,0,0,0,128,24ZM101.63,168h52.74C149,186.34,140,202.87,128,215.89,116,202.87,107,186.34,101.63,168ZM98,152a145.72,145.72,0,0,1,0-48h60a145.72,145.72,0,0,1,0,48ZM40,128a87.61,87.61,0,0,1,3.33-24H81.79a161.79,161.79,0,0,0,0,48H43.33A87.61,87.61,0,0,1,40,128ZM154.37,88H101.63C107,69.66,116,53.13,128,40.11,140,53.13,149,69.66,154.37,88ZM174.21,104h38.46a88.15,88.15,0,0,1,0,48H174.21a161.79,161.79,0,0,0,0-48ZM212.67,88H174.3a142.09,142.09,0,0,0-23.69-52.88A88.35,88.35,0,0,1,212.67,88ZM105.39,35.12A142.09,142.09,0,0,0,81.7,88H43.33A88.35,88.35,0,0,1,105.39,35.12ZM43.33,168H81.7a142.09,142.09,0,0,0,23.69,52.88A88.35,88.35,0,0,1,43.33,168Zm107.28,52.88A142.09,142.09,0,0,0,174.3,168h38.37A88.35,88.35,0,0,1,150.61,220.88Z"/></svg>
         </div>
       </div>
 
       <div class="step">
-        <div class="step-num">04</div>
-        <div>
-          <div class="step-title"><span class="en">Campaign Strategy</span><span class="ja">キャンペーン設計</span></div>
-          <div class="step-desc"><span class="en">Makuake / CAMPFIRE setup, Japanese content, pricing, and promotion plan</span><span class="ja">日本語コンテンツ・価格設定・プロモーションを準備</span></div>
+        <div class="step-left">
+          <div class="step-num">04</div>
+          <div class="step-week"><span class="en">Week 9+</span><span class="ja">Week 9+</span></div>
+        </div>
+        <div style="flex:1;">
+          <div class="step-title"><span class="en">Scale to Retail & Wholesale</span><span class="ja">小売・卸売への展開</span></div>
+          <div class="step-desc"><span class="en">We leverage campaign data to open direct negotiations with major Japanese retailers and wholesalers — turning crowdfunding momentum into long-term distribution.</span><span class="ja">キャンペーンデータを活用し、国内の大手小売・卸売業者と直接交渉。クラウドファンディングの勢いを継続的な販路へとつなげます。</span></div>
+        </div>
+        <div class="step-icon" aria-hidden="true">
+          <!-- Storefront -->
+          <svg xmlns="http://www.w3.org/2000/svg" width="36" height="36" viewBox="0 0 256 256" fill="currentColor"><path d="M232,96a7.89,7.89,0,0,0-.3-2.2L217.35,43.6A16.07,16.07,0,0,0,202,32H54A16.07,16.07,0,0,0,38.65,43.6L24.31,93.8A7.89,7.89,0,0,0,24,96v16a40,40,0,0,0,16,32v64a16,16,0,0,0,16,16H200a16,16,0,0,0,16-16V144a40,40,0,0,0,16-32ZM54,48H202l11.42,40H42.61ZM176,208H80V168a24,24,0,0,1,48,0v4a8,8,0,0,0,16,0v-4a40,40,0,0,0-80,0v40H56V155.35A40.16,40.16,0,0,0,64,156a39.8,39.8,0,0,0,28-11.4A40,40,0,0,0,192,156a40.16,40.16,0,0,0,8-.65V208Zm24-68a24,24,0,0,1-24-24,8,8,0,0,0-16,0,24,24,0,0,1-48,0,8,8,0,0,0-16,0,24,24,0,0,1-48,0V112H216v20A24,24,0,0,1,200,140Z"/></svg>
         </div>
       </div>
 
       <div class="step">
-        <div class="step-num">05</div>
-        <div>
-          <div class="step-title"><span class="en">Launch &amp; Beyond</span><span class="ja">ローンチ・継続</span></div>
-          <div class="step-desc"><span class="en">We manage the campaign from go-live through delivery and follow-on sales</span><span class="ja">公開から納品・継続販売まで一貫サポート</span></div>
+        <div class="step-left">
+          <div class="step-num">05</div>
+          <div class="step-week"><span class="en">Ongoing</span><span class="ja">継続的に</span></div>
+        </div>
+        <div style="flex:1;">
+          <div class="step-title"><span class="en">Ongoing Growth</span><span class="ja">継続的な成長</span></div>
+          <div class="step-desc"><span class="en">Continuous marketing optimization, inventory management, customer service support, and quarterly reviews to keep your product growing in Japan.</span><span class="ja">マーケティング最適化、在庫管理、カスタマーサポート、四半期レビューを継続的に実施し、日本での成長を支えます。</span></div>
+        </div>
+        <div class="step-icon" aria-hidden="true">
+          <!-- TrendUp / ChartLineUp -->
+          <svg xmlns="http://www.w3.org/2000/svg" width="36" height="36" viewBox="0 0 256 256" fill="currentColor"><path d="M232,208a8,8,0,0,1-8,8H32a8,8,0,0,1-8-8V48a8,8,0,0,1,16,0V156.69l50.34-50.35a8,8,0,0,1,11.32,0L128,132.69,180.69,80H160a8,8,0,0,1,0-16h40a8,8,0,0,1,8,8v40a8,8,0,0,1-16,0V91.31l-58.34,58.35a8,8,0,0,1-11.32,0L96,123.31l-56,56V200H224A8,8,0,0,1,232,208Z"/></svg>
         </div>
       </div>
 
     </div>
+  </div>
+</section>
+
+<!-- ══════════ TRACK RECORD ══════════ -->
+<section class="results" id="results">
+  <div class="container">
+    <div class="results-head">
+      <div class="section-label" style="justify-content:center;">
+        <span class="en">RESULTS</span>
+        <span class="ja">実績</span>
+      </div>
+      <h2 class="section-heading">
+        <span class="en">Our Work Speaks for Itself</span>
+        <span class="ja">実績が、すべてを語る</span>
+      </h2>
+      <p style="color:var(--text-lt);font-size:16px;margin-top:14px;max-width:520px;margin-left:auto;margin-right:auto;line-height:1.75;">
+        <span class="en">Real campaigns we have launched on Japan's top platforms.</span>
+        <span class="ja">日本の主要プラットフォームで実際に展開したキャンペーンの実績です。</span>
+      </p>
+    </div>
+
+    <!-- ── Makuake ── -->
+    <div class="results-platform-group">
+      <div class="results-platform-label">
+        <span class="plabel-name">Makuake</span>
+      </div>
+      <div class="results-grid">
+
+      <div class="res-card">
+        <a href="https://www.makuake.com/project/outrely/" target="_blank" rel="noopener noreferrer" class="res-card-thumb">
+          <img src="https://static.makuake.com/upload/project/8825/main_8825.jpg?version=1585290558&width=690&height=388" alt="Outlery card-size cutlery set" loading="lazy">
+          <div class="res-card-thumb-overlay"></div>
+          <div class="res-card-thumb-badge"><span class="platform-badge badge-mk">Outdoor / Lifestyle</span></div>
+        </a>
+        <div class="res-card-body">
+          <div class="res-card-title">Outlery — Card-size Cutlery Set</div>
+        </div>
+        <div class="res-card-stats">
+          <div class="res-stat"><span class="res-stat-val"><span class="en">$99K</span><span class="ja">約1,500万円</span></span><span class="res-stat-lbl"><span class="en">Raised</span><span class="ja">調達額</span></span></div>
+          <div class="res-stat"><span class="res-stat-val res-stat-pct">14,793%</span><span class="res-stat-lbl"><span class="en">Funded</span><span class="ja">達成率</span></span></div>
+          <div class="res-stat"><span class="res-stat-val">1,746</span><span class="res-stat-lbl"><span class="en">Backers</span><span class="ja">支援者</span></span></div>
+        </div>
+        <div class="res-card-foot">
+          <span class="res-status"><svg xmlns="http://www.w3.org/2000/svg" width="13" height="13" viewBox="0 0 256 256" fill="currentColor"><path d="M173.66,98.34a8,8,0,0,1,0,11.32l-56,56a8,8,0,0,1-11.32,0l-28-28a8,8,0,0,1,11.32-11.32L112,148.69l50.34-50.35A8,8,0,0,1,173.66,98.34ZM232,128A104,104,0,1,1,128,24,104.11,104.11,0,0,1,232,128Zm-16,0a88,88,0,1,0-88,88A88.1,88.1,0,0,0,216,128Z"/></svg><span class="en">Launched</span><span class="ja">展開済み</span></span>
+          <a href="https://www.makuake.com/project/outrely/" target="_blank" rel="noopener noreferrer" class="res-link"><span class="en">View</span><span class="ja">見る</span><svg xmlns="http://www.w3.org/2000/svg" width="13" height="13" viewBox="0 0 256 256" fill="currentColor"><path d="M221.66,133.66l-72,72a8,8,0,0,1-11.32-11.32L196.69,136H40a8,8,0,0,1,0-16H196.69L138.34,61.66a8,8,0,0,1,11.32-11.32l72,72A8,8,0,0,1,221.66,133.66Z"/></svg></a>
+        </div>
+      </div>
+
+      <div class="res-card">
+        <a href="https://www.makuake.com/project/light_disc_solar/" target="_blank" rel="noopener noreferrer" class="res-card-thumb">
+          <img src="https://static.makuake.com/upload/project/10438/main_10438.png?version=1596074412&width=690&height=388" alt="LightDisc Solar emergency charger" loading="lazy">
+          <div class="res-card-thumb-overlay"></div>
+          <div class="res-card-thumb-badge"><span class="platform-badge badge-mk">Tech / Disaster Prep</span></div>
+        </a>
+        <div class="res-card-body">
+          <div class="res-card-title">LightDisc Solar — Emergency Charger</div>
+        </div>
+        <div class="res-card-stats">
+          <div class="res-stat"><span class="res-stat-val"><span class="en">$62K</span><span class="ja">約930万円</span></span><span class="res-stat-lbl"><span class="en">Raised</span><span class="ja">調達額</span></span></div>
+          <div class="res-stat"><span class="res-stat-val res-stat-pct">4,650%</span><span class="res-stat-lbl"><span class="en">Funded</span><span class="ja">達成率</span></span></div>
+          <div class="res-stat"><span class="res-stat-val">1,012</span><span class="res-stat-lbl"><span class="en">Backers</span><span class="ja">支援者</span></span></div>
+        </div>
+        <div class="res-card-foot">
+          <span class="res-status"><svg xmlns="http://www.w3.org/2000/svg" width="13" height="13" viewBox="0 0 256 256" fill="currentColor"><path d="M173.66,98.34a8,8,0,0,1,0,11.32l-56,56a8,8,0,0,1-11.32,0l-28-28a8,8,0,0,1,11.32-11.32L112,148.69l50.34-50.35A8,8,0,0,1,173.66,98.34ZM232,128A104,104,0,1,1,128,24,104.11,104.11,0,0,1,232,128Zm-16,0a88,88,0,1,0-88,88A88.1,88.1,0,0,0,216,128Z"/></svg><span class="en">Launched</span><span class="ja">展開済み</span></span>
+          <a href="https://www.makuake.com/project/light_disc_solar/" target="_blank" rel="noopener noreferrer" class="res-link"><span class="en">View</span><span class="ja">見る</span><svg xmlns="http://www.w3.org/2000/svg" width="13" height="13" viewBox="0 0 256 256" fill="currentColor"><path d="M221.66,133.66l-72,72a8,8,0,0,1-11.32-11.32L196.69,136H40a8,8,0,0,1,0-16H196.69L138.34,61.66a8,8,0,0,1,11.32-11.32l72,72A8,8,0,0,1,221.66,133.66Z"/></svg></a>
+        </div>
+      </div>
+
+      <div class="res-card">
+        <a href="https://www.makuake.com/project/lepow_dualviews/" target="_blank" rel="noopener noreferrer" class="res-card-thumb">
+          <img src="https://static.makuake.com/upload/project/38162/main_38162.jpg?version=1706666519&width=690&height=338" alt="Lepow DualViews portable dual monitor" loading="lazy">
+          <div class="res-card-thumb-overlay"></div>
+          <div class="res-card-thumb-badge"><span class="platform-badge badge-mk">Tech / Gadget</span></div>
+        </a>
+        <div class="res-card-body">
+          <div class="res-card-title">Lepow DualViews — Portable Dual Monitor</div>
+        </div>
+        <div class="res-card-stats">
+          <div class="res-stat"><span class="res-stat-val"><span class="en">$58K</span><span class="ja">約870万円</span></span><span class="res-stat-lbl"><span class="en">Raised</span><span class="ja">調達額</span></span></div>
+          <div class="res-stat"><span class="res-stat-val res-stat-pct">4,376%</span><span class="res-stat-lbl"><span class="en">Funded</span><span class="ja">達成率</span></span></div>
+          <div class="res-stat"><span class="res-stat-val">133</span><span class="res-stat-lbl"><span class="en">Backers</span><span class="ja">支援者</span></span></div>
+        </div>
+        <div class="res-card-foot">
+          <span class="res-status"><svg xmlns="http://www.w3.org/2000/svg" width="13" height="13" viewBox="0 0 256 256" fill="currentColor"><path d="M173.66,98.34a8,8,0,0,1,0,11.32l-56,56a8,8,0,0,1-11.32,0l-28-28a8,8,0,0,1,11.32-11.32L112,148.69l50.34-50.35A8,8,0,0,1,173.66,98.34ZM232,128A104,104,0,1,1,128,24,104.11,104.11,0,0,1,232,128Zm-16,0a88,88,0,1,0-88,88A88.1,88.1,0,0,0,216,128Z"/></svg><span class="en">Launched</span><span class="ja">展開済み</span></span>
+          <a href="https://www.makuake.com/project/lepow_dualviews/" target="_blank" rel="noopener noreferrer" class="res-link"><span class="en">View</span><span class="ja">見る</span><svg xmlns="http://www.w3.org/2000/svg" width="13" height="13" viewBox="0 0 256 256" fill="currentColor"><path d="M221.66,133.66l-72,72a8,8,0,0,1-11.32-11.32L196.69,136H40a8,8,0,0,1,0-16H196.69L138.34,61.66a8,8,0,0,1,11.32-11.32l72,72A8,8,0,0,1,221.66,133.66Z"/></svg></a>
+        </div>
+      </div>
+
+      <div class="res-card">
+        <a href="https://www.makuake.com/project/travel-bag/" target="_blank" rel="noopener noreferrer" class="res-card-thumb">
+          <img src="https://static.makuake.com/upload/project/43813/main_43813.png?version=1735610460&width=690&height=338" alt="Blast Quick Access Backpack" loading="lazy">
+          <div class="res-card-thumb-overlay"></div>
+          <div class="res-card-thumb-badge"><span class="platform-badge badge-mk">Travel / Bag</span></div>
+        </a>
+        <div class="res-card-body">
+          <div class="res-card-title">Blast Quick Access Backpack</div>
+        </div>
+        <div class="res-card-stats">
+          <div class="res-stat"><span class="res-stat-val"><span class="en">$54K</span><span class="ja">約810万円</span></span><span class="res-stat-lbl"><span class="en">Raised</span><span class="ja">調達額</span></span></div>
+          <div class="res-stat"><span class="res-stat-val res-stat-pct">4,044%</span><span class="res-stat-lbl"><span class="en">Funded</span><span class="ja">達成率</span></span></div>
+          <div class="res-stat"><span class="res-stat-val">478</span><span class="res-stat-lbl"><span class="en">Backers</span><span class="ja">支援者</span></span></div>
+        </div>
+        <div class="res-card-foot">
+          <span class="res-status"><svg xmlns="http://www.w3.org/2000/svg" width="13" height="13" viewBox="0 0 256 256" fill="currentColor"><path d="M173.66,98.34a8,8,0,0,1,0,11.32l-56,56a8,8,0,0,1-11.32,0l-28-28a8,8,0,0,1,11.32-11.32L112,148.69l50.34-50.35A8,8,0,0,1,173.66,98.34ZM232,128A104,104,0,1,1,128,24,104.11,104.11,0,0,1,232,128Zm-16,0a88,88,0,1,0-88,88A88.1,88.1,0,0,0,216,128Z"/></svg><span class="en">Launched</span><span class="ja">展開済み</span></span>
+          <a href="https://www.makuake.com/project/travel-bag/" target="_blank" rel="noopener noreferrer" class="res-link"><span class="en">View</span><span class="ja">見る</span><svg xmlns="http://www.w3.org/2000/svg" width="13" height="13" viewBox="0 0 256 256" fill="currentColor"><path d="M221.66,133.66l-72,72a8,8,0,0,1-11.32-11.32L196.69,136H40a8,8,0,0,1,0-16H196.69L138.34,61.66a8,8,0,0,1,11.32-11.32l72,72A8,8,0,0,1,221.66,133.66Z"/></svg></a>
+        </div>
+      </div>
+
+      <div class="res-card">
+        <a href="https://www.makuake.com/project/spine_gym/" target="_blank" rel="noopener noreferrer" class="res-card-thumb">
+          <img src="https://static.makuake.com/upload/project/15169/main_15169.jpg?version=1618711205&width=690&height=388" alt="Spine Gym core trainer" loading="lazy">
+          <div class="res-card-thumb-overlay"></div>
+          <div class="res-card-thumb-badge"><span class="platform-badge badge-mk">Fitness / Health</span></div>
+        </a>
+        <div class="res-card-body">
+          <div class="res-card-title">Spine Gym — Core Trainer</div>
+        </div>
+        <div class="res-card-stats">
+          <div class="res-stat"><span class="res-stat-val"><span class="en">$39K</span><span class="ja">約590万円</span></span><span class="res-stat-lbl"><span class="en">Raised</span><span class="ja">調達額</span></span></div>
+          <div class="res-stat"><span class="res-stat-val res-stat-pct">1,975%</span><span class="res-stat-lbl"><span class="en">Funded</span><span class="ja">達成率</span></span></div>
+          <div class="res-stat"><span class="res-stat-val">188</span><span class="res-stat-lbl"><span class="en">Backers</span><span class="ja">支援者</span></span></div>
+        </div>
+        <div class="res-card-foot">
+          <span class="res-status"><svg xmlns="http://www.w3.org/2000/svg" width="13" height="13" viewBox="0 0 256 256" fill="currentColor"><path d="M173.66,98.34a8,8,0,0,1,0,11.32l-56,56a8,8,0,0,1-11.32,0l-28-28a8,8,0,0,1,11.32-11.32L112,148.69l50.34-50.35A8,8,0,0,1,173.66,98.34ZM232,128A104,104,0,1,1,128,24,104.11,104.11,0,0,1,232,128Zm-16,0a88,88,0,1,0-88,88A88.1,88.1,0,0,0,216,128Z"/></svg><span class="en">Launched</span><span class="ja">展開済み</span></span>
+          <a href="https://www.makuake.com/project/spine_gym/" target="_blank" rel="noopener noreferrer" class="res-link"><span class="en">View</span><span class="ja">見る</span><svg xmlns="http://www.w3.org/2000/svg" width="13" height="13" viewBox="0 0 256 256" fill="currentColor"><path d="M221.66,133.66l-72,72a8,8,0,0,1-11.32-11.32L196.69,136H40a8,8,0,0,1,0-16H196.69L138.34,61.66a8,8,0,0,1,11.32-11.32l72,72A8,8,0,0,1,221.66,133.66Z"/></svg></a>
+        </div>
+      </div>
+
+      <div class="res-card">
+        <a href="https://www.makuake.com/project/qstoves/" target="_blank" rel="noopener noreferrer" class="res-card-thumb">
+          <img src="https://static.makuake.com/upload/project/17568/main_17568.png?version=1627351213&width=690&height=388" alt="QStoves portable pizza oven" loading="lazy">
+          <div class="res-card-thumb-overlay"></div>
+          <div class="res-card-thumb-badge"><span class="platform-badge badge-mk">Outdoor / Kitchen</span></div>
+        </a>
+        <div class="res-card-body">
+          <div class="res-card-title">QStoves — Portable Pizza Oven</div>
+        </div>
+        <div class="res-card-stats">
+          <div class="res-stat"><span class="res-stat-val"><span class="en">$31K</span><span class="ja">約465万円</span></span><span class="res-stat-lbl"><span class="en">Raised</span><span class="ja">調達額</span></span></div>
+          <div class="res-stat"><span class="res-stat-val res-stat-pct">1,549%</span><span class="res-stat-lbl"><span class="en">Funded</span><span class="ja">達成率</span></span></div>
+          <div class="res-stat"><span class="res-stat-val">73</span><span class="res-stat-lbl"><span class="en">Backers</span><span class="ja">支援者</span></span></div>
+        </div>
+        <div class="res-card-foot">
+          <span class="res-status"><svg xmlns="http://www.w3.org/2000/svg" width="13" height="13" viewBox="0 0 256 256" fill="currentColor"><path d="M173.66,98.34a8,8,0,0,1,0,11.32l-56,56a8,8,0,0,1-11.32,0l-28-28a8,8,0,0,1,11.32-11.32L112,148.69l50.34-50.35A8,8,0,0,1,173.66,98.34ZM232,128A104,104,0,1,1,128,24,104.11,104.11,0,0,1,232,128Zm-16,0a88,88,0,1,0-88,88A88.1,88.1,0,0,0,216,128Z"/></svg><span class="en">Launched</span><span class="ja">展開済み</span></span>
+          <a href="https://www.makuake.com/project/qstoves/" target="_blank" rel="noopener noreferrer" class="res-link"><span class="en">View</span><span class="ja">見る</span><svg xmlns="http://www.w3.org/2000/svg" width="13" height="13" viewBox="0 0 256 256" fill="currentColor"><path d="M221.66,133.66l-72,72a8,8,0,0,1-11.32-11.32L196.69,136H40a8,8,0,0,1,0-16H196.69L138.34,61.66a8,8,0,0,1,11.32-11.32l72,72A8,8,0,0,1,221.66,133.66Z"/></svg></a>
+        </div>
+      </div>
+
+      <div class="res-card">
+        <a href="https://www.makuake.com/project/muon/" target="_blank" rel="noopener noreferrer" class="res-card-thumb">
+          <img src="https://static.makuake.com/upload/project/13140/main_13140.png?version=1608688804&width=690&height=388" alt="MUON silent air purifier" loading="lazy">
+          <div class="res-card-thumb-overlay"></div>
+          <div class="res-card-thumb-badge"><span class="platform-badge badge-mk">Tech / Interior</span></div>
+        </a>
+        <div class="res-card-body">
+          <div class="res-card-title">MUON — Silent Air Purifier</div>
+        </div>
+        <div class="res-card-stats">
+          <div class="res-stat"><span class="res-stat-val"><span class="en">$28K</span><span class="ja">約420万円</span></span><span class="res-stat-lbl"><span class="en">Raised</span><span class="ja">調達額</span></span></div>
+          <div class="res-stat"><span class="res-stat-val res-stat-pct">1,399%</span><span class="res-stat-lbl"><span class="en">Funded</span><span class="ja">達成率</span></span></div>
+          <div class="res-stat"><span class="res-stat-val">73</span><span class="res-stat-lbl"><span class="en">Backers</span><span class="ja">支援者</span></span></div>
+        </div>
+        <div class="res-card-foot">
+          <span class="res-status"><svg xmlns="http://www.w3.org/2000/svg" width="13" height="13" viewBox="0 0 256 256" fill="currentColor"><path d="M173.66,98.34a8,8,0,0,1,0,11.32l-56,56a8,8,0,0,1-11.32,0l-28-28a8,8,0,0,1,11.32-11.32L112,148.69l50.34-50.35A8,8,0,0,1,173.66,98.34ZM232,128A104,104,0,1,1,128,24,104.11,104.11,0,0,1,232,128Zm-16,0a88,88,0,1,0-88,88A88.1,88.1,0,0,0,216,128Z"/></svg><span class="en">Launched</span><span class="ja">展開済み</span></span>
+          <a href="https://www.makuake.com/project/muon/" target="_blank" rel="noopener noreferrer" class="res-link"><span class="en">View</span><span class="ja">見る</span><svg xmlns="http://www.w3.org/2000/svg" width="13" height="13" viewBox="0 0 256 256" fill="currentColor"><path d="M221.66,133.66l-72,72a8,8,0,0,1-11.32-11.32L196.69,136H40a8,8,0,0,1,0-16H196.69L138.34,61.66a8,8,0,0,1,11.32-11.32l72,72A8,8,0,0,1,221.66,133.66Z"/></svg></a>
+        </div>
+      </div>
+
+      <div class="res-card">
+        <a href="https://www.makuake.com/project/sharkpeg/" target="_blank" rel="noopener noreferrer" class="res-card-thumb">
+          <img src="https://static.makuake.com/upload/project/31603/main_31603.png?version=1680228066&width=690&height=338" alt="SharkPeg ultra-thin forged peg" loading="lazy">
+          <div class="res-card-thumb-overlay"></div>
+          <div class="res-card-thumb-badge"><span class="platform-badge badge-mk">Outdoor / Camping</span></div>
+        </a>
+        <div class="res-card-body">
+          <div class="res-card-title">SharkPeg — Ultra-Thin Forged Peg</div>
+        </div>
+        <div class="res-card-stats">
+          <div class="res-stat"><span class="res-stat-val"><span class="en">$17K</span><span class="ja">約255万円</span></span><span class="res-stat-lbl"><span class="en">Raised</span><span class="ja">調達額</span></span></div>
+          <div class="res-stat"><span class="res-stat-val res-stat-pct">867%</span><span class="res-stat-lbl"><span class="en">Funded</span><span class="ja">達成率</span></span></div>
+          <div class="res-stat"><span class="res-stat-val">275</span><span class="res-stat-lbl"><span class="en">Backers</span><span class="ja">支援者</span></span></div>
+        </div>
+        <div class="res-card-foot">
+          <span class="res-status"><svg xmlns="http://www.w3.org/2000/svg" width="13" height="13" viewBox="0 0 256 256" fill="currentColor"><path d="M173.66,98.34a8,8,0,0,1,0,11.32l-56,56a8,8,0,0,1-11.32,0l-28-28a8,8,0,0,1,11.32-11.32L112,148.69l50.34-50.35A8,8,0,0,1,173.66,98.34ZM232,128A104,104,0,1,1,128,24,104.11,104.11,0,0,1,232,128Zm-16,0a88,88,0,1,0-88,88A88.1,88.1,0,0,0,216,128Z"/></svg><span class="en">Launched</span><span class="ja">展開済み</span></span>
+          <a href="https://www.makuake.com/project/sharkpeg/" target="_blank" rel="noopener noreferrer" class="res-link"><span class="en">View</span><span class="ja">見る</span><svg xmlns="http://www.w3.org/2000/svg" width="13" height="13" viewBox="0 0 256 256" fill="currentColor"><path d="M221.66,133.66l-72,72a8,8,0,0,1-11.32-11.32L196.69,136H40a8,8,0,0,1,0-16H196.69L138.34,61.66a8,8,0,0,1,11.32-11.32l72,72A8,8,0,0,1,221.66,133.66Z"/></svg></a>
+        </div>
+      </div>
+
+      <div class="res-card">
+        <a href="https://www.makuake.com/project/endlaces/" target="_blank" rel="noopener noreferrer" class="res-card-thumb">
+          <img src="https://static.makuake.com/upload/project/18781/main_18781.png?version=1630375393&width=690&height=388" alt="EndLaces dial lace lock" loading="lazy">
+          <div class="res-card-thumb-overlay"></div>
+          <div class="res-card-thumb-badge"><span class="platform-badge badge-mk">Fashion / Shoes</span></div>
+        </a>
+        <div class="res-card-body">
+          <div class="res-card-title">EndLaces — Dial Lace Lock</div>
+        </div>
+        <div class="res-card-stats">
+          <div class="res-stat"><span class="res-stat-val"><span class="en">$22K</span><span class="ja">約330万円</span></span><span class="res-stat-lbl"><span class="en">Raised</span><span class="ja">調達額</span></span></div>
+          <div class="res-stat"><span class="res-stat-val res-stat-pct">5,601%</span><span class="res-stat-lbl"><span class="en">Funded</span><span class="ja">達成率</span></span></div>
+          <div class="res-stat"><span class="res-stat-val">461</span><span class="res-stat-lbl"><span class="en">Backers</span><span class="ja">支援者</span></span></div>
+        </div>
+        <div class="res-card-foot">
+          <span class="res-status"><svg xmlns="http://www.w3.org/2000/svg" width="13" height="13" viewBox="0 0 256 256" fill="currentColor"><path d="M173.66,98.34a8,8,0,0,1,0,11.32l-56,56a8,8,0,0,1-11.32,0l-28-28a8,8,0,0,1,11.32-11.32L112,148.69l50.34-50.35A8,8,0,0,1,173.66,98.34ZM232,128A104,104,0,1,1,128,24,104.11,104.11,0,0,1,232,128Zm-16,0a88,88,0,1,0-88,88A88.1,88.1,0,0,0,216,128Z"/></svg><span class="en">Launched</span><span class="ja">展開済み</span></span>
+          <a href="https://www.makuake.com/project/endlaces/" target="_blank" rel="noopener noreferrer" class="res-link"><span class="en">View</span><span class="ja">見る</span><svg xmlns="http://www.w3.org/2000/svg" width="13" height="13" viewBox="0 0 256 256" fill="currentColor"><path d="M221.66,133.66l-72,72a8,8,0,0,1-11.32-11.32L196.69,136H40a8,8,0,0,1,0-16H196.69L138.34,61.66a8,8,0,0,1,11.32-11.32l72,72A8,8,0,0,1,221.66,133.66Z"/></svg></a>
+        </div>
+      </div>
+
+      </div><!-- /results-grid Makuake -->
+    </div><!-- /results-platform-group Makuake -->
+
+    <!-- ── CAMPFIRE ── -->
+    <div class="results-platform-group">
+      <div class="results-platform-label">
+        <span class="plabel-name">CAMPFIRE</span>
+      </div>
+      <div class="results-grid">
+
+      <div class="res-card">
+        <a href="https://camp-fire.jp/projects/313474/view" target="_blank" rel="noopener noreferrer" class="res-card-thumb">
+          <img src="https://static.camp-fire.jp/uploads/project_version/image/506932/df27da11-d555-4e0c-9b59-ede73813f4b2.png?auto=format&fit=max&ref=projects_overview" alt="Night vision security camera" loading="lazy">
+          <div class="res-card-thumb-overlay"></div>
+          <div class="res-card-thumb-badge"><span class="platform-badge badge-cf">Security</span></div>
+        </a>
+        <div class="res-card-body">
+          <div class="res-card-title">Night Vision Security Camera</div>
+        </div>
+        <div class="res-card-stats">
+          <div class="res-stat"><span class="res-stat-val"><span class="en">$156K</span><span class="ja">約2,340万円</span></span><span class="res-stat-lbl"><span class="en">Raised</span><span class="ja">調達額</span></span></div>
+          <div class="res-stat"><span class="res-stat-val res-stat-pct">7,801%</span><span class="res-stat-lbl"><span class="en">Funded</span><span class="ja">達成率</span></span></div>
+          <div class="res-stat"><span class="res-stat-val">612</span><span class="res-stat-lbl"><span class="en">Backers</span><span class="ja">支援者</span></span></div>
+        </div>
+        <div class="res-card-foot">
+          <span class="res-status"><svg xmlns="http://www.w3.org/2000/svg" width="13" height="13" viewBox="0 0 256 256" fill="currentColor"><path d="M173.66,98.34a8,8,0,0,1,0,11.32l-56,56a8,8,0,0,1-11.32,0l-28-28a8,8,0,0,1,11.32-11.32L112,148.69l50.34-50.35A8,8,0,0,1,173.66,98.34ZM232,128A104,104,0,1,1,128,24,104.11,104.11,0,0,1,232,128Zm-16,0a88,88,0,1,0-88,88A88.1,88.1,0,0,0,216,128Z"/></svg><span class="en">Launched</span><span class="ja">展開済み</span></span>
+          <a href="https://camp-fire.jp/projects/313474/view" target="_blank" rel="noopener noreferrer" class="res-link"><span class="en">View</span><span class="ja">見る</span><svg xmlns="http://www.w3.org/2000/svg" width="13" height="13" viewBox="0 0 256 256" fill="currentColor"><path d="M221.66,133.66l-72,72a8,8,0,0,1-11.32-11.32L196.69,136H40a8,8,0,0,1,0-16H196.69L138.34,61.66a8,8,0,0,1,11.32-11.32l72,72A8,8,0,0,1,221.66,133.66Z"/></svg></a>
+        </div>
+      </div>
+
+      <div class="res-card">
+        <a href="https://camp-fire.jp/projects/587884/view" target="_blank" rel="noopener noreferrer" class="res-card-thumb">
+          <img src="https://static.camp-fire.jp/uploads/project_version/image/899285/a3793e5a-d164-4f8f-9749-8a6e6ed03309.png?auto=format&fit=max&ref=projects_overview" alt="AI security camera" loading="lazy">
+          <div class="res-card-thumb-overlay"></div>
+          <div class="res-card-thumb-badge"><span class="platform-badge badge-cf">Security / Tech</span></div>
+        </a>
+        <div class="res-card-body">
+          <div class="res-card-title">AI Security Camera</div>
+        </div>
+        <div class="res-card-stats">
+          <div class="res-stat"><span class="res-stat-val"><span class="en">$74K</span><span class="ja">約1,110万円</span></span><span class="res-stat-lbl"><span class="en">Raised</span><span class="ja">調達額</span></span></div>
+          <div class="res-stat"><span class="res-stat-val res-stat-pct">5,575%</span><span class="res-stat-lbl"><span class="en">Funded</span><span class="ja">達成率</span></span></div>
+          <div class="res-stat"><span class="res-stat-val">343</span><span class="res-stat-lbl"><span class="en">Backers</span><span class="ja">支援者</span></span></div>
+        </div>
+        <div class="res-card-foot">
+          <span class="res-status"><svg xmlns="http://www.w3.org/2000/svg" width="13" height="13" viewBox="0 0 256 256" fill="currentColor"><path d="M173.66,98.34a8,8,0,0,1,0,11.32l-56,56a8,8,0,0,1-11.32,0l-28-28a8,8,0,0,1,11.32-11.32L112,148.69l50.34-50.35A8,8,0,0,1,173.66,98.34ZM232,128A104,104,0,1,1,128,24,104.11,104.11,0,0,1,232,128Zm-16,0a88,88,0,1,0-88,88A88.1,88.1,0,0,0,216,128Z"/></svg><span class="en">Launched</span><span class="ja">展開済み</span></span>
+          <a href="https://camp-fire.jp/projects/587884/view" target="_blank" rel="noopener noreferrer" class="res-link"><span class="en">View</span><span class="ja">見る</span><svg xmlns="http://www.w3.org/2000/svg" width="13" height="13" viewBox="0 0 256 256" fill="currentColor"><path d="M221.66,133.66l-72,72a8,8,0,0,1-11.32-11.32L196.69,136H40a8,8,0,0,1,0-16H196.69L138.34,61.66a8,8,0,0,1,11.32-11.32l72,72A8,8,0,0,1,221.66,133.66Z"/></svg></a>
+        </div>
+      </div>
+
+      </div><!-- /results-grid CAMPFIRE -->
+    </div><!-- /results-platform-group CAMPFIRE -->
+
+    <div class="plat-inline-wrap">
+      <p class="plat-inline-label"><span class="en">Examples of platforms include:</span><span class="ja">活用するプラットフォームの例：</span></p>
+      <div class="plat-grid">
+        <div class="plat-card plat-mk">
+          <div class="plat-logo-wrap">
+            <img src="./assets/Makuake_Logo_yoko.png" alt="Makuake">
+          </div>
+        </div>
+        <div class="plat-card plat-cf">
+          <div class="plat-logo-wrap">
+            <img src="./assets/campfire-corporate-logo.png" alt="CAMPFIRE">
+          </div>
+        </div>
+        <div class="plat-card plat-gf">
+          <div class="plat-logo-wrap">
+            <img src="./assets/logo-greenfunding.svg" alt="GREEN FUNDING">
+          </div>
+        </div>
+        <div class="plat-card plat-ws">
+          <div class="plat-logo-wrap">
+            <div style="display:flex;flex-direction:column;align-items:center;gap:5px;">
+              <svg xmlns="http://www.w3.org/2000/svg" width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="var(--navy)" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M3 9l1-5h16l1 5"/>
+                <path d="M3 9a3 3 0 0 0 6 0 3 3 0 0 0 6 0 3 3 0 0 0 6 0"/>
+                <path d="M5 9v10h14V9"/>
+                <rect x="9" y="14" width="6" height="5"/>
+              </svg>
+              <span class="plat-wordmark plat-wordmark-ws">Wholesale / Retail</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
   </div>
 </section>
 
@@ -949,7 +1243,7 @@ ul { list-style: none; }
           <svg xmlns="http://www.w3.org/2000/svg" width="26" height="26" viewBox="0 0 256 256" fill="currentColor"><path d="M229.66,218.34l-50.07-50.06a88.11,88.11,0,1,0-11.31,11.31l50.06,50.07a8,8,0,0,0,11.32-11.32ZM40,112a72,72,0,1,1,72,72A72.08,72.08,0,0,1,40,112Z"/></svg>
         </div>
         <div class="str-title"><span class="en">Kickstarter &amp; Indiegogo Specialist</span><span class="ja">クラファン製品のスペシャリスト</span></div>
-        <div class="str-desc"><span class="en">Deep experience researching, selecting, and negotiating directly with global crowdfunding creators.</span><span class="ja">Kickstarter・Indiegogo製品のリサーチ・選定・メーカー交渉まで幅広い実務経験を保有。</span></div>
+        <div class="str-desc"><span class="en">Deep experience researching, selecting, and negotiating directly with creators worldwide.</span><span class="ja">世界中のクリエイターとの直接交渉を含む、リサーチ・選定・交渉まで幅広い実務経験を保有。</span></div>
       </div>
 
       <div class="str-card">
@@ -967,320 +1261,7 @@ ul { list-style: none; }
           <svg xmlns="http://www.w3.org/2000/svg" width="26" height="26" viewBox="0 0 256 256" fill="currentColor"><path d="M232,96a7.89,7.89,0,0,0-.3-2.2L217.35,43.6A16.07,16.07,0,0,0,202,32H54A16.07,16.07,0,0,0,38.65,43.6L24.31,93.8A7.89,7.89,0,0,0,24,96v16a40,40,0,0,0,16,32v64a16,16,0,0,0,16,16H200a16,16,0,0,0,16-16V144a40,40,0,0,0,16-32ZM54,48H202l11.42,40H42.61ZM176,208H80V168a24,24,0,0,1,48,0v4a8,8,0,0,0,16,0v-4a40,40,0,0,0-80,0v40H56V155.35A40.16,40.16,0,0,0,64,156a39.8,39.8,0,0,0,28-11.4A40,40,0,0,0,192,156a40.16,40.16,0,0,0,8-.65V208Zm24-68a24,24,0,0,1-24-24,8,8,0,0,0-16,0,24,24,0,0,1-48,0,8,8,0,0,0-16,0,24,24,0,0,1-48,0V112H216v20A24,24,0,0,1,200,140Z"/></svg>
         </div>
         <div class="str-title"><span class="en">Campaign to Retail — Full Distribution</span><span class="ja">クラウドファンディングから卸売・小売まで一貫対応</span></div>
-        <div class="str-desc"><span class="en">We go beyond the campaign. Through working relationships with Makuake and CAMPFIRE, we bridge your crowdfunding success into long-term wholesale and retail distribution in Japan.</span><span class="ja">MakuakeやCAMPFIREとのネットワークを活かし、クラウドファンディング成功後の卸売・小売チャネルへの橋渡しまで一貫してサポートします。</span></div>
-      </div>
-
-    </div>
-  </div>
-</section>
-
-<!-- ══════════ TRACK RECORD ══════════ -->
-<section class="results" id="results">
-  <div class="container">
-    <div class="results-head">
-      <div class="section-label" style="justify-content:center;">
-        <span class="en">RESULTS</span>
-        <span class="ja">実績</span>
-      </div>
-      <h2 class="section-heading">
-        <span class="en">Our Work Speaks for Itself</span>
-        <span class="ja">実績が、すべてを語る</span>
-      </h2>
-      <p style="color:var(--text-lt);font-size:16px;margin-top:14px;max-width:520px;margin-left:auto;margin-right:auto;line-height:1.75;">
-        <span class="en">Real campaigns on Japan's top platforms. Click through to see the results.</span>
-        <span class="ja">日本の主要プラットフォームで実際に展開したキャンペーンです。実績をご確認ください。</span>
-      </p>
-    </div>
-
-    <!-- ── Makuake ── -->
-    <div class="results-platform-group">
-      <div class="results-platform-label">
-        <span class="plabel-name">Makuake</span>
-      </div>
-      <div class="results-grid">
-
-      <div class="res-card">
-        <a href="https://www.makuake.com/project/outrely/" target="_blank" rel="noopener noreferrer" class="res-card-thumb">
-          <img src="https://static.makuake.com/upload/project/8825/main_8825.jpg?version=1585290558&width=690&height=388" alt="Outlery card-size cutlery set" loading="lazy">
-          <div class="res-card-thumb-overlay"></div>
-          <div class="res-card-thumb-badge"><span class="platform-badge badge-mk">Outdoor / Lifestyle</span></div>
-        </a>
-        <div class="res-card-body">
-          <div class="res-card-title">Outlery — Card-size Cutlery Set</div>
-        </div>
-        <div class="res-card-stats">
-          <div class="res-stat"><span class="res-stat-val">$99K</span><span class="res-stat-lbl"><span class="en">Raised</span><span class="ja">調達額</span></span></div>
-          <div class="res-stat"><span class="res-stat-val res-stat-pct">14,793%</span><span class="res-stat-lbl"><span class="en">Funded</span><span class="ja">達成率</span></span></div>
-          <div class="res-stat"><span class="res-stat-val">1,746</span><span class="res-stat-lbl"><span class="en">Backers</span><span class="ja">支援者</span></span></div>
-        </div>
-        <div class="res-card-foot">
-          <span class="res-status"><svg xmlns="http://www.w3.org/2000/svg" width="13" height="13" viewBox="0 0 256 256" fill="currentColor"><path d="M173.66,98.34a8,8,0,0,1,0,11.32l-56,56a8,8,0,0,1-11.32,0l-28-28a8,8,0,0,1,11.32-11.32L112,148.69l50.34-50.35A8,8,0,0,1,173.66,98.34ZM232,128A104,104,0,1,1,128,24,104.11,104.11,0,0,1,232,128Zm-16,0a88,88,0,1,0-88,88A88.1,88.1,0,0,0,216,128Z"/></svg><span class="en">Launched</span><span class="ja">展開済み</span></span>
-          <a href="https://www.makuake.com/project/outrely/" target="_blank" rel="noopener noreferrer" class="res-link"><span class="en">View</span><span class="ja">見る</span><svg xmlns="http://www.w3.org/2000/svg" width="13" height="13" viewBox="0 0 256 256" fill="currentColor"><path d="M221.66,133.66l-72,72a8,8,0,0,1-11.32-11.32L196.69,136H40a8,8,0,0,1,0-16H196.69L138.34,61.66a8,8,0,0,1,11.32-11.32l72,72A8,8,0,0,1,221.66,133.66Z"/></svg></a>
-        </div>
-      </div>
-
-      <div class="res-card">
-        <a href="https://www.makuake.com/project/light_disc_solar/" target="_blank" rel="noopener noreferrer" class="res-card-thumb">
-          <img src="https://static.makuake.com/upload/project/10438/main_10438.png?version=1596074412&width=690&height=388" alt="LightDisc Solar emergency charger" loading="lazy">
-          <div class="res-card-thumb-overlay"></div>
-          <div class="res-card-thumb-badge"><span class="platform-badge badge-mk">Tech / Disaster Prep</span></div>
-        </a>
-        <div class="res-card-body">
-          <div class="res-card-title">LightDisc Solar — Emergency Charger</div>
-        </div>
-        <div class="res-card-stats">
-          <div class="res-stat"><span class="res-stat-val">$62K</span><span class="res-stat-lbl"><span class="en">Raised</span><span class="ja">調達額</span></span></div>
-          <div class="res-stat"><span class="res-stat-val res-stat-pct">4,650%</span><span class="res-stat-lbl"><span class="en">Funded</span><span class="ja">達成率</span></span></div>
-          <div class="res-stat"><span class="res-stat-val">1,012</span><span class="res-stat-lbl"><span class="en">Backers</span><span class="ja">支援者</span></span></div>
-        </div>
-        <div class="res-card-foot">
-          <span class="res-status"><svg xmlns="http://www.w3.org/2000/svg" width="13" height="13" viewBox="0 0 256 256" fill="currentColor"><path d="M173.66,98.34a8,8,0,0,1,0,11.32l-56,56a8,8,0,0,1-11.32,0l-28-28a8,8,0,0,1,11.32-11.32L112,148.69l50.34-50.35A8,8,0,0,1,173.66,98.34ZM232,128A104,104,0,1,1,128,24,104.11,104.11,0,0,1,232,128Zm-16,0a88,88,0,1,0-88,88A88.1,88.1,0,0,0,216,128Z"/></svg><span class="en">Launched</span><span class="ja">展開済み</span></span>
-          <a href="https://www.makuake.com/project/light_disc_solar/" target="_blank" rel="noopener noreferrer" class="res-link"><span class="en">View</span><span class="ja">見る</span><svg xmlns="http://www.w3.org/2000/svg" width="13" height="13" viewBox="0 0 256 256" fill="currentColor"><path d="M221.66,133.66l-72,72a8,8,0,0,1-11.32-11.32L196.69,136H40a8,8,0,0,1,0-16H196.69L138.34,61.66a8,8,0,0,1,11.32-11.32l72,72A8,8,0,0,1,221.66,133.66Z"/></svg></a>
-        </div>
-      </div>
-
-      <div class="res-card">
-        <a href="https://www.makuake.com/project/lepow_dualviews/" target="_blank" rel="noopener noreferrer" class="res-card-thumb">
-          <img src="https://static.makuake.com/upload/project/38162/main_38162.jpg?version=1706666519&width=690&height=338" alt="Lepow DualViews portable dual monitor" loading="lazy">
-          <div class="res-card-thumb-overlay"></div>
-          <div class="res-card-thumb-badge"><span class="platform-badge badge-mk">Tech / Gadget</span></div>
-        </a>
-        <div class="res-card-body">
-          <div class="res-card-title">Lepow DualViews — Portable Dual Monitor</div>
-        </div>
-        <div class="res-card-stats">
-          <div class="res-stat"><span class="res-stat-val">$58K</span><span class="res-stat-lbl"><span class="en">Raised</span><span class="ja">調達額</span></span></div>
-          <div class="res-stat"><span class="res-stat-val res-stat-pct">4,376%</span><span class="res-stat-lbl"><span class="en">Funded</span><span class="ja">達成率</span></span></div>
-          <div class="res-stat"><span class="res-stat-val">133</span><span class="res-stat-lbl"><span class="en">Backers</span><span class="ja">支援者</span></span></div>
-        </div>
-        <div class="res-card-foot">
-          <span class="res-status"><svg xmlns="http://www.w3.org/2000/svg" width="13" height="13" viewBox="0 0 256 256" fill="currentColor"><path d="M173.66,98.34a8,8,0,0,1,0,11.32l-56,56a8,8,0,0,1-11.32,0l-28-28a8,8,0,0,1,11.32-11.32L112,148.69l50.34-50.35A8,8,0,0,1,173.66,98.34ZM232,128A104,104,0,1,1,128,24,104.11,104.11,0,0,1,232,128Zm-16,0a88,88,0,1,0-88,88A88.1,88.1,0,0,0,216,128Z"/></svg><span class="en">Launched</span><span class="ja">展開済み</span></span>
-          <a href="https://www.makuake.com/project/lepow_dualviews/" target="_blank" rel="noopener noreferrer" class="res-link"><span class="en">View</span><span class="ja">見る</span><svg xmlns="http://www.w3.org/2000/svg" width="13" height="13" viewBox="0 0 256 256" fill="currentColor"><path d="M221.66,133.66l-72,72a8,8,0,0,1-11.32-11.32L196.69,136H40a8,8,0,0,1,0-16H196.69L138.34,61.66a8,8,0,0,1,11.32-11.32l72,72A8,8,0,0,1,221.66,133.66Z"/></svg></a>
-        </div>
-      </div>
-
-      <div class="res-card">
-        <a href="https://www.makuake.com/project/travel-bag/" target="_blank" rel="noopener noreferrer" class="res-card-thumb">
-          <img src="https://static.makuake.com/upload/project/43813/main_43813.png?version=1735610460&width=690&height=338" alt="Blast Quick Access Backpack" loading="lazy">
-          <div class="res-card-thumb-overlay"></div>
-          <div class="res-card-thumb-badge"><span class="platform-badge badge-mk">Travel / Bag</span></div>
-        </a>
-        <div class="res-card-body">
-          <div class="res-card-title">Blast Quick Access Backpack</div>
-        </div>
-        <div class="res-card-stats">
-          <div class="res-stat"><span class="res-stat-val">$54K</span><span class="res-stat-lbl"><span class="en">Raised</span><span class="ja">調達額</span></span></div>
-          <div class="res-stat"><span class="res-stat-val res-stat-pct">4,044%</span><span class="res-stat-lbl"><span class="en">Funded</span><span class="ja">達成率</span></span></div>
-          <div class="res-stat"><span class="res-stat-val">478</span><span class="res-stat-lbl"><span class="en">Backers</span><span class="ja">支援者</span></span></div>
-        </div>
-        <div class="res-card-foot">
-          <span class="res-status"><svg xmlns="http://www.w3.org/2000/svg" width="13" height="13" viewBox="0 0 256 256" fill="currentColor"><path d="M173.66,98.34a8,8,0,0,1,0,11.32l-56,56a8,8,0,0,1-11.32,0l-28-28a8,8,0,0,1,11.32-11.32L112,148.69l50.34-50.35A8,8,0,0,1,173.66,98.34ZM232,128A104,104,0,1,1,128,24,104.11,104.11,0,0,1,232,128Zm-16,0a88,88,0,1,0-88,88A88.1,88.1,0,0,0,216,128Z"/></svg><span class="en">Launched</span><span class="ja">展開済み</span></span>
-          <a href="https://www.makuake.com/project/travel-bag/" target="_blank" rel="noopener noreferrer" class="res-link"><span class="en">View</span><span class="ja">見る</span><svg xmlns="http://www.w3.org/2000/svg" width="13" height="13" viewBox="0 0 256 256" fill="currentColor"><path d="M221.66,133.66l-72,72a8,8,0,0,1-11.32-11.32L196.69,136H40a8,8,0,0,1,0-16H196.69L138.34,61.66a8,8,0,0,1,11.32-11.32l72,72A8,8,0,0,1,221.66,133.66Z"/></svg></a>
-        </div>
-      </div>
-
-      <div class="res-card">
-        <a href="https://www.makuake.com/project/spine_gym/" target="_blank" rel="noopener noreferrer" class="res-card-thumb">
-          <img src="https://static.makuake.com/upload/project/15169/main_15169.jpg?version=1618711205&width=690&height=388" alt="Spine Gym core trainer" loading="lazy">
-          <div class="res-card-thumb-overlay"></div>
-          <div class="res-card-thumb-badge"><span class="platform-badge badge-mk">Fitness / Health</span></div>
-        </a>
-        <div class="res-card-body">
-          <div class="res-card-title">Spine Gym — Core Trainer</div>
-        </div>
-        <div class="res-card-stats">
-          <div class="res-stat"><span class="res-stat-val">$39K</span><span class="res-stat-lbl"><span class="en">Raised</span><span class="ja">調達額</span></span></div>
-          <div class="res-stat"><span class="res-stat-val res-stat-pct">1,975%</span><span class="res-stat-lbl"><span class="en">Funded</span><span class="ja">達成率</span></span></div>
-          <div class="res-stat"><span class="res-stat-val">188</span><span class="res-stat-lbl"><span class="en">Backers</span><span class="ja">支援者</span></span></div>
-        </div>
-        <div class="res-card-foot">
-          <span class="res-status"><svg xmlns="http://www.w3.org/2000/svg" width="13" height="13" viewBox="0 0 256 256" fill="currentColor"><path d="M173.66,98.34a8,8,0,0,1,0,11.32l-56,56a8,8,0,0,1-11.32,0l-28-28a8,8,0,0,1,11.32-11.32L112,148.69l50.34-50.35A8,8,0,0,1,173.66,98.34ZM232,128A104,104,0,1,1,128,24,104.11,104.11,0,0,1,232,128Zm-16,0a88,88,0,1,0-88,88A88.1,88.1,0,0,0,216,128Z"/></svg><span class="en">Launched</span><span class="ja">展開済み</span></span>
-          <a href="https://www.makuake.com/project/spine_gym/" target="_blank" rel="noopener noreferrer" class="res-link"><span class="en">View</span><span class="ja">見る</span><svg xmlns="http://www.w3.org/2000/svg" width="13" height="13" viewBox="0 0 256 256" fill="currentColor"><path d="M221.66,133.66l-72,72a8,8,0,0,1-11.32-11.32L196.69,136H40a8,8,0,0,1,0-16H196.69L138.34,61.66a8,8,0,0,1,11.32-11.32l72,72A8,8,0,0,1,221.66,133.66Z"/></svg></a>
-        </div>
-      </div>
-
-      <div class="res-card">
-        <a href="https://www.makuake.com/project/qstoves/" target="_blank" rel="noopener noreferrer" class="res-card-thumb">
-          <img src="https://static.makuake.com/upload/project/17568/main_17568.png?version=1627351213&width=690&height=388" alt="QStoves portable pizza oven" loading="lazy">
-          <div class="res-card-thumb-overlay"></div>
-          <div class="res-card-thumb-badge"><span class="platform-badge badge-mk">Outdoor / Kitchen</span></div>
-        </a>
-        <div class="res-card-body">
-          <div class="res-card-title">QStoves — Portable Pizza Oven</div>
-        </div>
-        <div class="res-card-stats">
-          <div class="res-stat"><span class="res-stat-val">$31K</span><span class="res-stat-lbl"><span class="en">Raised</span><span class="ja">調達額</span></span></div>
-          <div class="res-stat"><span class="res-stat-val res-stat-pct">1,549%</span><span class="res-stat-lbl"><span class="en">Funded</span><span class="ja">達成率</span></span></div>
-          <div class="res-stat"><span class="res-stat-val">73</span><span class="res-stat-lbl"><span class="en">Backers</span><span class="ja">支援者</span></span></div>
-        </div>
-        <div class="res-card-foot">
-          <span class="res-status"><svg xmlns="http://www.w3.org/2000/svg" width="13" height="13" viewBox="0 0 256 256" fill="currentColor"><path d="M173.66,98.34a8,8,0,0,1,0,11.32l-56,56a8,8,0,0,1-11.32,0l-28-28a8,8,0,0,1,11.32-11.32L112,148.69l50.34-50.35A8,8,0,0,1,173.66,98.34ZM232,128A104,104,0,1,1,128,24,104.11,104.11,0,0,1,232,128Zm-16,0a88,88,0,1,0-88,88A88.1,88.1,0,0,0,216,128Z"/></svg><span class="en">Launched</span><span class="ja">展開済み</span></span>
-          <a href="https://www.makuake.com/project/qstoves/" target="_blank" rel="noopener noreferrer" class="res-link"><span class="en">View</span><span class="ja">見る</span><svg xmlns="http://www.w3.org/2000/svg" width="13" height="13" viewBox="0 0 256 256" fill="currentColor"><path d="M221.66,133.66l-72,72a8,8,0,0,1-11.32-11.32L196.69,136H40a8,8,0,0,1,0-16H196.69L138.34,61.66a8,8,0,0,1,11.32-11.32l72,72A8,8,0,0,1,221.66,133.66Z"/></svg></a>
-        </div>
-      </div>
-
-      <div class="res-card">
-        <a href="https://www.makuake.com/project/muon/" target="_blank" rel="noopener noreferrer" class="res-card-thumb">
-          <img src="https://static.makuake.com/upload/project/13140/main_13140.png?version=1608688804&width=690&height=388" alt="MUON silent air purifier" loading="lazy">
-          <div class="res-card-thumb-overlay"></div>
-          <div class="res-card-thumb-badge"><span class="platform-badge badge-mk">Tech / Interior</span></div>
-        </a>
-        <div class="res-card-body">
-          <div class="res-card-title">MUON — Silent Air Purifier</div>
-        </div>
-        <div class="res-card-stats">
-          <div class="res-stat"><span class="res-stat-val">$28K</span><span class="res-stat-lbl"><span class="en">Raised</span><span class="ja">調達額</span></span></div>
-          <div class="res-stat"><span class="res-stat-val res-stat-pct">1,399%</span><span class="res-stat-lbl"><span class="en">Funded</span><span class="ja">達成率</span></span></div>
-          <div class="res-stat"><span class="res-stat-val">73</span><span class="res-stat-lbl"><span class="en">Backers</span><span class="ja">支援者</span></span></div>
-        </div>
-        <div class="res-card-foot">
-          <span class="res-status"><svg xmlns="http://www.w3.org/2000/svg" width="13" height="13" viewBox="0 0 256 256" fill="currentColor"><path d="M173.66,98.34a8,8,0,0,1,0,11.32l-56,56a8,8,0,0,1-11.32,0l-28-28a8,8,0,0,1,11.32-11.32L112,148.69l50.34-50.35A8,8,0,0,1,173.66,98.34ZM232,128A104,104,0,1,1,128,24,104.11,104.11,0,0,1,232,128Zm-16,0a88,88,0,1,0-88,88A88.1,88.1,0,0,0,216,128Z"/></svg><span class="en">Launched</span><span class="ja">展開済み</span></span>
-          <a href="https://www.makuake.com/project/muon/" target="_blank" rel="noopener noreferrer" class="res-link"><span class="en">View</span><span class="ja">見る</span><svg xmlns="http://www.w3.org/2000/svg" width="13" height="13" viewBox="0 0 256 256" fill="currentColor"><path d="M221.66,133.66l-72,72a8,8,0,0,1-11.32-11.32L196.69,136H40a8,8,0,0,1,0-16H196.69L138.34,61.66a8,8,0,0,1,11.32-11.32l72,72A8,8,0,0,1,221.66,133.66Z"/></svg></a>
-        </div>
-      </div>
-
-      <div class="res-card">
-        <a href="https://www.makuake.com/project/sharkpeg/" target="_blank" rel="noopener noreferrer" class="res-card-thumb">
-          <img src="https://static.makuake.com/upload/project/31603/main_31603.png?version=1680228066&width=690&height=338" alt="SharkPeg ultra-thin forged peg" loading="lazy">
-          <div class="res-card-thumb-overlay"></div>
-          <div class="res-card-thumb-badge"><span class="platform-badge badge-mk">Outdoor / Camping</span></div>
-        </a>
-        <div class="res-card-body">
-          <div class="res-card-title">SharkPeg — Ultra-Thin Forged Peg</div>
-        </div>
-        <div class="res-card-stats">
-          <div class="res-stat"><span class="res-stat-val">$17K</span><span class="res-stat-lbl"><span class="en">Raised</span><span class="ja">調達額</span></span></div>
-          <div class="res-stat"><span class="res-stat-val res-stat-pct">867%</span><span class="res-stat-lbl"><span class="en">Funded</span><span class="ja">達成率</span></span></div>
-          <div class="res-stat"><span class="res-stat-val">275</span><span class="res-stat-lbl"><span class="en">Backers</span><span class="ja">支援者</span></span></div>
-        </div>
-        <div class="res-card-foot">
-          <span class="res-status"><svg xmlns="http://www.w3.org/2000/svg" width="13" height="13" viewBox="0 0 256 256" fill="currentColor"><path d="M173.66,98.34a8,8,0,0,1,0,11.32l-56,56a8,8,0,0,1-11.32,0l-28-28a8,8,0,0,1,11.32-11.32L112,148.69l50.34-50.35A8,8,0,0,1,173.66,98.34ZM232,128A104,104,0,1,1,128,24,104.11,104.11,0,0,1,232,128Zm-16,0a88,88,0,1,0-88,88A88.1,88.1,0,0,0,216,128Z"/></svg><span class="en">Launched</span><span class="ja">展開済み</span></span>
-          <a href="https://www.makuake.com/project/sharkpeg/" target="_blank" rel="noopener noreferrer" class="res-link"><span class="en">View</span><span class="ja">見る</span><svg xmlns="http://www.w3.org/2000/svg" width="13" height="13" viewBox="0 0 256 256" fill="currentColor"><path d="M221.66,133.66l-72,72a8,8,0,0,1-11.32-11.32L196.69,136H40a8,8,0,0,1,0-16H196.69L138.34,61.66a8,8,0,0,1,11.32-11.32l72,72A8,8,0,0,1,221.66,133.66Z"/></svg></a>
-        </div>
-      </div>
-
-      <div class="res-card">
-        <a href="https://www.makuake.com/project/endlaces/" target="_blank" rel="noopener noreferrer" class="res-card-thumb">
-          <img src="https://static.makuake.com/upload/project/18781/main_18781.png?version=1630375393&width=690&height=388" alt="EndLaces dial lace lock" loading="lazy">
-          <div class="res-card-thumb-overlay"></div>
-          <div class="res-card-thumb-badge"><span class="platform-badge badge-mk">Fashion / Shoes</span></div>
-        </a>
-        <div class="res-card-body">
-          <div class="res-card-title">EndLaces — Dial Lace Lock</div>
-        </div>
-        <div class="res-card-stats">
-          <div class="res-stat"><span class="res-stat-val">$22K</span><span class="res-stat-lbl"><span class="en">Raised</span><span class="ja">調達額</span></span></div>
-          <div class="res-stat"><span class="res-stat-val res-stat-pct">5,601%</span><span class="res-stat-lbl"><span class="en">Funded</span><span class="ja">達成率</span></span></div>
-          <div class="res-stat"><span class="res-stat-val">461</span><span class="res-stat-lbl"><span class="en">Backers</span><span class="ja">支援者</span></span></div>
-        </div>
-        <div class="res-card-foot">
-          <span class="res-status"><svg xmlns="http://www.w3.org/2000/svg" width="13" height="13" viewBox="0 0 256 256" fill="currentColor"><path d="M173.66,98.34a8,8,0,0,1,0,11.32l-56,56a8,8,0,0,1-11.32,0l-28-28a8,8,0,0,1,11.32-11.32L112,148.69l50.34-50.35A8,8,0,0,1,173.66,98.34ZM232,128A104,104,0,1,1,128,24,104.11,104.11,0,0,1,232,128Zm-16,0a88,88,0,1,0-88,88A88.1,88.1,0,0,0,216,128Z"/></svg><span class="en">Launched</span><span class="ja">展開済み</span></span>
-          <a href="https://www.makuake.com/project/endlaces/" target="_blank" rel="noopener noreferrer" class="res-link"><span class="en">View</span><span class="ja">見る</span><svg xmlns="http://www.w3.org/2000/svg" width="13" height="13" viewBox="0 0 256 256" fill="currentColor"><path d="M221.66,133.66l-72,72a8,8,0,0,1-11.32-11.32L196.69,136H40a8,8,0,0,1,0-16H196.69L138.34,61.66a8,8,0,0,1,11.32-11.32l72,72A8,8,0,0,1,221.66,133.66Z"/></svg></a>
-        </div>
-      </div>
-
-      </div><!-- /results-grid Makuake -->
-    </div><!-- /results-platform-group Makuake -->
-
-    <!-- ── CAMPFIRE ── -->
-    <div class="results-platform-group">
-      <div class="results-platform-label">
-        <span class="plabel-name">CAMPFIRE</span>
-      </div>
-      <div class="results-grid">
-
-      <div class="res-card">
-        <a href="https://camp-fire.jp/projects/313474/view" target="_blank" rel="noopener noreferrer" class="res-card-thumb">
-          <img src="https://static.camp-fire.jp/uploads/project_version/image/506932/df27da11-d555-4e0c-9b59-ede73813f4b2.png?auto=format&fit=max&ref=projects_overview" alt="Night vision security camera" loading="lazy">
-          <div class="res-card-thumb-overlay"></div>
-          <div class="res-card-thumb-badge"><span class="platform-badge badge-cf">Security</span></div>
-        </a>
-        <div class="res-card-body">
-          <div class="res-card-title">Night Vision Security Camera</div>
-        </div>
-        <div class="res-card-stats">
-          <div class="res-stat"><span class="res-stat-val">$156K</span><span class="res-stat-lbl"><span class="en">Raised</span><span class="ja">調達額</span></span></div>
-          <div class="res-stat"><span class="res-stat-val res-stat-pct">7,801%</span><span class="res-stat-lbl"><span class="en">Funded</span><span class="ja">達成率</span></span></div>
-          <div class="res-stat"><span class="res-stat-val">612</span><span class="res-stat-lbl"><span class="en">Backers</span><span class="ja">支援者</span></span></div>
-        </div>
-        <div class="res-card-foot">
-          <span class="res-status"><svg xmlns="http://www.w3.org/2000/svg" width="13" height="13" viewBox="0 0 256 256" fill="currentColor"><path d="M173.66,98.34a8,8,0,0,1,0,11.32l-56,56a8,8,0,0,1-11.32,0l-28-28a8,8,0,0,1,11.32-11.32L112,148.69l50.34-50.35A8,8,0,0,1,173.66,98.34ZM232,128A104,104,0,1,1,128,24,104.11,104.11,0,0,1,232,128Zm-16,0a88,88,0,1,0-88,88A88.1,88.1,0,0,0,216,128Z"/></svg><span class="en">Launched</span><span class="ja">展開済み</span></span>
-          <a href="https://camp-fire.jp/projects/313474/view" target="_blank" rel="noopener noreferrer" class="res-link"><span class="en">View</span><span class="ja">見る</span><svg xmlns="http://www.w3.org/2000/svg" width="13" height="13" viewBox="0 0 256 256" fill="currentColor"><path d="M221.66,133.66l-72,72a8,8,0,0,1-11.32-11.32L196.69,136H40a8,8,0,0,1,0-16H196.69L138.34,61.66a8,8,0,0,1,11.32-11.32l72,72A8,8,0,0,1,221.66,133.66Z"/></svg></a>
-        </div>
-      </div>
-
-      <div class="res-card">
-        <a href="https://camp-fire.jp/projects/587884/view" target="_blank" rel="noopener noreferrer" class="res-card-thumb">
-          <img src="https://static.camp-fire.jp/uploads/project_version/image/899285/a3793e5a-d164-4f8f-9749-8a6e6ed03309.png?auto=format&fit=max&ref=projects_overview" alt="AI security camera" loading="lazy">
-          <div class="res-card-thumb-overlay"></div>
-          <div class="res-card-thumb-badge"><span class="platform-badge badge-cf">Security / Tech</span></div>
-        </a>
-        <div class="res-card-body">
-          <div class="res-card-title">AI Security Camera</div>
-        </div>
-        <div class="res-card-stats">
-          <div class="res-stat"><span class="res-stat-val">$74K</span><span class="res-stat-lbl"><span class="en">Raised</span><span class="ja">調達額</span></span></div>
-          <div class="res-stat"><span class="res-stat-val res-stat-pct">5,575%</span><span class="res-stat-lbl"><span class="en">Funded</span><span class="ja">達成率</span></span></div>
-          <div class="res-stat"><span class="res-stat-val">343</span><span class="res-stat-lbl"><span class="en">Backers</span><span class="ja">支援者</span></span></div>
-        </div>
-        <div class="res-card-foot">
-          <span class="res-status"><svg xmlns="http://www.w3.org/2000/svg" width="13" height="13" viewBox="0 0 256 256" fill="currentColor"><path d="M173.66,98.34a8,8,0,0,1,0,11.32l-56,56a8,8,0,0,1-11.32,0l-28-28a8,8,0,0,1,11.32-11.32L112,148.69l50.34-50.35A8,8,0,0,1,173.66,98.34ZM232,128A104,104,0,1,1,128,24,104.11,104.11,0,0,1,232,128Zm-16,0a88,88,0,1,0-88,88A88.1,88.1,0,0,0,216,128Z"/></svg><span class="en">Launched</span><span class="ja">展開済み</span></span>
-          <a href="https://camp-fire.jp/projects/587884/view" target="_blank" rel="noopener noreferrer" class="res-link"><span class="en">View</span><span class="ja">見る</span><svg xmlns="http://www.w3.org/2000/svg" width="13" height="13" viewBox="0 0 256 256" fill="currentColor"><path d="M221.66,133.66l-72,72a8,8,0,0,1-11.32-11.32L196.69,136H40a8,8,0,0,1,0-16H196.69L138.34,61.66a8,8,0,0,1,11.32-11.32l72,72A8,8,0,0,1,221.66,133.66Z"/></svg></a>
-        </div>
-      </div>
-
-      </div><!-- /results-grid CAMPFIRE -->
-    </div><!-- /results-platform-group CAMPFIRE -->
-
-  </div>
-</section>
-
-<!-- ══════════ PLATFORMS ══════════ -->
-<section class="platforms" id="platforms">
-  <div class="container">
-    <div class="platforms-head">
-      <div class="section-label" style="justify-content:center;">
-        <span class="en">WHERE WE LAUNCH</span>
-        <span class="ja">展開プラットフォーム</span>
-      </div>
-      <h2 class="section-heading">
-        <span class="en">Where We Take<br>Your <span class="hi">Product</span></span>
-        <span class="ja">製品を届ける<br><span class="hi">チャネル</span></span>
-      </h2>
-
-    </div>
-    <div class="plat-grid">
-
-      <div class="plat-card plat-mk">
-        <div class="plat-logo-wrap">
-          <img src="./assets/Makuake_Logo_yoko.png" alt="Makuake">
-        </div>
-      </div>
-
-      <div class="plat-card plat-cf">
-        <div class="plat-logo-wrap">
-          <img src="./assets/campfire-corporate-logo.png" alt="CAMPFIRE">
-        </div>
-      </div>
-
-      <div class="plat-card plat-gf">
-        <div class="plat-logo-wrap">
-          <img src="./assets/logo-greenfunding.svg" alt="GREEN FUNDING">
-        </div>
-      </div>
-
-      <div class="plat-card plat-ws">
-        <div class="plat-logo-wrap">
-          <div style="display:flex;flex-direction:column;align-items:center;gap:5px;">
-            <svg xmlns="http://www.w3.org/2000/svg" width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="var(--navy)" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
-              <path d="M3 9l1-5h16l1 5"/>
-              <path d="M3 9a3 3 0 0 0 6 0 3 3 0 0 0 6 0 3 3 0 0 0 6 0"/>
-              <path d="M5 9v10h14V9"/>
-              <rect x="9" y="14" width="6" height="5"/>
-            </svg>
-            <span class="plat-wordmark plat-wordmark-ws">Wholesale / Retail</span>
-          </div>
-        </div>
+        <div class="str-desc"><span class="en">We go beyond the campaign. Through our network with Makuake, CAMPFIRE, and more, we bridge your crowdfunding success into long-term wholesale and retail distribution in Japan.</span><span class="ja">キャンペーンで終わりません。Makuake・CAMPFIREなどのネットワークを活かし、クラウドファンディングの成功を日本国内の長期的な卸売・小売流通へとつなげます。</span></div>
       </div>
 
     </div>
@@ -1430,9 +1411,61 @@ ul { list-style: none; }
       </div>
       <p class="cta-note">
         <span class="en">Or email us directly: </span>
-        <span class="ja">メールアドレス: </span>
+        <span class="ja">またはメールでご連絡ください: </span>
         <a href="mailto:contact@japan-connect-global.com">contact@japan-connect-global.com</a>
       </p>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════ WHY JAPAN ══════════ -->
+<section class="why" id="why">
+  <div class="container">
+    <div class="why-inner">
+      <div class="why-photo-wrap">
+        <img src="https://images.unsplash.com/photo-1526481280693-3bfa7568e0f3?w=900&auto=format&fit=crop&q=80"
+             alt="Mount Fuji Japan iconic landscape" loading="lazy" width="900" height="675">
+      </div>
+      <div class="why-text">
+        <div class="section-label">
+          <span class="en">THE OPPORTUNITY</span>
+          <span class="ja">市場の魅力</span>
+        </div>
+        <h2 class="section-heading">
+          <span class="en">Japan Is Ready for<br>Your <span class="hi">Innovation</span></span>
+          <span class="ja">日本市場は<br><span class="hi">イノベーション</span>を待っています</span>
+        </h2>
+        <p style="color:var(--text-lt);font-size:16px;margin-top:16px;line-height:1.8;">
+          <span class="en">Japan's consumers are among the world's most tech-savvy — with a strong appetite for globally-proven innovative products that aren't yet available locally.</span>
+          <span class="ja">日本の消費者は世界でも有数のテクノロジー感度を持っています。グローバルで実証済みでも、まだ日本に来ていない革新的な製品への需要が高まっています。</span>
+        </p>
+        <div class="stats-2x2">
+          <div class="stat-box">
+            <div class="stat-box-icon">
+              <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 256 256" fill="currentColor"><path d="M117.25,157.92a60,60,0,1,0-66.5,0A95.83,95.83,0,0,0,3.53,195.05a8,8,0,1,0,13.4,8.74,80,80,0,0,1,134.14,0,8,8,0,0,0,13.4-8.74A95.83,95.83,0,0,0,117.25,157.92ZM40,108a44,44,0,1,1,44,44A44.05,44.05,0,0,1,40,108Zm210.14,98.7a8,8,0,0,1-10.07-5.31,96.06,96.06,0,0,0-45.36-53.96,8,8,0,1,1,7.9-13.88,112.07,112.07,0,0,1,52.83,62.88A8,8,0,0,1,250.14,206.7ZM168,104a44.1,44.1,0,0,0-28,10.12,8,8,0,0,0,10.12,12.4A28,28,0,1,1,172,148a28.11,28.11,0,0,1-4.74-.41,8,8,0,0,0-2.7,15.76A44,44,0,1,0,168,104Z"/></svg>
+            </div>
+            <div class="stat-box-l"><span class="en">Large, tech-savvy consumer base eager for innovation</span><span class="ja">革新的な製品を求めるテクノロジー感度の高い消費者層</span></div>
+          </div>
+          <div class="stat-box">
+            <div class="stat-box-icon">
+              <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 256 256" fill="currentColor"><path d="M128,24A104,104,0,1,0,232,128,104.11,104.11,0,0,0,128,24Zm87.63,96H175.8a152.18,152.18,0,0,0-23.56-63.2A88.2,88.2,0,0,1,215.63,120ZM128,40c11.59,0,30.55,18.36,40.63,80H87.37C97.45,58.36,116.41,40,128,40ZM40.37,120A88.2,88.2,0,0,1,103.76,56.8,152.18,152.18,0,0,0,80.2,120ZM40.37,136H80.2a152.18,152.18,0,0,0,23.56,63.2A88.2,88.2,0,0,1,40.37,136Zm47.63,0h80c-10.08,41.64-29.04,64-40,80-10.96-16-29.92-38.36-40-80ZM152.24,199.2A152.18,152.18,0,0,0,175.8,136h39.83A88.2,88.2,0,0,1,152.24,199.2Z"/></svg>
+            </div>
+            <div class="stat-box-l"><span class="en">One of the world's top e-commerce markets with strong purchasing power</span><span class="ja">世界トップクラスのEC市場と高い購買力</span></div>
+          </div>
+          <div class="stat-box">
+            <div class="stat-box-icon">
+              <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 256 256" fill="currentColor"><path d="M240,208H224V96a16,16,0,0,0-16-16H144V48a16,16,0,0,0-16-16H48A16,16,0,0,0,32,48V208H16a8,8,0,0,0,0,16H240a8,8,0,0,0,0-16ZM144,208H112V176a8,8,0,0,1,8-8h16a8,8,0,0,1,8,8Zm64,0H160V176a24,24,0,0,0-24-24H120a24,24,0,0,0-24,24v32H48V48h80V208H128V96H208Z"/></svg>
+            </div>
+            <div class="stat-box-l"><span class="en">Established crowdfunding platforms with proven reach and high success rates</span><span class="ja">確かな集客力と高い成功率を誇る、確立されたクラファンプラットフォーム</span></div>
+          </div>
+          <div class="stat-box">
+            <div class="stat-box-icon">
+              <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 256 256" fill="currentColor"><path d="M208,40H48A16,16,0,0,0,32,56V152c0,72.37,83.64,110,92.28,113.79a12,12,0,0,0,7.44,0C140.36,262,224,224.37,224,152V56A16,16,0,0,0,208,40Zm0,112c0,56-60.78,90.51-80,99.41C108.78,242.51,48,208,48,152V56H208ZM173.66,98.34a8,8,0,0,1,0,11.32l-56,56a8,8,0,0,1-11.32,0l-28-28a8,8,0,0,1,11.32-11.32L112,148.69l50.34-50.35A8,8,0,0,1,173.66,98.34Z"/></svg>
+            </div>
+            <div class="stat-box-l"><span class="en">Strict quality expectations that reward globally-proven, innovative products</span><span class="ja">グローバルで実証済みの革新的な製品が評価される品質重視の市場</span></div>
+          </div>
+        </div>
+      </div>
     </div>
   </div>
 </section>
@@ -1442,7 +1475,10 @@ ul { list-style: none; }
   <div class="container">
     <div class="footer-inner">
       <div class="footer-logo">
-        <span class="footer-logo-jc"><span class="lj">J</span><span class="lc">G</span></span>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32" width="32" height="32" aria-hidden="true">
+          <circle cx="16" cy="16" r="14.5" fill="#cc0000"/>
+          <text x="15.5" y="22" text-anchor="middle" font-family="Raleway,Georgia,serif" font-style="italic" font-weight="700" font-size="17" fill="white" letter-spacing="-2">JG</text>
+        </svg>
         <span class="footer-logo-name">JAPAN GLOBAL</span>
       </div>
       <div class="footer-email">
