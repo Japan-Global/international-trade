@@ -1,0 +1,1470 @@
+<!DOCTYPE html>
+<html lang="en" data-lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>JAPAN GLOBAL — Bring Your Product to Japan's Market</title>
+<link rel="icon" type="image/svg+xml" href="./assets/favicon.svg">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=Raleway:ital,wght@1,800&display=swap" rel="stylesheet">
+<style>
+
+/* ════════════════════════════════════════
+   VARIABLES
+════════════════════════════════════════ */
+:root {
+  --navy:        #1e3a5f;
+  --navy-dark:   #0f2642;
+  --navy-mid:    #243f68;
+  --accent:      #3b82f6;
+  --accent-lt:   #60a5fa;
+  --white:       #ffffff;
+  --bg:          #ffffff;
+  --bg-alt:      #f8fafc;
+  --text:        #0f172a;
+  --text-lt:     #64748b;
+  --text-xlt:    #94a3b8;
+  --border:      #e2e8f0;
+  --grad-hero:   linear-gradient(150deg, #1e3d7a 0%, #2c68c0 50%, #3b82f6 100%);
+  --grad-cta:    linear-gradient(135deg, #1a3461 0%, #1e4a8a 100%);
+  --shadow-sm:   0 1px 4px rgba(0,0,0,.07);
+  --shadow-md:   0 6px 20px rgba(0,0,0,.09);
+  --shadow-lg:   0 20px 64px rgba(0,0,0,.13);
+}
+
+/* ════════════════════════════════════════
+   RESET & BASE
+════════════════════════════════════════ */
+*, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+body {
+  font-family: 'Inter', system-ui, sans-serif;
+  color: var(--text);
+  background: var(--bg);
+  line-height: 1.7;
+  -webkit-font-smoothing: antialiased;
+}
+img { max-width: 100%; height: auto; display: block; }
+a { text-decoration: none; color: inherit; }
+ul { list-style: none; }
+
+/* ─── Language toggle ─── */
+[data-lang="en"] .ja { display: none !important; }
+[data-lang="ja"] .en { display: none !important; }
+
+/* ─── Container ─── */
+.container { max-width: 1240px; margin: 0 auto; padding: 0 80px; }
+
+/* ─── Section label ─── */
+.section-label {
+  display: inline-flex;
+  align-items: center;
+  gap: 12px;
+  font-family: 'Inter', sans-serif;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--accent);
+  margin-bottom: 18px;
+}
+.section-label::before {
+  content: '';
+  display: block;
+  width: 28px;
+  height: 2px;
+  background: var(--accent);
+  border-radius: 2px;
+  flex-shrink: 0;
+}
+.section-label.light { color: var(--accent-lt); }
+.section-label.light::before { background: var(--accent-lt); }
+
+/* ─── Section heading ─── */
+.section-heading {
+  font-family: 'Inter', sans-serif;
+  font-size: clamp(30px, 3.8vw, 54px);
+  font-weight: 900;
+  line-height: 1.12;
+  letter-spacing: -0.025em;
+  color: var(--text);
+  text-wrap: balance;
+}
+.section-heading.light { color: var(--white); }
+.hi { color: var(--accent); }
+.hi-lt { color: var(--accent-lt); }
+
+/* ─── Buttons ─── */
+.btn-primary {
+  display: inline-flex; align-items: center; gap: 8px;
+  background: var(--accent); color: var(--white);
+  font-family: 'Inter', sans-serif; font-size: 15px; font-weight: 700;
+  padding: 14px 28px; border-radius: 10px; border: none; cursor: pointer;
+  white-space: nowrap;
+  transition: background .2s ease, transform .2s ease, box-shadow .2s ease;
+}
+.btn-primary:hover {
+  background: #2563eb;
+  transform: translateY(-2px);
+  box-shadow: 0 10px 28px rgba(59,130,246,.38);
+}
+.btn-ghost-light {
+  display: inline-flex; align-items: center; gap: 8px;
+  background: transparent; color: rgba(255,255,255,.88);
+  font-family: 'Inter', sans-serif; font-size: 15px; font-weight: 600;
+  padding: 13px 28px; border-radius: 10px;
+  border: 1.5px solid rgba(255,255,255,.28);
+  white-space: nowrap;
+  transition: border-color .2s ease, background .2s ease, transform .2s ease;
+}
+.btn-ghost-light:hover {
+  border-color: rgba(255,255,255,.65);
+  background: rgba(255,255,255,.07);
+  transform: translateY(-2px);
+}
+.btn-white {
+  display: inline-flex; align-items: center; gap: 8px;
+  background: var(--white); color: var(--navy-dark);
+  font-family: 'Inter', sans-serif; font-size: 15px; font-weight: 700;
+  padding: 14px 28px; border-radius: 10px;
+  white-space: nowrap;
+  transition: transform .2s ease, box-shadow .2s ease;
+}
+.btn-white:hover { transform: translateY(-2px); box-shadow: 0 10px 36px rgba(255,255,255,.22); }
+
+/* ─── btn variants for light hero bg ─── */
+.btn-outline-dark {
+  display: inline-flex; align-items: center; gap: 8px;
+  background: transparent; color: var(--navy-dark);
+  font-family: 'Inter', sans-serif; font-size: 15px; font-weight: 600;
+  padding: 13px 28px; border-radius: 10px;
+  border: 1.5px solid rgba(15,38,66,.25);
+  white-space: nowrap;
+  transition: border-color .2s ease, background .2s ease, transform .2s ease;
+}
+.btn-outline-dark:hover {
+  border-color: var(--navy);
+  background: rgba(15,38,66,.04);
+  transform: translateY(-2px);
+}
+
+/* ════════════════════════════════════════
+   NAV
+════════════════════════════════════════ */
+.nav {
+  position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+  background: rgba(255,255,255,.92);
+  backdrop-filter: blur(18px);
+  border-bottom: 1px solid var(--border);
+}
+.nav-inner {
+  display: flex; align-items: center; justify-content: space-between;
+  height: 68px; padding: 0 80px;
+}
+.nav-logo { display: flex; align-items: center; gap: 10px; }
+.nav-logo-jc {
+  display: inline-flex; align-items: baseline; gap: 0px;
+  font-family: 'Raleway', sans-serif;
+  font-weight: 800; font-style: italic; line-height: 1;
+}
+.nav-logo-jc .lj { font-size: 30px; color: var(--text); }
+.nav-logo-jc .lc { font-size: 28px; color: var(--text); margin-left: -3px; }
+.nav-logo-name {
+  font-family: 'Inter', sans-serif;
+  font-size: 15px; font-weight: 800; letter-spacing: .04em;
+  color: var(--navy-dark);
+}
+.nav-links { display: flex; align-items: center; gap: 34px; }
+.nav-links a {
+  font-size: 13px; font-weight: 500; color: var(--text-lt);
+  transition: color .2s ease;
+}
+.nav-links a:hover { color: var(--text); }
+.nav-right { display: flex; align-items: center; gap: 14px; }
+
+/* Language toggle */
+.lang-toggle {
+  display: flex; align-items: center;
+  background: var(--bg-alt); border: 1px solid var(--border);
+  border-radius: 8px; padding: 3px; gap: 2px;
+}
+.lang-btn {
+  font-family: 'Inter', sans-serif;
+  font-size: 11px; font-weight: 700; letter-spacing: .05em;
+  color: var(--text-lt); padding: 4px 11px; border-radius: 6px;
+  cursor: pointer; border: none; background: transparent;
+  transition: color .15s ease, background .15s ease;
+}
+.lang-btn.active { background: var(--accent); color: white; }
+
+.nav-cta-btn {
+  font-family: 'Inter', sans-serif; font-size: 13px; font-weight: 700;
+  padding: 8px 18px; background: var(--accent); color: white; border-radius: 8px;
+  transition: background .2s ease;
+}
+.nav-cta-btn:hover { background: #2563eb; }
+
+/* ════════════════════════════════════════
+   HERO — light, 2-column, blue as accent
+════════════════════════════════════════ */
+.hero {
+  position: relative;
+  min-height: 100vh;
+  display: flex; flex-direction: column; justify-content: center;
+  background: #f5f7ff;
+  overflow: hidden; padding-top: 68px;
+}
+/* Subtle blue glow top-right accent only */
+.hero-glow-1 {
+  position: absolute; width: 600px; height: 600px; border-radius: 50%;
+  background: radial-gradient(circle, rgba(59,130,246,.10) 0%, transparent 65%);
+  top: -140px; right: -80px; pointer-events: none;
+}
+.hero-glow-2 {
+  position: absolute; width: 320px; height: 320px; border-radius: 50%;
+  background: radial-gradient(circle, rgba(59,130,246,.06) 0%, transparent 65%);
+  bottom: 40px; left: -60px; pointer-events: none;
+}
+
+.hero-body {
+  position: relative; z-index: 2;
+  display: flex; flex-direction: column; align-items: center;
+  text-align: center;
+  padding: 100px 80px 64px;
+  max-width: 900px; margin: 0 auto; width: 100%;
+}
+.hero-text-col { display: flex; flex-direction: column; align-items: center; }
+
+/* Pill label */
+.hero-pill {
+  display: inline-flex; align-items: center; gap: 9px;
+  background: rgba(59,130,246,.08); border: 1px solid rgba(59,130,246,.22);
+  border-radius: 100px; padding: 6px 18px;
+  font-family: 'Inter', sans-serif; font-size: 11px; font-weight: 700;
+  letter-spacing: .12em; text-transform: uppercase; color: var(--accent);
+  margin-bottom: 28px;
+  animation: hFade .6s ease-out .1s both;
+}
+.pill-dot {
+  width: 6px; height: 6px; border-radius: 50%; background: var(--accent);
+  animation: pulseDot 2s ease-in-out infinite;
+}
+@keyframes pulseDot { 0%,100% { opacity: 1; } 50% { opacity: .35; } }
+
+/* Headline */
+.hero-h1 {
+  font-family: 'Inter', sans-serif;
+  font-size: clamp(38px, 5.5vw, 80px);
+  font-weight: 900; line-height: 1.04; letter-spacing: -.03em;
+  color: var(--navy-dark); margin-bottom: 20px;
+  text-wrap: balance;
+  animation: hFade .7s ease-out .3s both;
+}
+.hero-sub {
+  font-size: clamp(15px, 1.3vw, 18px); color: var(--text-lt);
+  line-height: 1.75; margin-bottom: 36px;
+  animation: hFade .7s ease-out .5s both;
+}
+.hero-btns {
+  display: flex; align-items: center; gap: 12px; flex-wrap: wrap;
+  animation: hFade .7s ease-out .7s both;
+}
+@keyframes hFade {
+  from { opacity: 0; transform: translateY(16px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+
+/* Stats strip */
+.hero-stats {
+  position: relative; z-index: 2; width: 100%;
+  max-width: 1240px; margin: 0 auto;
+  padding: 28px 80px 48px;
+  display: grid; grid-template-columns: repeat(3, 1fr);
+  border-top: 1px solid var(--border);
+  animation: hFade .7s ease-out .9s both;
+}
+.hero-stat { text-align: center; padding: 0 32px; }
+.hero-stat:not(:last-child) { border-right: 1px solid var(--border); }
+.hero-stat-icon {
+  color: var(--accent); margin-bottom: 8px;
+  display: flex; justify-content: center;
+}
+.hero-stat-l {
+  font-size: 13px; color: var(--text-lt); letter-spacing: .01em; font-weight: 500;
+}
+
+/* ════════════════════════════════════════
+   WHY JAPAN
+════════════════════════════════════════ */
+.why {
+  background: var(--bg);
+  padding: 128px 0;
+  overflow: hidden;
+}
+.why-inner {
+  display: grid; grid-template-columns: 1fr 1fr; gap: 88px; align-items: center;
+}
+.why-photo-wrap {
+  position: relative; border-radius: 20px; overflow: hidden;
+  aspect-ratio: 4/3; box-shadow: var(--shadow-lg);
+}
+.why-photo-wrap img { width: 100%; height: 100%; object-fit: cover; }
+.why-photo-badge {
+  position: absolute; bottom: 20px; left: 20px;
+  background: rgba(10,26,46,.82); backdrop-filter: blur(8px);
+  border: 1px solid rgba(255,255,255,.12);
+  border-radius: 12px; padding: 12px 18px; color: white;
+  font-family: 'Inter', sans-serif; font-size: 12px; font-weight: 600;
+}
+.why-photo-badge strong {
+  display: block; font-size: 22px; font-weight: 900;
+  color: var(--accent-lt); line-height: 1.2;
+}
+.why-text {}
+.stats-2x2 {
+  display: grid; grid-template-columns: 1fr 1fr; gap: 20px; margin-top: 44px;
+}
+.stat-box {
+  background: var(--bg-alt); border: 1px solid var(--border);
+  border-radius: 16px; padding: 24px 22px;
+  transition: transform .2s ease, box-shadow .2s ease;
+}
+.stat-box:hover { transform: translateY(-4px); box-shadow: var(--shadow-md); }
+.stat-box-icon {
+  color: var(--accent); margin-bottom: 12px;
+}
+.stat-box-l { font-size: 14px; color: var(--text-lt); line-height: 1.6; }
+
+/* ════════════════════════════════════════
+   PROCESS
+════════════════════════════════════════ */
+.process {
+  background: var(--bg-alt); padding: 128px 0; position: relative; overflow: hidden;
+}
+.dot-bg {
+  position: absolute; inset: 0;
+  background-image: radial-gradient(circle, rgba(30,58,95,.055) 1px, transparent 1px);
+  background-size: 28px 28px; pointer-events: none;
+}
+.process-head { text-align: center; margin-bottom: 72px; position: relative; z-index: 1; }
+.process-head .section-heading { max-width: 680px; margin: 0 auto; }
+
+.steps {
+  display: grid; grid-template-columns: repeat(5, 1fr); gap: 20px;
+  position: relative; z-index: 1;
+}
+/* Connector line */
+.steps::before {
+  content: '';
+  position: absolute; top: 32px;
+  left: calc(10% + 20px); right: calc(10% + 20px);
+  height: 1px; background: var(--border);
+}
+.step { display: flex; flex-direction: column; align-items: center; text-align: center; position: relative; }
+.step-num {
+  width: 64px; height: 64px; border-radius: 50%; flex-shrink: 0;
+  background: var(--white); border: 2px solid var(--border);
+  display: flex; align-items: center; justify-content: center;
+  font-family: 'Inter', sans-serif; font-size: 17px; font-weight: 900;
+  color: var(--navy-dark); margin-bottom: 20px;
+  transition: background .2s ease, border-color .2s ease, color .2s ease;
+  position: relative; z-index: 1;
+}
+.step:hover .step-num {
+  background: var(--navy); border-color: var(--navy); color: white;
+}
+.step-title {
+  font-family: 'Inter', sans-serif; font-size: 14px; font-weight: 700;
+  color: var(--text); margin-bottom: 8px; line-height: 1.35;
+}
+.step-desc { font-size: 13px; color: var(--text-lt); line-height: 1.6; }
+
+/* ════════════════════════════════════════
+   STRENGTHS
+════════════════════════════════════════ */
+.strengths {
+  background: var(--navy-dark); padding: 128px 0; position: relative; overflow: hidden;
+}
+.str-photo-bg {
+  position: absolute; inset: 0;
+  background: url('https://images.unsplash.com/photo-1573164574511-73c773193279?w=1600&auto=format&fit=crop&q=35') center top/cover no-repeat;
+  opacity: .07;
+}
+.str-glow {
+  position: absolute; width: 640px; height: 640px; border-radius: 50%;
+  background: radial-gradient(circle, rgba(59,130,246,.12) 0%, transparent 65%);
+  top: -180px; right: -140px; pointer-events: none;
+}
+.str-head { text-align: center; margin-bottom: 60px; position: relative; z-index: 1; }
+.str-grid {
+  display: grid; grid-template-columns: 1fr 1fr; gap: 22px; position: relative; z-index: 1;
+}
+.str-card {
+  background: rgba(255,255,255,.04); border: 1px solid rgba(255,255,255,.08);
+  border-radius: 20px; padding: 36px 32px;
+  transition: background .25s ease, border-color .25s ease, transform .2s ease;
+}
+.str-card:hover {
+  background: rgba(255,255,255,.07);
+  border-color: rgba(59,130,246,.32);
+  transform: translateY(-4px);
+}
+.str-card-wide {
+  grid-column: 1 / -1;
+  display: flex; align-items: flex-start; gap: 24px;
+  border-color: rgba(59,130,246,.2);
+  background: rgba(59,130,246,.06);
+}
+.str-card-wide .str-icon { flex-shrink: 0; margin-bottom: 0; }
+.str-wide-body { flex: 1; }
+.str-card-wide:hover { background: rgba(59,130,246,.1); }
+.str-icon {
+  width: 52px; height: 52px; border-radius: 14px;
+  background: rgba(59,130,246,.14);
+  display: flex; align-items: center; justify-content: center;
+  color: var(--accent-lt); margin-bottom: 20px;
+}
+.str-title {
+  font-family: 'Inter', sans-serif; font-size: 19px; font-weight: 700;
+  color: var(--white); margin-bottom: 10px; line-height: 1.3;
+}
+.str-desc { font-size: 15px; color: rgba(255,255,255,.58); line-height: 1.72; }
+
+/* ════════════════════════════════════════
+   TRACK RECORD
+════════════════════════════════════════ */
+.results {
+  background: var(--bg); padding: 128px 0;
+}
+.results-head { text-align: center; margin-bottom: 60px; }
+.results-platform-group { margin-bottom: 56px; }
+.results-platform-group:last-child { margin-bottom: 0; }
+.results-platform-label {
+  display: flex; align-items: center; gap: 14px; margin-bottom: 24px;
+}
+.results-platform-label .plabel-name {
+  font-size: 13px; font-weight: 800; letter-spacing: .1em; text-transform: uppercase;
+  color: var(--text);
+}
+.results-platform-label .plabel-count {
+  font-size: 12px; color: var(--text-lt); font-weight: 500;
+}
+.results-platform-label::after {
+  content: ''; flex: 1; height: 1px; background: var(--border);
+}
+.results-grid {
+  display: grid; grid-template-columns: repeat(3, 1fr); gap: 22px;
+}
+.res-card {
+  border: 1px solid var(--border); border-radius: 20px; overflow: hidden;
+  display: flex; flex-direction: column;
+  transition: transform .22s ease, box-shadow .22s ease, border-color .22s ease;
+  background: #fff;
+}
+.res-card:hover {
+  transform: translateY(-6px);
+  box-shadow: var(--shadow-lg);
+  border-color: var(--accent);
+}
+.res-card-thumb {
+  position: relative; width: 100%; aspect-ratio: 16/9; overflow: hidden;
+  display: block; text-decoration: none;
+}
+.res-card-thumb img {
+  width: 100%; height: 100%; object-fit: cover;
+  transition: transform .4s ease;
+}
+.res-card:hover .res-card-thumb img { transform: scale(1.05); }
+.res-card-thumb-overlay {
+  position: absolute; inset: 0;
+  background: linear-gradient(to top, rgba(15,38,66,.55) 0%, rgba(15,38,66,.05) 55%, transparent 100%);
+}
+.res-card-thumb-badge {
+  position: absolute; bottom: 14px; left: 16px;
+}
+.platform-badge {
+  display: inline-flex; align-items: center; padding: 4px 12px; border-radius: 100px;
+  font-family: 'Inter', sans-serif; font-size: 10px; font-weight: 700;
+  letter-spacing: .07em; text-transform: uppercase;
+}
+.badge-cf { background: rgba(255,241,230,.95); color: #d4520a; }
+.badge-mk { background: rgba(255,228,237,.95); color: #be123c; }
+.badge-gf { background: rgba(220,252,231,.95); color: #15803d; }
+.res-card-body { padding: 22px 24px 16px; flex: 1; }
+.res-card-title {
+  font-family: 'Inter', sans-serif; font-size: 16px; font-weight: 700;
+  color: var(--text); margin-bottom: 7px; line-height: 1.4;
+}
+.res-card-desc { font-size: 13px; color: var(--text-lt); line-height: 1.65; }
+.res-card-foot {
+  padding: 14px 24px 20px; border-top: 1px solid var(--border);
+  display: flex; align-items: center; justify-content: space-between;
+}
+.res-status {
+  display: inline-flex; align-items: center; gap: 5px;
+  font-size: 11px; font-weight: 600; color: #16a34a; letter-spacing: .03em;
+}
+.res-link {
+  display: inline-flex; align-items: center; gap: 5px;
+  font-family: 'Inter', sans-serif; font-size: 13px; font-weight: 700;
+  color: var(--accent);
+  transition: gap .2s ease;
+}
+.res-link:hover { gap: 9px; }
+.res-card-stats {
+  display: flex; gap: 16px; padding: 12px 24px 16px;
+  border-top: 1px solid var(--border);
+}
+.res-stat { display: flex; flex-direction: column; gap: 2px; }
+.res-stat-val {
+  font-size: 13px; font-weight: 800; color: var(--text); line-height: 1;
+}
+.res-stat-lbl {
+  font-size: 10px; color: var(--text-lt); letter-spacing: .04em;
+}
+.res-stat-pct { color: #16a34a; }
+
+/* ── Platforms ── */
+.platforms {
+  background: var(--bg-alt); padding: 96px 0;
+}
+.platforms-head { text-align: center; margin-bottom: 52px; }
+.plat-grid {
+  display: grid; grid-template-columns: repeat(4, 1fr); gap: 5px;
+  max-width: 900px; margin: 0 auto;
+}
+.plat-card {
+  padding: 16px 20px;
+  display: flex; flex-direction: column; align-items: center; text-align: center; gap: 12px;
+}
+.plat-logo-wrap {
+  width: 100%; display: flex; align-items: center; justify-content: center;
+  min-height: 52px; padding: 0 8px;
+}
+.plat-logo-wrap img {
+  width: 100%; max-height: 48px; object-fit: contain; object-position: center;
+}
+.plat-wordmark {
+  font-family: 'Inter', sans-serif; font-weight: 900; font-size: 22px;
+  letter-spacing: -.03em; line-height: 1;
+}
+.plat-wordmark-mk { color: #e11d48; }
+.plat-wordmark-cf { color: #ea580c; font-size: 19px; letter-spacing: .02em; }
+.plat-wordmark-gf { color: #16a34a; font-size: 14px; letter-spacing: .01em; font-weight: 800; }
+.plat-wordmark-ws { color: var(--navy); font-size: 18px; font-weight: 800; letter-spacing: .01em; }
+.plat-type {
+  font-size: 11px; font-weight: 600; letter-spacing: .07em; text-transform: uppercase;
+  color: var(--text-lt);
+}
+.plat-icon-wrap {
+  width: 52px; height: 52px; border-radius: 14px;
+  background: rgba(30,58,95,.08); display: flex; align-items: center; justify-content: center;
+  color: var(--navy); margin-bottom: 4px;
+}
+
+/* ════════════════════════════════════════
+   ABOUT / MISSION
+════════════════════════════════════════ */
+.about {
+  background: var(--bg-alt); padding: 128px 0; overflow: hidden;
+}
+.about-inner {
+  display: grid; grid-template-columns: 1fr 1fr; gap: 88px; align-items: center;
+}
+.about-photo-wrap {
+  border-radius: 20px; overflow: hidden;
+  aspect-ratio: 4/3; box-shadow: var(--shadow-lg);
+}
+.about-photo-wrap img { width: 100%; height: 100%; object-fit: cover; }
+.about-quote {
+  font-family: 'Inter', sans-serif; font-style: italic;
+  font-size: clamp(17px, 1.6vw, 22px); font-weight: 500;
+  color: var(--navy); line-height: 1.65;
+  padding-left: 22px; border-left: 3px solid var(--accent);
+  margin: 28px 0;
+}
+.about-body { font-size: 16px; color: var(--text-lt); line-height: 1.82; }
+.about-body p + p { margin-top: 14px; }
+
+/* ════════════════════════════════════════
+   FAQ
+════════════════════════════════════════ */
+.faq {
+  background: var(--bg); padding: 128px 0;
+}
+.faq-head { text-align: center; margin-bottom: 60px; }
+.faq-list {
+  max-width: 800px; margin: 0 auto;
+  display: flex; flex-direction: column; gap: 10px;
+}
+.faq-item {
+  border: 1px solid var(--border); border-radius: 14px; overflow: hidden;
+  transition: border-color .2s ease;
+}
+.faq-item[open] { border-color: var(--accent); }
+.faq-item:hover { border-color: var(--accent); }
+.faq-item summary {
+  display: flex; align-items: center; justify-content: space-between; gap: 14px;
+  padding: 22px 26px; cursor: pointer; list-style: none;
+  font-family: 'Inter', sans-serif; font-size: 15px; font-weight: 700;
+  color: var(--text); user-select: none;
+}
+.faq-item summary::-webkit-details-marker { display: none; }
+.faq-chev {
+  width: 18px; height: 18px; flex-shrink: 0; color: var(--text-lt);
+  transition: transform .2s ease;
+}
+.faq-item[open] .faq-chev { transform: rotate(180deg); }
+.faq-ans { padding: 0 26px 22px; font-size: 15px; color: var(--text-lt); line-height: 1.72; }
+
+/* ════════════════════════════════════════
+   CONTACT CTA
+════════════════════════════════════════ */
+.cta-section {
+  background: var(--grad-cta); padding: 128px 0;
+  position: relative; overflow: hidden; text-align: center;
+}
+.cta-glow-a {
+  position: absolute; width: 560px; height: 560px; border-radius: 50%;
+  background: radial-gradient(circle, rgba(59,130,246,.2) 0%, transparent 65%);
+  top: -180px; left: -80px; pointer-events: none;
+}
+.cta-glow-b {
+  position: absolute; width: 380px; height: 380px; border-radius: 50%;
+  background: radial-gradient(circle, rgba(96,165,250,.1) 0%, transparent 65%);
+  bottom: -80px; right: -60px; pointer-events: none;
+}
+.cta-inner { position: relative; z-index: 2; }
+.cta-h2 {
+  font-family: 'Inter', sans-serif;
+  font-size: clamp(34px, 5vw, 72px); font-weight: 900;
+  line-height: 1.08; letter-spacing: -.03em;
+  color: var(--white); margin-bottom: 20px; text-wrap: balance;
+}
+.cta-sub {
+  font-size: clamp(15px, 1.4vw, 19px); color: rgba(255,255,255,.65);
+  max-width: 540px; margin: 0 auto 40px; line-height: 1.72;
+}
+.cta-btns {
+  display: flex; align-items: center; justify-content: center;
+  gap: 14px; flex-wrap: wrap;
+}
+.cta-note { margin-top: 24px; font-size: 13px; color: rgba(255,255,255,.36); }
+.cta-note a { color: rgba(255,255,255,.58); text-decoration: underline; text-underline-offset: 2px; }
+
+/* ════════════════════════════════════════
+   FOOTER
+════════════════════════════════════════ */
+.footer {
+  background: #06111f; padding: 44px 0;
+  border-top: 1px solid rgba(255,255,255,.06);
+}
+.footer-inner {
+  display: flex; align-items: center; justify-content: space-between;
+  flex-wrap: wrap; gap: 20px;
+}
+.footer-logo { display: flex; align-items: center; gap: 10px; }
+.footer-logo-jc {
+  display: inline-flex; align-items: baseline; gap: 0px;
+  font-family: 'Raleway', sans-serif;
+  font-weight: 800; font-style: italic; line-height: 1;
+}
+.footer-logo-jc .lj { font-size: 28px; color: rgba(255,255,255,.85); }
+.footer-logo-jc .lc { font-size: 26px; color: rgba(255,255,255,.85); margin-left: -3px; }
+.footer-logo-name {
+  font-family: 'Inter', sans-serif;
+  font-size: 14px; font-weight: 800; letter-spacing: .04em;
+  color: rgba(255,255,255,.7);
+}
+.footer-email a { font-size: 13px; color: rgba(255,255,255,.45); transition: color .2s ease; }
+.footer-email a:hover { color: var(--accent-lt); }
+.footer-copy { font-size: 12px; color: rgba(255,255,255,.25); }
+
+/* ════════════════════════════════════════
+   RESPONSIVE
+════════════════════════════════════════ */
+@media (max-width: 768px) {
+  .container { padding: 0 20px !important; }
+  section { padding: 72px 0 !important; }
+
+  .nav-inner { padding: 0 20px; height: 60px; }
+  .nav-links { display: none; }
+
+  .hero-body { padding: 64px 20px 32px; }
+  .hero-h1 { font-size: clamp(32px, 8vw, 48px) !important; }
+  .hero-btns { flex-direction: column; width: 100%; align-items: stretch; }
+  .hero-btns .btn-primary,
+  .hero-btns .btn-outline-dark { width: 100%; justify-content: center; min-height: 48px; }
+  .hero-stats { padding: 24px 20px 40px; grid-template-columns: repeat(3,1fr); }
+  .hero-stat { padding: 0 8px; }
+  .hero-stat-l { font-size: 11px; }
+
+  .why { padding: 72px 0 !important; }
+  .why-inner { grid-template-columns: 1fr !important; gap: 40px !important; }
+  .why-photo-wrap { order: -1; }
+  .stats-2x2 { grid-template-columns: 1fr 1fr !important; gap: 14px !important; }
+
+  .process { padding: 72px 0 !important; }
+  .steps { grid-template-columns: 1fr !important; gap: 28px !important; }
+  .steps::before { display: none; }
+  .step { flex-direction: row !important; text-align: left !important; gap: 18px !important; align-items: flex-start !important; }
+  .step-num { flex-shrink: 0 !important; margin-bottom: 0 !important; }
+
+  .strengths { padding: 72px 0 !important; }
+  .str-grid { grid-template-columns: 1fr !important; }
+
+  .results { padding: 72px 0 !important; }
+  .results-grid { grid-template-columns: 1fr !important; }
+  .platforms { padding: 64px 0 !important; }
+  .plat-grid { grid-template-columns: repeat(2, 1fr) !important; }
+
+  .about { padding: 72px 0 !important; }
+  .about-inner { grid-template-columns: 1fr !important; gap: 40px !important; }
+  .about-photo-wrap { order: -1; }
+
+  .faq { padding: 72px 0 !important; }
+  .faq-item summary { padding: 18px 20px; font-size: 14px; }
+  .faq-ans { padding: 0 20px 18px; }
+
+  .cta-section { padding: 72px 0 !important; }
+  .cta-btns { flex-direction: column; align-items: stretch; }
+  .cta-btns .btn-white,
+  .cta-btns .btn-ghost-light { width: 100%; justify-content: center; min-height: 48px; }
+
+  .footer-inner { flex-direction: column; align-items: center; text-align: center; }
+  .section-heading { font-size: clamp(26px, 7vw, 38px) !important; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after { animation-duration: .01ms !important; transition-duration: .01ms !important; }
+}
+</style>
+</head>
+<body>
+
+<!-- ══════════ NAV ══════════ -->
+<nav class="nav" role="navigation">
+  <div class="nav-inner">
+    <a href="#" class="nav-logo" aria-label="JAPAN GLOBAL Home">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32" width="32" height="32" aria-hidden="true">
+        <circle cx="16" cy="16" r="14.5" fill="#cc0000"/>
+        <text x="15.5" y="22" text-anchor="middle" font-family="Raleway,Georgia,serif" font-style="italic" font-weight="700" font-size="17" fill="white" letter-spacing="-2">JG</text>
+      </svg>
+      <span class="nav-logo-name">JAPAN GLOBAL</span>
+    </a>
+    <div class="nav-links" role="list">
+      <a href="#why"><span class="en">Why Japan</span><span class="ja">なぜ日本？</span></a>
+      <a href="#process"><span class="en">Process</span><span class="ja">プロセス</span></a>
+      <a href="#results"><span class="en">Results</span><span class="ja">実績</span></a>
+      <a href="#contact"><span class="en">Contact</span><span class="ja">お問い合わせ</span></a>
+    </div>
+    <div class="nav-right">
+      <div class="lang-toggle" role="group" aria-label="Language selector">
+        <button class="lang-btn active" data-lang="en" onclick="setLang('en')" aria-pressed="true">EN</button>
+        <button class="lang-btn" data-lang="ja" onclick="setLang('ja')" aria-pressed="false">JA</button>
+      </div>
+      <a href="#contact" class="nav-cta-btn">
+        <span class="en">Contact Us</span>
+        <span class="ja">お問い合わせ</span>
+      </a>
+    </div>
+  </div>
+</nav>
+
+<!-- ══════════ HERO ══════════ -->
+<section class="hero" id="top">
+  <div class="hero-glow-1" role="presentation"></div>
+  <div class="hero-glow-2" role="presentation"></div>
+
+  <div class="hero-body">
+    <!-- Left: text -->
+    <div class="hero-text-col">
+      <h1 class="hero-h1">
+        <span class="en">Launch Your Product<br>in <span class="hi">Japan's</span> Market.</span>
+        <span class="ja">あなたの製品を<br><span class="hi">日本市場</span>へ。</span>
+      </h1>
+      <p class="hero-sub">
+        <span class="en">We establish your product in the Japanese market through leading crowdfunding platforms — managing everything from certification to launch and into wholesale and retail.</span>
+        <span class="ja">日本の主要クラウドファンディングを通じて製品を市場参入させ、認証からローンチ、卸売・小売展開まで一貫サポートします。</span>
+      </p>
+      <div class="hero-btns">
+        <a href="#contact" class="btn-primary">
+          <span class="en">Get in Touch</span>
+          <span class="ja">お問い合わせ</span>
+          <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 256 256" fill="currentColor" aria-hidden="true"><path d="M221.66,133.66l-72,72a8,8,0,0,1-11.32-11.32L196.69,136H40a8,8,0,0,1,0-16H196.69L138.34,61.66a8,8,0,0,1,11.32-11.32l72,72A8,8,0,0,1,221.66,133.66Z"/></svg>
+        </a>
+        <a href="#results" class="btn-outline-dark">
+          <span class="en">See Our Results</span>
+          <span class="ja">実績を見る</span>
+          <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 256 256" fill="currentColor" aria-hidden="true"><path d="M221.66,133.66l-72,72a8,8,0,0,1-11.32-11.32L196.69,136H40a8,8,0,0,1,0-16H196.69L138.34,61.66a8,8,0,0,1,11.32-11.32l72,72A8,8,0,0,1,221.66,133.66Z"/></svg>
+        </a>
+      </div>
+    </div>
+
+  </div>
+
+</section>
+
+<!-- ══════════ WHY JAPAN ══════════ -->
+<section class="why" id="why">
+  <div class="container">
+    <div class="why-inner">
+      <div class="why-photo-wrap">
+        <img src="https://images.unsplash.com/photo-1526481280693-3bfa7568e0f3?w=900&auto=format&fit=crop&q=80"
+             alt="Mount Fuji Japan iconic landscape" loading="lazy" width="900" height="675">
+      </div>
+      <div class="why-text">
+        <div class="section-label">
+          <span class="en">THE OPPORTUNITY</span>
+          <span class="ja">市場の魅力</span>
+        </div>
+        <h2 class="section-heading">
+          <span class="en">Japan Is Ready for<br>Your <span class="hi">Innovation</span></span>
+          <span class="ja">日本市場は<br><span class="hi">イノベーション</span>を待っています</span>
+        </h2>
+        <p style="color:var(--text-lt);font-size:16px;margin-top:16px;line-height:1.8;">
+          <span class="en">Japan's consumers are among the world's most tech-savvy — with a strong appetite for globally-proven innovative products that aren't yet available locally.</span>
+          <span class="ja">日本の消費者は世界でも有数のテクノロジー感度を持っています。グローバルで実証済みでも、まだ日本に来ていない革新的な製品への需要が高まっています。</span>
+        </p>
+        <div class="stats-2x2">
+          <div class="stat-box">
+            <div class="stat-box-icon">
+              <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 256 256" fill="currentColor"><path d="M117.25,157.92a60,60,0,1,0-66.5,0A95.83,95.83,0,0,0,3.53,195.05a8,8,0,1,0,13.4,8.74,80,80,0,0,1,134.14,0,8,8,0,0,0,13.4-8.74A95.83,95.83,0,0,0,117.25,157.92ZM40,108a44,44,0,1,1,44,44A44.05,44.05,0,0,1,40,108Zm210.14,98.7a8,8,0,0,1-10.07-5.31,96.06,96.06,0,0,0-45.36-53.96,8,8,0,1,1,7.9-13.88,112.07,112.07,0,0,1,52.83,62.88A8,8,0,0,1,250.14,206.7ZM168,104a44.1,44.1,0,0,0-28,10.12,8,8,0,0,0,10.12,12.4A28,28,0,1,1,172,148a28.11,28.11,0,0,1-4.74-.41,8,8,0,0,0-2.7,15.76A44,44,0,1,0,168,104Z"/></svg>
+            </div>
+            <div class="stat-box-l"><span class="en">Large, tech-savvy consumer base eager for innovation</span><span class="ja">革新的な製品を求めるテクノロジー感度の高い消費者層</span></div>
+          </div>
+          <div class="stat-box">
+            <div class="stat-box-icon">
+              <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 256 256" fill="currentColor"><path d="M128,24A104,104,0,1,0,232,128,104.11,104.11,0,0,0,128,24Zm87.63,96H175.8a152.18,152.18,0,0,0-23.56-63.2A88.2,88.2,0,0,1,215.63,120ZM128,40c11.59,0,30.55,18.36,40.63,80H87.37C97.45,58.36,116.41,40,128,40ZM40.37,120A88.2,88.2,0,0,1,103.76,56.8,152.18,152.18,0,0,0,80.2,120ZM40.37,136H80.2a152.18,152.18,0,0,0,23.56,63.2A88.2,88.2,0,0,1,40.37,136Zm47.63,0h80c-10.08,41.64-29.04,64-40,80-10.96-16-29.92-38.36-40-80ZM152.24,199.2A152.18,152.18,0,0,0,175.8,136h39.83A88.2,88.2,0,0,1,152.24,199.2Z"/></svg>
+            </div>
+            <div class="stat-box-l"><span class="en">One of the world's top e-commerce markets with strong purchasing power</span><span class="ja">世界トップクラスのEC市場と高い購買力</span></div>
+          </div>
+          <div class="stat-box">
+            <div class="stat-box-icon">
+              <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 256 256" fill="currentColor"><path d="M240,208H224V96a16,16,0,0,0-16-16H144V48a16,16,0,0,0-16-16H48A16,16,0,0,0,32,48V208H16a8,8,0,0,0,0,16H240a8,8,0,0,0,0-16ZM144,208H112V176a8,8,0,0,1,8-8h16a8,8,0,0,1,8,8Zm64,0H160V176a24,24,0,0,0-24-24H120a24,24,0,0,0-24,24v32H48V48h80V208H128V96H208Z"/></svg>
+            </div>
+            <div class="stat-box-l"><span class="en">Established crowdfunding platforms with proven reach and high success rates</span><span class="ja">高い成功率を誇る確立されたクラファンプラットフォーム</span></div>
+          </div>
+          <div class="stat-box">
+            <div class="stat-box-icon">
+              <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 256 256" fill="currentColor"><path d="M208,40H48A16,16,0,0,0,32,56V152c0,72.37,83.64,110,92.28,113.79a12,12,0,0,0,7.44,0C140.36,262,224,224.37,224,152V56A16,16,0,0,0,208,40Zm0,112c0,56-60.78,90.51-80,99.41C108.78,242.51,48,208,48,152V56H208ZM173.66,98.34a8,8,0,0,1,0,11.32l-56,56a8,8,0,0,1-11.32,0l-28-28a8,8,0,0,1,11.32-11.32L112,148.69l50.34-50.35A8,8,0,0,1,173.66,98.34Z"/></svg>
+            </div>
+            <div class="stat-box-l"><span class="en">Strict quality expectations that reward globally-proven, innovative products</span><span class="ja">グローバルで実証済みの革新的な製品が評価される品質重視の市場</span></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════ PROCESS ══════════ -->
+<section class="process" id="process">
+  <div class="dot-bg" aria-hidden="true"></div>
+  <div class="container">
+    <div class="process-head">
+      <div class="section-label" style="justify-content:center;">
+        <span class="en">THE PROCESS</span>
+        <span class="ja">サービスの流れ</span>
+      </div>
+      <h2 class="section-heading">
+        <span class="en">From Discovery to Launch<br>in <span class="hi">5 Steps</span></span>
+        <span class="ja">発掘からローンチまで<br><span class="hi">5つのステップ</span>で</span>
+      </h2>
+    </div>
+    <div class="steps">
+
+      <div class="step">
+        <div class="step-num">01</div>
+        <div>
+          <div class="step-title"><span class="en">Product Research</span><span class="ja">製品リサーチ</span></div>
+          <div class="step-desc"><span class="en">We identify your product on Kickstarter / Indiegogo and analyze Japan market fit</span><span class="ja">Kickstarter・Indiegogo上でリサーチし、日本市場との適合性を分析</span></div>
+        </div>
+      </div>
+
+      <div class="step">
+        <div class="step-num">02</div>
+        <div>
+          <div class="step-title"><span class="en">Partnership Agreement</span><span class="ja">パートナー契約</span></div>
+          <div class="step-desc"><span class="en">We reach out, align on terms, and establish a formal partnership</span><span class="ja">条件を擦り合わせ、正式なパートナーシップを締結</span></div>
+        </div>
+      </div>
+
+      <div class="step">
+        <div class="step-num">03</div>
+        <div>
+          <div class="step-title"><span class="en">Japan Certification</span><span class="ja">日本認証取得</span></div>
+          <div class="step-desc"><span class="en">PSE, TELEC and all required certifications — handled end-to-end</span><span class="ja">PSE・TELEC等、必要な認証を一括サポート</span></div>
+        </div>
+      </div>
+
+      <div class="step">
+        <div class="step-num">04</div>
+        <div>
+          <div class="step-title"><span class="en">Campaign Strategy</span><span class="ja">キャンペーン設計</span></div>
+          <div class="step-desc"><span class="en">Makuake / CAMPFIRE setup, Japanese content, pricing, and promotion plan</span><span class="ja">日本語コンテンツ・価格設定・プロモーションを準備</span></div>
+        </div>
+      </div>
+
+      <div class="step">
+        <div class="step-num">05</div>
+        <div>
+          <div class="step-title"><span class="en">Launch &amp; Beyond</span><span class="ja">ローンチ・継続</span></div>
+          <div class="step-desc"><span class="en">We manage the campaign from go-live through delivery and follow-on sales</span><span class="ja">公開から納品・継続販売まで一貫サポート</span></div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ══════════ STRENGTHS ══════════ -->
+<section class="strengths" id="strengths">
+  <div class="str-photo-bg" aria-hidden="true"></div>
+  <div class="str-glow" aria-hidden="true"></div>
+  <div class="container">
+    <div class="str-head">
+      <div class="section-label light" style="justify-content:center;">
+        <span class="en">WHY JAPAN GLOBAL</span>
+        <span class="ja">選ばれる理由</span>
+      </div>
+      <h2 class="section-heading light">
+        <span class="en">Trusted by Makers Who Want<br>Japan Done <span class="hi-lt">Right</span></span>
+        <span class="ja">日本展開を本気で考える<br>メーカーに<span class="hi-lt">選ばれる</span>理由</span>
+      </h2>
+    </div>
+    <div class="str-grid">
+
+      <div class="str-card">
+        <div class="str-icon" aria-hidden="true">
+          <!-- Users icon -->
+          <svg xmlns="http://www.w3.org/2000/svg" width="26" height="26" viewBox="0 0 256 256" fill="currentColor"><path d="M117.25,157.92a60,60,0,1,0-66.5,0A95.83,95.83,0,0,0,3.53,195.05a8,8,0,1,0,13.4,8.74,80,80,0,0,1,134.14,0,8,8,0,0,0,13.4-8.74A95.83,95.83,0,0,0,117.25,157.92ZM40,108a44,44,0,1,1,44,44A44.05,44.05,0,0,1,40,108Zm210.14,98.7a8,8,0,0,1-10.07-5.31,96.06,96.06,0,0,0-45.36-53.96,8,8,0,1,1,7.9-13.88,112.07,112.07,0,0,1,52.83,62.88A8,8,0,0,1,250.14,206.7ZM168,104a44.1,44.1,0,0,0-28,10.12,8,8,0,0,0,10.12,12.4A28,28,0,1,1,172,148a28.11,28.11,0,0,1-4.74-.41,8,8,0,0,0-2.7,15.76A44,44,0,1,0,168,104Z"/></svg>
+        </div>
+        <div class="str-title"><span class="en">Community-Backed Expertise</span><span class="ja">コミュニティに裏付けられた実績</span></div>
+        <div class="str-desc"><span class="en">Supported by a professional community with hands-on experience across multiple Japan market launches.</span><span class="ja">複数の日本市場展開を手がけてきたプロフェッショナルコミュニティが、実務経験をもってサポートします。</span></div>
+      </div>
+
+      <div class="str-card">
+        <div class="str-icon" aria-hidden="true">
+          <!-- MagnifyingGlass icon -->
+          <svg xmlns="http://www.w3.org/2000/svg" width="26" height="26" viewBox="0 0 256 256" fill="currentColor"><path d="M229.66,218.34l-50.07-50.06a88.11,88.11,0,1,0-11.31,11.31l50.06,50.07a8,8,0,0,0,11.32-11.32ZM40,112a72,72,0,1,1,72,72A72.08,72.08,0,0,1,40,112Z"/></svg>
+        </div>
+        <div class="str-title"><span class="en">Kickstarter &amp; Indiegogo Specialist</span><span class="ja">クラファン製品のスペシャリスト</span></div>
+        <div class="str-desc"><span class="en">Deep experience researching, selecting, and negotiating directly with global crowdfunding creators.</span><span class="ja">Kickstarter・Indiegogo製品のリサーチ・選定・メーカー交渉まで幅広い実務経験を保有。</span></div>
+      </div>
+
+      <div class="str-card">
+        <div class="str-icon" aria-hidden="true">
+          <!-- ShieldCheck icon -->
+          <svg xmlns="http://www.w3.org/2000/svg" width="26" height="26" viewBox="0 0 256 256" fill="currentColor"><path d="M208,40H48A16,16,0,0,0,32,56V152c0,72.37,83.64,110,92.28,113.79a12,12,0,0,0,7.44,0C140.36,262,224,224.37,224,152V56A16,16,0,0,0,208,40Zm0,112c0,56-60.78,90.51-80,99.41C108.78,242.51,48,208,48,152V56H208ZM173.66,98.34a8,8,0,0,1,0,11.32l-56,56a8,8,0,0,1-11.32,0l-28-28a8,8,0,0,1,11.32-11.32L112,148.69l50.34-50.35A8,8,0,0,1,173.66,98.34Z"/></svg>
+        </div>
+        <div class="str-title"><span class="en">Full Certification Support</span><span class="ja">日本認証の完全サポート</span></div>
+        <div class="str-desc"><span class="en">PSE, TELEC, and all Japan-specific requirements handled so you don't have to navigate it alone.</span><span class="ja">PSE・TELECをはじめとする日本独自の認証要件を一括対応。複雑な規制を一人で解決する必要はありません。</span></div>
+      </div>
+
+      <div class="str-card">
+        <div class="str-icon" aria-hidden="true">
+          <!-- Storefront icon -->
+          <svg xmlns="http://www.w3.org/2000/svg" width="26" height="26" viewBox="0 0 256 256" fill="currentColor"><path d="M232,96a7.89,7.89,0,0,0-.3-2.2L217.35,43.6A16.07,16.07,0,0,0,202,32H54A16.07,16.07,0,0,0,38.65,43.6L24.31,93.8A7.89,7.89,0,0,0,24,96v16a40,40,0,0,0,16,32v64a16,16,0,0,0,16,16H200a16,16,0,0,0,16-16V144a40,40,0,0,0,16-32ZM54,48H202l11.42,40H42.61ZM176,208H80V168a24,24,0,0,1,48,0v4a8,8,0,0,0,16,0v-4a40,40,0,0,0-80,0v40H56V155.35A40.16,40.16,0,0,0,64,156a39.8,39.8,0,0,0,28-11.4A40,40,0,0,0,192,156a40.16,40.16,0,0,0,8-.65V208Zm24-68a24,24,0,0,1-24-24,8,8,0,0,0-16,0,24,24,0,0,1-48,0,8,8,0,0,0-16,0,24,24,0,0,1-48,0V112H216v20A24,24,0,0,1,200,140Z"/></svg>
+        </div>
+        <div class="str-title"><span class="en">Campaign to Retail — Full Distribution</span><span class="ja">クラウドファンディングから卸売・小売まで一貫対応</span></div>
+        <div class="str-desc"><span class="en">We go beyond the campaign. Through working relationships with Makuake and CAMPFIRE, we bridge your crowdfunding success into long-term wholesale and retail distribution in Japan.</span><span class="ja">MakuakeやCAMPFIREとのネットワークを活かし、クラウドファンディング成功後の卸売・小売チャネルへの橋渡しまで一貫してサポートします。</span></div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ══════════ TRACK RECORD ══════════ -->
+<section class="results" id="results">
+  <div class="container">
+    <div class="results-head">
+      <div class="section-label" style="justify-content:center;">
+        <span class="en">RESULTS</span>
+        <span class="ja">実績</span>
+      </div>
+      <h2 class="section-heading">
+        <span class="en">Our Work Speaks for Itself</span>
+        <span class="ja">実績が、すべてを語る</span>
+      </h2>
+      <p style="color:var(--text-lt);font-size:16px;margin-top:14px;max-width:520px;margin-left:auto;margin-right:auto;line-height:1.75;">
+        <span class="en">Real campaigns on Japan's top platforms. Click through to see the results.</span>
+        <span class="ja">日本の主要プラットフォームで実際に展開したキャンペーンです。実績をご確認ください。</span>
+      </p>
+    </div>
+
+    <!-- ── Makuake ── -->
+    <div class="results-platform-group">
+      <div class="results-platform-label">
+        <span class="plabel-name">Makuake</span>
+      </div>
+      <div class="results-grid">
+
+      <div class="res-card">
+        <a href="https://www.makuake.com/project/outrely/" target="_blank" rel="noopener noreferrer" class="res-card-thumb">
+          <img src="https://static.makuake.com/upload/project/8825/main_8825.jpg?version=1585290558&width=690&height=388" alt="Outlery card-size cutlery set" loading="lazy">
+          <div class="res-card-thumb-overlay"></div>
+          <div class="res-card-thumb-badge"><span class="platform-badge badge-mk">Outdoor / Lifestyle</span></div>
+        </a>
+        <div class="res-card-body">
+          <div class="res-card-title">Outlery — Card-size Cutlery Set</div>
+        </div>
+        <div class="res-card-stats">
+          <div class="res-stat"><span class="res-stat-val">$99K</span><span class="res-stat-lbl"><span class="en">Raised</span><span class="ja">調達額</span></span></div>
+          <div class="res-stat"><span class="res-stat-val res-stat-pct">14,793%</span><span class="res-stat-lbl"><span class="en">Funded</span><span class="ja">達成率</span></span></div>
+          <div class="res-stat"><span class="res-stat-val">1,746</span><span class="res-stat-lbl"><span class="en">Backers</span><span class="ja">支援者</span></span></div>
+        </div>
+        <div class="res-card-foot">
+          <span class="res-status"><svg xmlns="http://www.w3.org/2000/svg" width="13" height="13" viewBox="0 0 256 256" fill="currentColor"><path d="M173.66,98.34a8,8,0,0,1,0,11.32l-56,56a8,8,0,0,1-11.32,0l-28-28a8,8,0,0,1,11.32-11.32L112,148.69l50.34-50.35A8,8,0,0,1,173.66,98.34ZM232,128A104,104,0,1,1,128,24,104.11,104.11,0,0,1,232,128Zm-16,0a88,88,0,1,0-88,88A88.1,88.1,0,0,0,216,128Z"/></svg><span class="en">Launched</span><span class="ja">展開済み</span></span>
+          <a href="https://www.makuake.com/project/outrely/" target="_blank" rel="noopener noreferrer" class="res-link"><span class="en">View</span><span class="ja">見る</span><svg xmlns="http://www.w3.org/2000/svg" width="13" height="13" viewBox="0 0 256 256" fill="currentColor"><path d="M221.66,133.66l-72,72a8,8,0,0,1-11.32-11.32L196.69,136H40a8,8,0,0,1,0-16H196.69L138.34,61.66a8,8,0,0,1,11.32-11.32l72,72A8,8,0,0,1,221.66,133.66Z"/></svg></a>
+        </div>
+      </div>
+
+      <div class="res-card">
+        <a href="https://www.makuake.com/project/light_disc_solar/" target="_blank" rel="noopener noreferrer" class="res-card-thumb">
+          <img src="https://static.makuake.com/upload/project/10438/main_10438.png?version=1596074412&width=690&height=388" alt="LightDisc Solar emergency charger" loading="lazy">
+          <div class="res-card-thumb-overlay"></div>
+          <div class="res-card-thumb-badge"><span class="platform-badge badge-mk">Tech / Disaster Prep</span></div>
+        </a>
+        <div class="res-card-body">
+          <div class="res-card-title">LightDisc Solar — Emergency Charger</div>
+        </div>
+        <div class="res-card-stats">
+          <div class="res-stat"><span class="res-stat-val">$62K</span><span class="res-stat-lbl"><span class="en">Raised</span><span class="ja">調達額</span></span></div>
+          <div class="res-stat"><span class="res-stat-val res-stat-pct">4,650%</span><span class="res-stat-lbl"><span class="en">Funded</span><span class="ja">達成率</span></span></div>
+          <div class="res-stat"><span class="res-stat-val">1,012</span><span class="res-stat-lbl"><span class="en">Backers</span><span class="ja">支援者</span></span></div>
+        </div>
+        <div class="res-card-foot">
+          <span class="res-status"><svg xmlns="http://www.w3.org/2000/svg" width="13" height="13" viewBox="0 0 256 256" fill="currentColor"><path d="M173.66,98.34a8,8,0,0,1,0,11.32l-56,56a8,8,0,0,1-11.32,0l-28-28a8,8,0,0,1,11.32-11.32L112,148.69l50.34-50.35A8,8,0,0,1,173.66,98.34ZM232,128A104,104,0,1,1,128,24,104.11,104.11,0,0,1,232,128Zm-16,0a88,88,0,1,0-88,88A88.1,88.1,0,0,0,216,128Z"/></svg><span class="en">Launched</span><span class="ja">展開済み</span></span>
+          <a href="https://www.makuake.com/project/light_disc_solar/" target="_blank" rel="noopener noreferrer" class="res-link"><span class="en">View</span><span class="ja">見る</span><svg xmlns="http://www.w3.org/2000/svg" width="13" height="13" viewBox="0 0 256 256" fill="currentColor"><path d="M221.66,133.66l-72,72a8,8,0,0,1-11.32-11.32L196.69,136H40a8,8,0,0,1,0-16H196.69L138.34,61.66a8,8,0,0,1,11.32-11.32l72,72A8,8,0,0,1,221.66,133.66Z"/></svg></a>
+        </div>
+      </div>
+
+      <div class="res-card">
+        <a href="https://www.makuake.com/project/lepow_dualviews/" target="_blank" rel="noopener noreferrer" class="res-card-thumb">
+          <img src="https://static.makuake.com/upload/project/38162/main_38162.jpg?version=1706666519&width=690&height=338" alt="Lepow DualViews portable dual monitor" loading="lazy">
+          <div class="res-card-thumb-overlay"></div>
+          <div class="res-card-thumb-badge"><span class="platform-badge badge-mk">Tech / Gadget</span></div>
+        </a>
+        <div class="res-card-body">
+          <div class="res-card-title">Lepow DualViews — Portable Dual Monitor</div>
+        </div>
+        <div class="res-card-stats">
+          <div class="res-stat"><span class="res-stat-val">$58K</span><span class="res-stat-lbl"><span class="en">Raised</span><span class="ja">調達額</span></span></div>
+          <div class="res-stat"><span class="res-stat-val res-stat-pct">4,376%</span><span class="res-stat-lbl"><span class="en">Funded</span><span class="ja">達成率</span></span></div>
+          <div class="res-stat"><span class="res-stat-val">133</span><span class="res-stat-lbl"><span class="en">Backers</span><span class="ja">支援者</span></span></div>
+        </div>
+        <div class="res-card-foot">
+          <span class="res-status"><svg xmlns="http://www.w3.org/2000/svg" width="13" height="13" viewBox="0 0 256 256" fill="currentColor"><path d="M173.66,98.34a8,8,0,0,1,0,11.32l-56,56a8,8,0,0,1-11.32,0l-28-28a8,8,0,0,1,11.32-11.32L112,148.69l50.34-50.35A8,8,0,0,1,173.66,98.34ZM232,128A104,104,0,1,1,128,24,104.11,104.11,0,0,1,232,128Zm-16,0a88,88,0,1,0-88,88A88.1,88.1,0,0,0,216,128Z"/></svg><span class="en">Launched</span><span class="ja">展開済み</span></span>
+          <a href="https://www.makuake.com/project/lepow_dualviews/" target="_blank" rel="noopener noreferrer" class="res-link"><span class="en">View</span><span class="ja">見る</span><svg xmlns="http://www.w3.org/2000/svg" width="13" height="13" viewBox="0 0 256 256" fill="currentColor"><path d="M221.66,133.66l-72,72a8,8,0,0,1-11.32-11.32L196.69,136H40a8,8,0,0,1,0-16H196.69L138.34,61.66a8,8,0,0,1,11.32-11.32l72,72A8,8,0,0,1,221.66,133.66Z"/></svg></a>
+        </div>
+      </div>
+
+      <div class="res-card">
+        <a href="https://www.makuake.com/project/travel-bag/" target="_blank" rel="noopener noreferrer" class="res-card-thumb">
+          <img src="https://static.makuake.com/upload/project/43813/main_43813.png?version=1735610460&width=690&height=338" alt="Blast Quick Access Backpack" loading="lazy">
+          <div class="res-card-thumb-overlay"></div>
+          <div class="res-card-thumb-badge"><span class="platform-badge badge-mk">Travel / Bag</span></div>
+        </a>
+        <div class="res-card-body">
+          <div class="res-card-title">Blast Quick Access Backpack</div>
+        </div>
+        <div class="res-card-stats">
+          <div class="res-stat"><span class="res-stat-val">$54K</span><span class="res-stat-lbl"><span class="en">Raised</span><span class="ja">調達額</span></span></div>
+          <div class="res-stat"><span class="res-stat-val res-stat-pct">4,044%</span><span class="res-stat-lbl"><span class="en">Funded</span><span class="ja">達成率</span></span></div>
+          <div class="res-stat"><span class="res-stat-val">478</span><span class="res-stat-lbl"><span class="en">Backers</span><span class="ja">支援者</span></span></div>
+        </div>
+        <div class="res-card-foot">
+          <span class="res-status"><svg xmlns="http://www.w3.org/2000/svg" width="13" height="13" viewBox="0 0 256 256" fill="currentColor"><path d="M173.66,98.34a8,8,0,0,1,0,11.32l-56,56a8,8,0,0,1-11.32,0l-28-28a8,8,0,0,1,11.32-11.32L112,148.69l50.34-50.35A8,8,0,0,1,173.66,98.34ZM232,128A104,104,0,1,1,128,24,104.11,104.11,0,0,1,232,128Zm-16,0a88,88,0,1,0-88,88A88.1,88.1,0,0,0,216,128Z"/></svg><span class="en">Launched</span><span class="ja">展開済み</span></span>
+          <a href="https://www.makuake.com/project/travel-bag/" target="_blank" rel="noopener noreferrer" class="res-link"><span class="en">View</span><span class="ja">見る</span><svg xmlns="http://www.w3.org/2000/svg" width="13" height="13" viewBox="0 0 256 256" fill="currentColor"><path d="M221.66,133.66l-72,72a8,8,0,0,1-11.32-11.32L196.69,136H40a8,8,0,0,1,0-16H196.69L138.34,61.66a8,8,0,0,1,11.32-11.32l72,72A8,8,0,0,1,221.66,133.66Z"/></svg></a>
+        </div>
+      </div>
+
+      <div class="res-card">
+        <a href="https://www.makuake.com/project/spine_gym/" target="_blank" rel="noopener noreferrer" class="res-card-thumb">
+          <img src="https://static.makuake.com/upload/project/15169/main_15169.jpg?version=1618711205&width=690&height=388" alt="Spine Gym core trainer" loading="lazy">
+          <div class="res-card-thumb-overlay"></div>
+          <div class="res-card-thumb-badge"><span class="platform-badge badge-mk">Fitness / Health</span></div>
+        </a>
+        <div class="res-card-body">
+          <div class="res-card-title">Spine Gym — Core Trainer</div>
+        </div>
+        <div class="res-card-stats">
+          <div class="res-stat"><span class="res-stat-val">$39K</span><span class="res-stat-lbl"><span class="en">Raised</span><span class="ja">調達額</span></span></div>
+          <div class="res-stat"><span class="res-stat-val res-stat-pct">1,975%</span><span class="res-stat-lbl"><span class="en">Funded</span><span class="ja">達成率</span></span></div>
+          <div class="res-stat"><span class="res-stat-val">188</span><span class="res-stat-lbl"><span class="en">Backers</span><span class="ja">支援者</span></span></div>
+        </div>
+        <div class="res-card-foot">
+          <span class="res-status"><svg xmlns="http://www.w3.org/2000/svg" width="13" height="13" viewBox="0 0 256 256" fill="currentColor"><path d="M173.66,98.34a8,8,0,0,1,0,11.32l-56,56a8,8,0,0,1-11.32,0l-28-28a8,8,0,0,1,11.32-11.32L112,148.69l50.34-50.35A8,8,0,0,1,173.66,98.34ZM232,128A104,104,0,1,1,128,24,104.11,104.11,0,0,1,232,128Zm-16,0a88,88,0,1,0-88,88A88.1,88.1,0,0,0,216,128Z"/></svg><span class="en">Launched</span><span class="ja">展開済み</span></span>
+          <a href="https://www.makuake.com/project/spine_gym/" target="_blank" rel="noopener noreferrer" class="res-link"><span class="en">View</span><span class="ja">見る</span><svg xmlns="http://www.w3.org/2000/svg" width="13" height="13" viewBox="0 0 256 256" fill="currentColor"><path d="M221.66,133.66l-72,72a8,8,0,0,1-11.32-11.32L196.69,136H40a8,8,0,0,1,0-16H196.69L138.34,61.66a8,8,0,0,1,11.32-11.32l72,72A8,8,0,0,1,221.66,133.66Z"/></svg></a>
+        </div>
+      </div>
+
+      <div class="res-card">
+        <a href="https://www.makuake.com/project/qstoves/" target="_blank" rel="noopener noreferrer" class="res-card-thumb">
+          <img src="https://static.makuake.com/upload/project/17568/main_17568.png?version=1627351213&width=690&height=388" alt="QStoves portable pizza oven" loading="lazy">
+          <div class="res-card-thumb-overlay"></div>
+          <div class="res-card-thumb-badge"><span class="platform-badge badge-mk">Outdoor / Kitchen</span></div>
+        </a>
+        <div class="res-card-body">
+          <div class="res-card-title">QStoves — Portable Pizza Oven</div>
+        </div>
+        <div class="res-card-stats">
+          <div class="res-stat"><span class="res-stat-val">$31K</span><span class="res-stat-lbl"><span class="en">Raised</span><span class="ja">調達額</span></span></div>
+          <div class="res-stat"><span class="res-stat-val res-stat-pct">1,549%</span><span class="res-stat-lbl"><span class="en">Funded</span><span class="ja">達成率</span></span></div>
+          <div class="res-stat"><span class="res-stat-val">73</span><span class="res-stat-lbl"><span class="en">Backers</span><span class="ja">支援者</span></span></div>
+        </div>
+        <div class="res-card-foot">
+          <span class="res-status"><svg xmlns="http://www.w3.org/2000/svg" width="13" height="13" viewBox="0 0 256 256" fill="currentColor"><path d="M173.66,98.34a8,8,0,0,1,0,11.32l-56,56a8,8,0,0,1-11.32,0l-28-28a8,8,0,0,1,11.32-11.32L112,148.69l50.34-50.35A8,8,0,0,1,173.66,98.34ZM232,128A104,104,0,1,1,128,24,104.11,104.11,0,0,1,232,128Zm-16,0a88,88,0,1,0-88,88A88.1,88.1,0,0,0,216,128Z"/></svg><span class="en">Launched</span><span class="ja">展開済み</span></span>
+          <a href="https://www.makuake.com/project/qstoves/" target="_blank" rel="noopener noreferrer" class="res-link"><span class="en">View</span><span class="ja">見る</span><svg xmlns="http://www.w3.org/2000/svg" width="13" height="13" viewBox="0 0 256 256" fill="currentColor"><path d="M221.66,133.66l-72,72a8,8,0,0,1-11.32-11.32L196.69,136H40a8,8,0,0,1,0-16H196.69L138.34,61.66a8,8,0,0,1,11.32-11.32l72,72A8,8,0,0,1,221.66,133.66Z"/></svg></a>
+        </div>
+      </div>
+
+      <div class="res-card">
+        <a href="https://www.makuake.com/project/muon/" target="_blank" rel="noopener noreferrer" class="res-card-thumb">
+          <img src="https://static.makuake.com/upload/project/13140/main_13140.png?version=1608688804&width=690&height=388" alt="MUON silent air purifier" loading="lazy">
+          <div class="res-card-thumb-overlay"></div>
+          <div class="res-card-thumb-badge"><span class="platform-badge badge-mk">Tech / Interior</span></div>
+        </a>
+        <div class="res-card-body">
+          <div class="res-card-title">MUON — Silent Air Purifier</div>
+        </div>
+        <div class="res-card-stats">
+          <div class="res-stat"><span class="res-stat-val">$28K</span><span class="res-stat-lbl"><span class="en">Raised</span><span class="ja">調達額</span></span></div>
+          <div class="res-stat"><span class="res-stat-val res-stat-pct">1,399%</span><span class="res-stat-lbl"><span class="en">Funded</span><span class="ja">達成率</span></span></div>
+          <div class="res-stat"><span class="res-stat-val">73</span><span class="res-stat-lbl"><span class="en">Backers</span><span class="ja">支援者</span></span></div>
+        </div>
+        <div class="res-card-foot">
+          <span class="res-status"><svg xmlns="http://www.w3.org/2000/svg" width="13" height="13" viewBox="0 0 256 256" fill="currentColor"><path d="M173.66,98.34a8,8,0,0,1,0,11.32l-56,56a8,8,0,0,1-11.32,0l-28-28a8,8,0,0,1,11.32-11.32L112,148.69l50.34-50.35A8,8,0,0,1,173.66,98.34ZM232,128A104,104,0,1,1,128,24,104.11,104.11,0,0,1,232,128Zm-16,0a88,88,0,1,0-88,88A88.1,88.1,0,0,0,216,128Z"/></svg><span class="en">Launched</span><span class="ja">展開済み</span></span>
+          <a href="https://www.makuake.com/project/muon/" target="_blank" rel="noopener noreferrer" class="res-link"><span class="en">View</span><span class="ja">見る</span><svg xmlns="http://www.w3.org/2000/svg" width="13" height="13" viewBox="0 0 256 256" fill="currentColor"><path d="M221.66,133.66l-72,72a8,8,0,0,1-11.32-11.32L196.69,136H40a8,8,0,0,1,0-16H196.69L138.34,61.66a8,8,0,0,1,11.32-11.32l72,72A8,8,0,0,1,221.66,133.66Z"/></svg></a>
+        </div>
+      </div>
+
+      <div class="res-card">
+        <a href="https://www.makuake.com/project/sharkpeg/" target="_blank" rel="noopener noreferrer" class="res-card-thumb">
+          <img src="https://static.makuake.com/upload/project/31603/main_31603.png?version=1680228066&width=690&height=338" alt="SharkPeg ultra-thin forged peg" loading="lazy">
+          <div class="res-card-thumb-overlay"></div>
+          <div class="res-card-thumb-badge"><span class="platform-badge badge-mk">Outdoor / Camping</span></div>
+        </a>
+        <div class="res-card-body">
+          <div class="res-card-title">SharkPeg — Ultra-Thin Forged Peg</div>
+        </div>
+        <div class="res-card-stats">
+          <div class="res-stat"><span class="res-stat-val">$17K</span><span class="res-stat-lbl"><span class="en">Raised</span><span class="ja">調達額</span></span></div>
+          <div class="res-stat"><span class="res-stat-val res-stat-pct">867%</span><span class="res-stat-lbl"><span class="en">Funded</span><span class="ja">達成率</span></span></div>
+          <div class="res-stat"><span class="res-stat-val">275</span><span class="res-stat-lbl"><span class="en">Backers</span><span class="ja">支援者</span></span></div>
+        </div>
+        <div class="res-card-foot">
+          <span class="res-status"><svg xmlns="http://www.w3.org/2000/svg" width="13" height="13" viewBox="0 0 256 256" fill="currentColor"><path d="M173.66,98.34a8,8,0,0,1,0,11.32l-56,56a8,8,0,0,1-11.32,0l-28-28a8,8,0,0,1,11.32-11.32L112,148.69l50.34-50.35A8,8,0,0,1,173.66,98.34ZM232,128A104,104,0,1,1,128,24,104.11,104.11,0,0,1,232,128Zm-16,0a88,88,0,1,0-88,88A88.1,88.1,0,0,0,216,128Z"/></svg><span class="en">Launched</span><span class="ja">展開済み</span></span>
+          <a href="https://www.makuake.com/project/sharkpeg/" target="_blank" rel="noopener noreferrer" class="res-link"><span class="en">View</span><span class="ja">見る</span><svg xmlns="http://www.w3.org/2000/svg" width="13" height="13" viewBox="0 0 256 256" fill="currentColor"><path d="M221.66,133.66l-72,72a8,8,0,0,1-11.32-11.32L196.69,136H40a8,8,0,0,1,0-16H196.69L138.34,61.66a8,8,0,0,1,11.32-11.32l72,72A8,8,0,0,1,221.66,133.66Z"/></svg></a>
+        </div>
+      </div>
+
+      <div class="res-card">
+        <a href="https://www.makuake.com/project/endlaces/" target="_blank" rel="noopener noreferrer" class="res-card-thumb">
+          <img src="https://static.makuake.com/upload/project/18781/main_18781.png?version=1630375393&width=690&height=388" alt="EndLaces dial lace lock" loading="lazy">
+          <div class="res-card-thumb-overlay"></div>
+          <div class="res-card-thumb-badge"><span class="platform-badge badge-mk">Fashion / Shoes</span></div>
+        </a>
+        <div class="res-card-body">
+          <div class="res-card-title">EndLaces — Dial Lace Lock</div>
+        </div>
+        <div class="res-card-stats">
+          <div class="res-stat"><span class="res-stat-val">$22K</span><span class="res-stat-lbl"><span class="en">Raised</span><span class="ja">調達額</span></span></div>
+          <div class="res-stat"><span class="res-stat-val res-stat-pct">5,601%</span><span class="res-stat-lbl"><span class="en">Funded</span><span class="ja">達成率</span></span></div>
+          <div class="res-stat"><span class="res-stat-val">461</span><span class="res-stat-lbl"><span class="en">Backers</span><span class="ja">支援者</span></span></div>
+        </div>
+        <div class="res-card-foot">
+          <span class="res-status"><svg xmlns="http://www.w3.org/2000/svg" width="13" height="13" viewBox="0 0 256 256" fill="currentColor"><path d="M173.66,98.34a8,8,0,0,1,0,11.32l-56,56a8,8,0,0,1-11.32,0l-28-28a8,8,0,0,1,11.32-11.32L112,148.69l50.34-50.35A8,8,0,0,1,173.66,98.34ZM232,128A104,104,0,1,1,128,24,104.11,104.11,0,0,1,232,128Zm-16,0a88,88,0,1,0-88,88A88.1,88.1,0,0,0,216,128Z"/></svg><span class="en">Launched</span><span class="ja">展開済み</span></span>
+          <a href="https://www.makuake.com/project/endlaces/" target="_blank" rel="noopener noreferrer" class="res-link"><span class="en">View</span><span class="ja">見る</span><svg xmlns="http://www.w3.org/2000/svg" width="13" height="13" viewBox="0 0 256 256" fill="currentColor"><path d="M221.66,133.66l-72,72a8,8,0,0,1-11.32-11.32L196.69,136H40a8,8,0,0,1,0-16H196.69L138.34,61.66a8,8,0,0,1,11.32-11.32l72,72A8,8,0,0,1,221.66,133.66Z"/></svg></a>
+        </div>
+      </div>
+
+      </div><!-- /results-grid Makuake -->
+    </div><!-- /results-platform-group Makuake -->
+
+    <!-- ── CAMPFIRE ── -->
+    <div class="results-platform-group">
+      <div class="results-platform-label">
+        <span class="plabel-name">CAMPFIRE</span>
+      </div>
+      <div class="results-grid">
+
+      <div class="res-card">
+        <a href="https://camp-fire.jp/projects/313474/view" target="_blank" rel="noopener noreferrer" class="res-card-thumb">
+          <img src="https://static.camp-fire.jp/uploads/project_version/image/506932/df27da11-d555-4e0c-9b59-ede73813f4b2.png?auto=format&fit=max&ref=projects_overview" alt="Night vision security camera" loading="lazy">
+          <div class="res-card-thumb-overlay"></div>
+          <div class="res-card-thumb-badge"><span class="platform-badge badge-cf">Security</span></div>
+        </a>
+        <div class="res-card-body">
+          <div class="res-card-title">Night Vision Security Camera</div>
+        </div>
+        <div class="res-card-stats">
+          <div class="res-stat"><span class="res-stat-val">$156K</span><span class="res-stat-lbl"><span class="en">Raised</span><span class="ja">調達額</span></span></div>
+          <div class="res-stat"><span class="res-stat-val res-stat-pct">7,801%</span><span class="res-stat-lbl"><span class="en">Funded</span><span class="ja">達成率</span></span></div>
+          <div class="res-stat"><span class="res-stat-val">612</span><span class="res-stat-lbl"><span class="en">Backers</span><span class="ja">支援者</span></span></div>
+        </div>
+        <div class="res-card-foot">
+          <span class="res-status"><svg xmlns="http://www.w3.org/2000/svg" width="13" height="13" viewBox="0 0 256 256" fill="currentColor"><path d="M173.66,98.34a8,8,0,0,1,0,11.32l-56,56a8,8,0,0,1-11.32,0l-28-28a8,8,0,0,1,11.32-11.32L112,148.69l50.34-50.35A8,8,0,0,1,173.66,98.34ZM232,128A104,104,0,1,1,128,24,104.11,104.11,0,0,1,232,128Zm-16,0a88,88,0,1,0-88,88A88.1,88.1,0,0,0,216,128Z"/></svg><span class="en">Launched</span><span class="ja">展開済み</span></span>
+          <a href="https://camp-fire.jp/projects/313474/view" target="_blank" rel="noopener noreferrer" class="res-link"><span class="en">View</span><span class="ja">見る</span><svg xmlns="http://www.w3.org/2000/svg" width="13" height="13" viewBox="0 0 256 256" fill="currentColor"><path d="M221.66,133.66l-72,72a8,8,0,0,1-11.32-11.32L196.69,136H40a8,8,0,0,1,0-16H196.69L138.34,61.66a8,8,0,0,1,11.32-11.32l72,72A8,8,0,0,1,221.66,133.66Z"/></svg></a>
+        </div>
+      </div>
+
+      <div class="res-card">
+        <a href="https://camp-fire.jp/projects/587884/view" target="_blank" rel="noopener noreferrer" class="res-card-thumb">
+          <img src="https://static.camp-fire.jp/uploads/project_version/image/899285/a3793e5a-d164-4f8f-9749-8a6e6ed03309.png?auto=format&fit=max&ref=projects_overview" alt="AI security camera" loading="lazy">
+          <div class="res-card-thumb-overlay"></div>
+          <div class="res-card-thumb-badge"><span class="platform-badge badge-cf">Security / Tech</span></div>
+        </a>
+        <div class="res-card-body">
+          <div class="res-card-title">AI Security Camera</div>
+        </div>
+        <div class="res-card-stats">
+          <div class="res-stat"><span class="res-stat-val">$74K</span><span class="res-stat-lbl"><span class="en">Raised</span><span class="ja">調達額</span></span></div>
+          <div class="res-stat"><span class="res-stat-val res-stat-pct">5,575%</span><span class="res-stat-lbl"><span class="en">Funded</span><span class="ja">達成率</span></span></div>
+          <div class="res-stat"><span class="res-stat-val">343</span><span class="res-stat-lbl"><span class="en">Backers</span><span class="ja">支援者</span></span></div>
+        </div>
+        <div class="res-card-foot">
+          <span class="res-status"><svg xmlns="http://www.w3.org/2000/svg" width="13" height="13" viewBox="0 0 256 256" fill="currentColor"><path d="M173.66,98.34a8,8,0,0,1,0,11.32l-56,56a8,8,0,0,1-11.32,0l-28-28a8,8,0,0,1,11.32-11.32L112,148.69l50.34-50.35A8,8,0,0,1,173.66,98.34ZM232,128A104,104,0,1,1,128,24,104.11,104.11,0,0,1,232,128Zm-16,0a88,88,0,1,0-88,88A88.1,88.1,0,0,0,216,128Z"/></svg><span class="en">Launched</span><span class="ja">展開済み</span></span>
+          <a href="https://camp-fire.jp/projects/587884/view" target="_blank" rel="noopener noreferrer" class="res-link"><span class="en">View</span><span class="ja">見る</span><svg xmlns="http://www.w3.org/2000/svg" width="13" height="13" viewBox="0 0 256 256" fill="currentColor"><path d="M221.66,133.66l-72,72a8,8,0,0,1-11.32-11.32L196.69,136H40a8,8,0,0,1,0-16H196.69L138.34,61.66a8,8,0,0,1,11.32-11.32l72,72A8,8,0,0,1,221.66,133.66Z"/></svg></a>
+        </div>
+      </div>
+
+      </div><!-- /results-grid CAMPFIRE -->
+    </div><!-- /results-platform-group CAMPFIRE -->
+
+  </div>
+</section>
+
+<!-- ══════════ PLATFORMS ══════════ -->
+<section class="platforms" id="platforms">
+  <div class="container">
+    <div class="platforms-head">
+      <div class="section-label" style="justify-content:center;">
+        <span class="en">WHERE WE LAUNCH</span>
+        <span class="ja">展開プラットフォーム</span>
+      </div>
+      <h2 class="section-heading">
+        <span class="en">Where We Take<br>Your <span class="hi">Product</span></span>
+        <span class="ja">製品を届ける<br><span class="hi">チャネル</span></span>
+      </h2>
+
+    </div>
+    <div class="plat-grid">
+
+      <div class="plat-card plat-mk">
+        <div class="plat-logo-wrap">
+          <img src="./assets/Makuake_Logo_yoko.png" alt="Makuake">
+        </div>
+      </div>
+
+      <div class="plat-card plat-cf">
+        <div class="plat-logo-wrap">
+          <img src="./assets/campfire-corporate-logo.png" alt="CAMPFIRE">
+        </div>
+      </div>
+
+      <div class="plat-card plat-gf">
+        <div class="plat-logo-wrap">
+          <img src="./assets/logo-greenfunding.svg" alt="GREEN FUNDING">
+        </div>
+      </div>
+
+      <div class="plat-card plat-ws">
+        <div class="plat-logo-wrap">
+          <div style="display:flex;flex-direction:column;align-items:center;gap:5px;">
+            <svg xmlns="http://www.w3.org/2000/svg" width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="var(--navy)" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M3 9l1-5h16l1 5"/>
+              <path d="M3 9a3 3 0 0 0 6 0 3 3 0 0 0 6 0 3 3 0 0 0 6 0"/>
+              <path d="M5 9v10h14V9"/>
+              <rect x="9" y="14" width="6" height="5"/>
+            </svg>
+            <span class="plat-wordmark plat-wordmark-ws">Wholesale / Retail</span>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ══════════ ABOUT / MISSION ══════════ -->
+<section class="about" id="about">
+  <div class="container">
+    <div class="about-inner">
+      <div class="about-photo-wrap">
+        <img src="https://images.unsplash.com/photo-1683199320521-38e3370de70d?w=900&auto=format&fit=crop&q=80"
+             alt="Asian businesswoman smiling with Western colleague in friendly discussion" loading="lazy" width="900" height="675">
+      </div>
+      <div>
+        <div class="section-label">
+          <span class="en">ABOUT JAPAN GLOBAL</span>
+          <span class="ja">私たちについて</span>
+        </div>
+        <h2 class="section-heading">
+          <span class="en">A Dedicated Partner for<br>Your Japan Journey</span>
+          <span class="ja">日本展開の<br>パートナーとして</span>
+        </h2>
+        <blockquote class="about-quote">
+          <span class="en">"We believe every great product deserves a chance to reach the consumers who truly need it."</span>
+          <span class="ja">「素晴らしい製品は、それを本当に必要としている消費者に届く権利がある。」</span>
+        </blockquote>
+        <div class="about-body">
+          <p>
+            <span class="en">JAPAN GLOBAL was founded to bridge the gap between globally successful crowdfunding products and Japanese consumers who are eager for innovation but can't easily access it.</span>
+            <span class="ja">JAPAN GLOBALは、世界で成功したクラウドファンディング製品と、革新的なプロダクトを求めながらもアクセスできずにいる日本の消費者をつなぐために設立されました。</span>
+          </p>
+          <p>
+            <span class="en">With hands-on experience across Makuake and CAMPFIRE campaigns, and backed by a community of Japan market specialists, we bring operational depth — not just introductions.</span>
+            <span class="ja">MakuakeとCAMPFIREでの実務経験と、日本市場スペシャリストのコミュニティを背景に、単なる紹介にとどまらない深い支援を提供します。</span>
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════ FAQ ══════════ -->
+<section class="faq" id="faq">
+  <div class="container">
+    <div class="faq-head">
+      <div class="section-label" style="justify-content:center;">
+        <span class="en">FAQ</span>
+        <span class="ja">よくある質問</span>
+      </div>
+      <h2 class="section-heading">
+        <span class="en">Got Questions?<br>We Have Answers.</span>
+        <span class="ja">ご質問はありますか？<br>すべて<span class="hi">お答えします</span>。</span>
+      </h2>
+    </div>
+    <div class="faq-list">
+
+      <details class="faq-item">
+        <summary>
+          <span><span class="en">What types of products do you work with?</span><span class="ja">どのような製品を取り扱っていますか？</span></span>
+          <svg class="faq-chev" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256" fill="currentColor" aria-hidden="true"><path d="M213.66,101.66l-80,80a8,8,0,0,1-11.32,0l-80-80A8,8,0,0,1,53.66,90.34L128,164.69l74.34-74.35a8,8,0,0,1,11.32,11.32Z"/></svg>
+        </summary>
+        <div class="faq-ans">
+          <span class="en">We focus on consumer tech, lifestyle, and innovative products that have proven international crowdfunding success — particularly from Kickstarter and Indiegogo. If your product has strong global traction, it's likely a great fit for Japan.</span>
+          <span class="ja">主にKickstarter・Indiegogoで国際的に成功実績を持つ、消費者向けテクノロジー・ライフスタイル・革新的製品を対象としています。海外での実績があれば、日本市場でも可能性を感じやすいです。</span>
+        </div>
+      </details>
+
+      <details class="faq-item">
+        <summary>
+          <span><span class="en">Do I need Japan certification before contacting you?</span><span class="ja">お問い合わせ前に日本の認証は必要ですか？</span></span>
+          <svg class="faq-chev" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256" fill="currentColor" aria-hidden="true"><path d="M213.66,101.66l-80,80a8,8,0,0,1-11.32,0l-80-80A8,8,0,0,1,53.66,90.34L128,164.69l74.34-74.35a8,8,0,0,1,11.32,11.32Z"/></svg>
+        </summary>
+        <div class="faq-ans">
+          <span class="en">No. PSE, TELEC, and other certifications are part of what we handle. We'll guide you through the entire process from scratch — no prior Japan knowledge required.</span>
+          <span class="ja">必要ありません。PSE・TELECをはじめとする認証取得は、私たちが一から対応します。日本に関する事前知識がなくても問題ありません。</span>
+        </div>
+      </details>
+
+      <details class="faq-item">
+        <summary>
+          <span><span class="en">How long does the Japan launch process typically take?</span><span class="ja">日本でのローンチまでどのくらいかかりますか？</span></span>
+          <svg class="faq-chev" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256" fill="currentColor" aria-hidden="true"><path d="M213.66,101.66l-80,80a8,8,0,0,1-11.32,0l-80-80A8,8,0,0,1,53.66,90.34L128,164.69l74.34-74.35a8,8,0,0,1,11.32,11.32Z"/></svg>
+        </summary>
+        <div class="faq-ans">
+          <span class="en">Typically 3–6 months from initial agreement to a live campaign, depending on certification requirements and product complexity. We'll provide a clear timeline estimate after our first conversation.</span>
+          <span class="ja">認証要件や製品の複雑さにもよりますが、契約からキャンペーン公開まで通常3〜6ヶ月です。最初のご連絡後に具体的なスケジュールをご案内します。</span>
+        </div>
+      </details>
+
+      <details class="faq-item">
+        <summary>
+          <span><span class="en">What's your business model — fees or commission?</span><span class="ja">費用体系はどのようになっていますか？</span></span>
+          <svg class="faq-chev" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256" fill="currentColor" aria-hidden="true"><path d="M213.66,101.66l-80,80a8,8,0,0,1-11.32,0l-80-80A8,8,0,0,1,53.66,90.34L128,164.69l74.34-74.35a8,8,0,0,1,11.32,11.32Z"/></svg>
+        </summary>
+        <div class="faq-ans">
+          <span class="en">We work on a partnership / commission basis. Terms are discussed individually based on your product, target market, and goals. Please reach out and we'll walk you through the options.</span>
+          <span class="ja">パートナーシップ・成果報酬型を基本としています。製品・目標・条件によって個別にご相談させていただきます。まずはお気軽にご連絡ください。</span>
+        </div>
+      </details>
+
+      <details class="faq-item">
+        <summary>
+          <span><span class="en">Can you work with products not yet on crowdfunding?</span><span class="ja">まだクラウドファンディングで販売していない製品でも対応できますか？</span></span>
+          <svg class="faq-chev" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256" fill="currentColor" aria-hidden="true"><path d="M213.66,101.66l-80,80a8,8,0,0,1-11.32,0l-80-80A8,8,0,0,1,53.66,90.34L128,164.69l74.34-74.35a8,8,0,0,1,11.32,11.32Z"/></svg>
+        </summary>
+        <div class="faq-ans">
+          <span class="en">We primarily focus on products with existing international crowdfunding proof, as this significantly strengthens the Japan market case. That said, please reach out — we're happy to discuss your specific situation.</span>
+          <span class="ja">日本市場参入の根拠として、海外でのクラウドファンディング実績がある製品を主な対象としています。ただし状況によりご相談に応じる場合もありますので、まずはお問い合わせください。</span>
+        </div>
+      </details>
+
+    </div>
+  </div>
+</section>
+
+<!-- ══════════ CONTACT CTA ══════════ -->
+<section class="cta-section" id="contact">
+  <div class="cta-glow-a" aria-hidden="true"></div>
+  <div class="cta-glow-b" aria-hidden="true"></div>
+  <div class="container">
+    <div class="cta-inner">
+      <div class="section-label light" style="justify-content:center;">
+        <span class="en">CONTACT</span>
+        <span class="ja">お問い合わせ</span>
+      </div>
+      <h2 class="cta-h2">
+        <span class="en">Ready to Bring Your<br>Product to <span class="hi-lt">Japan</span>?</span>
+        <span class="ja">製品を<span class="hi-lt">日本</span>に<br>届ける準備はできていますか？</span>
+      </h2>
+      <p class="cta-sub">
+        <span class="en">If your product has proven itself internationally, Japan's market is the next step. Send us an email and let's start the conversation.</span>
+        <span class="ja">海外で実績のある製品なら、次のステップは日本市場です。まずはメールでお気軽にご連絡ください。</span>
+      </p>
+      <div class="cta-btns">
+        <a href="mailto:contact@japan-connect-global.com" class="btn-white">
+          <!-- Envelope icon -->
+          <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 256 256" fill="currentColor" aria-hidden="true"><path d="M224,48H32a8,8,0,0,0-8,8V192a16,16,0,0,0,16,16H216a16,16,0,0,0,16-16V56A8,8,0,0,0,224,48Zm-96,85.15L54.59,64H201.41ZM98.71,128,40,181.81V74.19Zm11.84,10.85,12,11.05a8,8,0,0,0,10.82,0l12-11.05,58,53.15H52.57ZM157.29,128,216,74.19V181.81Z"/></svg>
+          <span class="en">Send Us an Email</span>
+          <span class="ja">メールを送る</span>
+        </a>
+        <a href="#results" class="btn-ghost-light">
+          <span class="en">View Our Results</span>
+          <span class="ja">実績を見る</span>
+          <svg xmlns="http://www.w3.org/2000/svg" width="17" height="17" viewBox="0 0 256 256" fill="currentColor" aria-hidden="true"><path d="M221.66,133.66l-72,72a8,8,0,0,1-11.32-11.32L196.69,136H40a8,8,0,0,1,0-16H196.69L138.34,61.66a8,8,0,0,1,11.32-11.32l72,72A8,8,0,0,1,221.66,133.66Z"/></svg>
+        </a>
+      </div>
+      <p class="cta-note">
+        <span class="en">Or email us directly: </span>
+        <span class="ja">メールアドレス: </span>
+        <a href="mailto:contact@japan-connect-global.com">contact@japan-connect-global.com</a>
+      </p>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════ FOOTER ══════════ -->
+<footer class="footer">
+  <div class="container">
+    <div class="footer-inner">
+      <div class="footer-logo">
+        <span class="footer-logo-jc"><span class="lj">J</span><span class="lc">G</span></span>
+        <span class="footer-logo-name">JAPAN GLOBAL</span>
+      </div>
+      <div class="footer-email">
+        <a href="mailto:contact@japan-connect-global.com">contact@japan-connect-global.com</a>
+      </div>
+      <div class="footer-copy">© 2025 JAPAN GLOBAL. All rights reserved.</div>
+    </div>
+  </div>
+</footer>
+
+<!-- Language Toggle -->
+<script>
+function setLang(lang) {
+  document.documentElement.setAttribute('data-lang', lang);
+  document.documentElement.lang = lang;
+  document.querySelectorAll('.lang-btn').forEach(function(btn) {
+    var isActive = btn.dataset.lang === lang;
+    btn.classList.toggle('active', isActive);
+    btn.setAttribute('aria-pressed', isActive ? 'true' : 'false');
+  });
+}
+</script>
+
+</body>
+</html>

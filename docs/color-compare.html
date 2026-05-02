@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>JAPAN CONNECT — Color Direction Preview</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;900&display=swap" rel="stylesheet">
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body { font-family: 'Inter', sans-serif; background: #f0f0f0; padding: 40px 20px; }
+
+  h1 { text-align: center; font-size: 14px; font-weight: 600; letter-spacing: .1em; text-transform: uppercase; color: #666; margin-bottom: 40px; }
+
+  .label {
+    text-align: center;
+    font-size: 13px;
+    font-weight: 700;
+    letter-spacing: .08em;
+    text-transform: uppercase;
+    color: #444;
+    margin-bottom: 12px;
+  }
+
+  .card {
+    border-radius: 16px;
+    overflow: hidden;
+    box-shadow: 0 8px 40px rgba(0,0,0,.13);
+    margin-bottom: 48px;
+  }
+
+  /* ─── OPTION A: Navy × White ─── */
+  .a-nav { background: #0a1f44; padding: 20px 48px; display: flex; align-items: center; justify-content: space-between; }
+  .a-nav .logo { color: #fff; font-weight: 900; font-size: 18px; letter-spacing: .05em; }
+  .a-nav a { color: rgba(255,255,255,.7); text-decoration: none; font-size: 13px; margin-left: 28px; }
+  .a-nav a.cta { background: #2563eb; color: #fff; padding: 8px 20px; border-radius: 6px; }
+
+  .a-hero { background: linear-gradient(135deg, #0a1f44 0%, #1a3a6e 100%); padding: 80px 48px; display: grid; grid-template-columns: 1fr 1fr; gap: 48px; align-items: center; }
+  .a-hero h2 { color: #fff; font-size: 48px; font-weight: 900; line-height: 1.1; margin-bottom: 16px; }
+  .a-hero h2 span { color: #60a5fa; }
+  .a-hero p { color: rgba(255,255,255,.75); font-size: 16px; line-height: 1.7; margin-bottom: 28px; }
+  .a-hero .btn { background: #2563eb; color: #fff; padding: 14px 32px; border-radius: 8px; font-weight: 700; font-size: 15px; display: inline-block; text-decoration: none; margin-right: 12px; }
+  .a-hero .btn-ghost { background: transparent; color: #fff; border: 2px solid rgba(255,255,255,.4); padding: 12px 28px; border-radius: 8px; font-weight: 600; font-size: 15px; display: inline-block; text-decoration: none; }
+  .a-visual { background: rgba(255,255,255,.07); border: 1px solid rgba(255,255,255,.15); border-radius: 12px; padding: 32px; text-align: center; }
+  .a-visual .big { font-size: 64px; font-weight: 900; color: #60a5fa; line-height: 1; }
+  .a-visual .sub { color: rgba(255,255,255,.6); font-size: 13px; margin-top: 6px; }
+
+  .a-strip { background: #f8faff; padding: 32px 48px; display: flex; gap: 40px; justify-content: center; border-top: 1px solid #e5eaf5; }
+  .a-strip .item { text-align: center; }
+  .a-strip .num { font-size: 28px; font-weight: 900; color: #0a1f44; }
+  .a-strip .txt { font-size: 12px; color: #666; margin-top: 2px; }
+
+
+  /* ─── OPTION B: Black × White ─── */
+  .b-nav { background: #fff; padding: 20px 48px; display: flex; align-items: center; justify-content: space-between; border-bottom: 1px solid #eee; }
+  .b-nav .logo { color: #111; font-weight: 900; font-size: 18px; letter-spacing: .05em; }
+  .b-nav a { color: #555; text-decoration: none; font-size: 13px; margin-left: 28px; }
+  .b-nav a.cta { background: #111; color: #fff; padding: 8px 20px; border-radius: 6px; }
+
+  .b-hero { background: #fff; padding: 80px 48px; display: grid; grid-template-columns: 1fr 1fr; gap: 48px; align-items: center; }
+  .b-hero h2 { color: #111; font-size: 48px; font-weight: 900; line-height: 1.1; margin-bottom: 16px; }
+  .b-hero h2 span { color: #111; border-bottom: 4px solid #111; }
+  .b-hero p { color: #555; font-size: 16px; line-height: 1.7; margin-bottom: 28px; }
+  .b-hero .btn { background: #111; color: #fff; padding: 14px 32px; border-radius: 8px; font-weight: 700; font-size: 15px; display: inline-block; text-decoration: none; margin-right: 12px; }
+  .b-hero .btn-ghost { background: transparent; color: #111; border: 2px solid #111; padding: 12px 28px; border-radius: 8px; font-weight: 600; font-size: 15px; display: inline-block; text-decoration: none; }
+  .b-visual { background: #f5f5f5; border-radius: 12px; padding: 32px; text-align: center; }
+  .b-visual .big { font-size: 64px; font-weight: 900; color: #111; line-height: 1; }
+  .b-visual .sub { color: #888; font-size: 13px; margin-top: 6px; }
+
+  .b-strip { background: #111; padding: 32px 48px; display: flex; gap: 40px; justify-content: center; }
+  .b-strip .item { text-align: center; }
+  .b-strip .num { font-size: 28px; font-weight: 900; color: #fff; }
+  .b-strip .txt { font-size: 12px; color: rgba(255,255,255,.5); margin-top: 2px; }
+
+
+  /* ─── OPTION C: Red × White ─── */
+  .c-nav { background: #fff; padding: 20px 48px; display: flex; align-items: center; justify-content: space-between; border-bottom: 1px solid #fee2e2; }
+  .c-nav .logo { color: #111; font-weight: 900; font-size: 18px; letter-spacing: .05em; }
+  .c-nav .logo span { color: #dc2626; }
+  .c-nav a { color: #555; text-decoration: none; font-size: 13px; margin-left: 28px; }
+  .c-nav a.cta { background: #dc2626; color: #fff; padding: 8px 20px; border-radius: 6px; }
+
+  .c-hero { background: #fff; padding: 80px 48px; display: grid; grid-template-columns: 1fr 1fr; gap: 48px; align-items: center; }
+  .c-hero h2 { color: #111; font-size: 48px; font-weight: 900; line-height: 1.1; margin-bottom: 16px; }
+  .c-hero h2 span { color: #dc2626; }
+  .c-hero p { color: #555; font-size: 16px; line-height: 1.7; margin-bottom: 28px; }
+  .c-hero .btn { background: #dc2626; color: #fff; padding: 14px 32px; border-radius: 8px; font-weight: 700; font-size: 15px; display: inline-block; text-decoration: none; margin-right: 12px; }
+  .c-hero .btn-ghost { background: transparent; color: #dc2626; border: 2px solid #dc2626; padding: 12px 28px; border-radius: 8px; font-weight: 600; font-size: 15px; display: inline-block; text-decoration: none; }
+  .c-visual { background: #fff5f5; border: 1px solid #fecaca; border-radius: 12px; padding: 32px; text-align: center; }
+  .c-visual .big { font-size: 64px; font-weight: 900; color: #dc2626; line-height: 1; }
+  .c-visual .sub { color: #888; font-size: 13px; margin-top: 6px; }
+
+  .c-strip { background: #dc2626; padding: 32px 48px; display: flex; gap: 40px; justify-content: center; }
+  .c-strip .item { text-align: center; }
+  .c-strip .num { font-size: 28px; font-weight: 900; color: #fff; }
+  .c-strip .txt { font-size: 12px; color: rgba(255,255,255,.7); margin-top: 2px; }
+
+  @media (max-width: 768px) {
+    .a-hero, .b-hero, .c-hero { grid-template-columns: 1fr; padding: 48px 24px; }
+    .a-nav, .b-nav, .c-nav { padding: 16px 24px; }
+    .a-nav a, .b-nav a, .c-nav a { display: none; }
+    .a-nav a.cta, .b-nav a.cta, .c-nav a.cta { display: inline-block; }
+    .a-strip, .b-strip, .c-strip { flex-wrap: wrap; gap: 24px; padding: 24px; }
+    .a-hero h2, .b-hero h2, .c-hero h2 { font-size: 32px; }
+  }
+</style>
+</head>
+<body>
+
+<h1>JAPAN CONNECT — Color Direction Preview</h1>
+
+<!-- ─── A: Navy ─── -->
+<div class="label">Option A　ネイビー × ホワイト — 信頼感・コーポレート</div>
+<div class="card">
+  <nav class="a-nav">
+    <div class="logo">JAPAN CONNECT</div>
+    <div>
+      <a href="#">About</a>
+      <a href="#">Services</a>
+      <a href="#">Results</a>
+      <a href="#" class="cta">Contact Us</a>
+    </div>
+  </nav>
+  <div class="a-hero">
+    <div>
+      <h2>Bring Your Product to<br><span>Japan's Market</span></h2>
+      <p>We handle everything — from Kickstarter research and maker negotiation to Makuake launch. Your product, our network.</p>
+      <a href="#" class="btn">Get in Touch</a>
+      <a href="#" class="btn-ghost">Our Results →</a>
+    </div>
+    <div class="a-visual">
+      <div class="big">¥∞</div>
+      <div class="sub">Japan Market Potential</div>
+    </div>
+  </div>
+  <div class="a-strip">
+    <div class="item"><div class="num">10+</div><div class="txt">Projects Supported</div></div>
+    <div class="item"><div class="num">2</div><div class="txt">Platforms (Makuake / CAMPFIRE)</div></div>
+    <div class="item"><div class="num">PSE</div><div class="txt">Certification Support</div></div>
+  </div>
+</div>
+
+<!-- ─── B: Black ─── -->
+<div class="label">Option B　ブラック × ホワイト — ミニマル・Apple系</div>
+<div class="card">
+  <nav class="b-nav">
+    <div class="logo">JAPAN CONNECT</div>
+    <div>
+      <a href="#">About</a>
+      <a href="#">Services</a>
+      <a href="#">Results</a>
+      <a href="#" class="cta">Contact Us</a>
+    </div>
+  </nav>
+  <div class="b-hero">
+    <div>
+      <h2>Bring Your Product to<br><span>Japan's Market.</span></h2>
+      <p>We handle everything — from Kickstarter research and maker negotiation to Makuake launch. Your product, our network.</p>
+      <a href="#" class="btn">Get in Touch</a>
+      <a href="#" class="btn-ghost">Our Results →</a>
+    </div>
+    <div class="b-visual">
+      <div class="big">¥∞</div>
+      <div class="sub">Japan Market Potential</div>
+    </div>
+  </div>
+  <div class="b-strip">
+    <div class="item"><div class="num">10+</div><div class="txt">Projects Supported</div></div>
+    <div class="item"><div class="num">2</div><div class="txt">Platforms (Makuake / CAMPFIRE)</div></div>
+    <div class="item"><div class="num">PSE</div><div class="txt">Certification Support</div></div>
+  </div>
+</div>
+
+<!-- ─── C: Red ─── -->
+<div class="label">Option C　レッド × ホワイト — 日本らしさ・インパクト</div>
+<div class="card">
+  <nav class="c-nav">
+    <div class="logo">JAPAN <span>CONNECT</span></div>
+    <div>
+      <a href="#">About</a>
+      <a href="#">Services</a>
+      <a href="#">Results</a>
+      <a href="#" class="cta">Contact Us</a>
+    </div>
+  </nav>
+  <div class="c-hero">
+    <div>
+      <h2>Bring Your Product to<br><span>Japan's Market</span></h2>
+      <p>We handle everything — from Kickstarter research and maker negotiation to Makuake launch. Your product, our network.</p>
+      <a href="#" class="btn">Get in Touch</a>
+      <a href="#" class="btn-ghost">Our Results →</a>
+    </div>
+    <div class="c-visual">
+      <div class="big">¥∞</div>
+      <div class="sub">Japan Market Potential</div>
+    </div>
+  </div>
+  <div class="c-strip">
+    <div class="item"><div class="num">10+</div><div class="txt">Projects Supported</div></div>
+    <div class="item"><div class="num">2</div><div class="txt">Platforms (Makuake / CAMPFIRE)</div></div>
+    <div class="item"><div class="num">PSE</div><div class="txt">Certification Support</div></div>
+  </div>
+</div>
+
+</body>
+</html>
