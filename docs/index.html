@@ -548,6 +548,11 @@ ul { list-style: none; }
   display: grid; grid-template-columns: repeat(4, 1fr); gap: 5px;
   max-width: 900px; margin: 0 auto;
 }
+.plat-grid-row2 {
+  grid-template-columns: repeat(3, 1fr);
+  max-width: 675px;
+  margin-top: 0;
+}
 .plat-card {
   padding: 16px 20px;
   display: flex; flex-direction: column; align-items: center; text-align: center; gap: 12px;
@@ -733,6 +738,7 @@ ul { list-style: none; }
   .results-grid { grid-template-columns: 1fr !important; }
   .platforms { padding: 64px 0 !important; }
   .plat-grid { grid-template-columns: repeat(2, 1fr) !important; }
+  .plat-grid-row2 { grid-template-columns: repeat(3, 1fr) !important; max-width: 900px !important; }
 
   .about { padding: 72px 0 !important; }
   .about-inner { grid-template-columns: 1fr !important; gap: 40px !important; }
@@ -1111,6 +1117,23 @@ ul { list-style: none; }
           </div>
         </div>
       </div>
+      <div class="plat-grid plat-grid-row2">
+        <div class="plat-card">
+          <div class="plat-logo-wrap">
+            <span style="font-size:28px;font-weight:900;letter-spacing:-0.5px;color:#BF0000;font-family:'Inter',sans-serif;">Rakuten</span>
+          </div>
+        </div>
+        <div class="plat-card">
+          <div class="plat-logo-wrap">
+            <span style="font-size:28px;font-weight:800;letter-spacing:-0.5px;color:#FF9900;font-family:'Inter',sans-serif;">amazon</span>
+          </div>
+        </div>
+        <div class="plat-card">
+          <div class="plat-logo-wrap">
+            <span style="font-size:28px;font-weight:900;letter-spacing:-0.3px;color:#FE0032;font-family:'Inter',sans-serif;white-space:nowrap;">Yahoo! JAPAN</span>
+          </div>
+        </div>
+      </div>
     </div>
 
   </div>
@@ -1378,46 +1401,6 @@ ul { list-style: none; }
   </div>
 </section>
 
-<!-- ══════════ CONTACT CTA ══════════ -->
-<section class="cta-section" id="contact">
-  <div class="cta-glow-a" aria-hidden="true"></div>
-  <div class="cta-glow-b" aria-hidden="true"></div>
-  <div class="container">
-    <div class="cta-inner">
-      <div class="section-label light" style="justify-content:center;">
-        <span class="en">CONTACT</span>
-        <span class="ja">お問い合わせ</span>
-      </div>
-      <h2 class="cta-h2">
-        <span class="en">Ready to Bring Your<br>Product to <span class="hi-lt">Japan</span>?</span>
-        <span class="ja">製品を<span class="hi-lt">日本</span>に<br>届ける準備はできていますか？</span>
-      </h2>
-      <p class="cta-sub">
-        <span class="en">If your product has proven itself internationally, Japan's market is the next step. Send us an email and let's start the conversation.</span>
-        <span class="ja">海外で実績のある製品なら、次のステップは日本市場です。まずはメールでお気軽にご連絡ください。</span>
-      </p>
-      <div class="cta-btns">
-        <a href="mailto:contact@japan-connect-global.com" class="btn-white">
-          <!-- Envelope icon -->
-          <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 256 256" fill="currentColor" aria-hidden="true"><path d="M224,48H32a8,8,0,0,0-8,8V192a16,16,0,0,0,16,16H216a16,16,0,0,0,16-16V56A8,8,0,0,0,224,48Zm-96,85.15L54.59,64H201.41ZM98.71,128,40,181.81V74.19Zm11.84,10.85,12,11.05a8,8,0,0,0,10.82,0l12-11.05,58,53.15H52.57ZM157.29,128,216,74.19V181.81Z"/></svg>
-          <span class="en">Send Us an Email</span>
-          <span class="ja">メールを送る</span>
-        </a>
-        <a href="#results" class="btn-ghost-light">
-          <span class="en">View Our Results</span>
-          <span class="ja">実績を見る</span>
-          <svg xmlns="http://www.w3.org/2000/svg" width="17" height="17" viewBox="0 0 256 256" fill="currentColor" aria-hidden="true"><path d="M221.66,133.66l-72,72a8,8,0,0,1-11.32-11.32L196.69,136H40a8,8,0,0,1,0-16H196.69L138.34,61.66a8,8,0,0,1,11.32-11.32l72,72A8,8,0,0,1,221.66,133.66Z"/></svg>
-        </a>
-      </div>
-      <p class="cta-note">
-        <span class="en">Or email us directly: </span>
-        <span class="ja">またはメールでご連絡ください: </span>
-        <a href="mailto:contact@japan-connect-global.com">contact@japan-connect-global.com</a>
-      </p>
-    </div>
-  </div>
-</section>
-
 <!-- ══════════ WHY JAPAN ══════════ -->
 <section class="why" id="why">
   <div class="container">
@@ -1466,6 +1449,46 @@ ul { list-style: none; }
           </div>
         </div>
       </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════ CONTACT CTA ══════════ -->
+<section class="cta-section" id="contact">
+  <div class="cta-glow-a" aria-hidden="true"></div>
+  <div class="cta-glow-b" aria-hidden="true"></div>
+  <div class="container">
+    <div class="cta-inner">
+      <div class="section-label light" style="justify-content:center;">
+        <span class="en">CONTACT</span>
+        <span class="ja">お問い合わせ</span>
+      </div>
+      <h2 class="cta-h2">
+        <span class="en">Ready to Bring Your<br>Product to <span class="hi-lt">Japan</span>?</span>
+        <span class="ja">製品を<span class="hi-lt">日本</span>に<br>届ける準備はできていますか？</span>
+      </h2>
+      <p class="cta-sub">
+        <span class="en">If your product has proven itself internationally, Japan's market is the next step. Send us an email and let's start the conversation.</span>
+        <span class="ja">海外で実績のある製品なら、次のステップは日本市場です。まずはメールでお気軽にご連絡ください。</span>
+      </p>
+      <div class="cta-btns">
+        <a href="mailto:contact@japan-connect-global.com" class="btn-white">
+          <!-- Envelope icon -->
+          <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 256 256" fill="currentColor" aria-hidden="true"><path d="M224,48H32a8,8,0,0,0-8,8V192a16,16,0,0,0,16,16H216a16,16,0,0,0,16-16V56A8,8,0,0,0,224,48Zm-96,85.15L54.59,64H201.41ZM98.71,128,40,181.81V74.19Zm11.84,10.85,12,11.05a8,8,0,0,0,10.82,0l12-11.05,58,53.15H52.57ZM157.29,128,216,74.19V181.81Z"/></svg>
+          <span class="en">Send Us an Email</span>
+          <span class="ja">メールを送る</span>
+        </a>
+        <a href="#results" class="btn-ghost-light">
+          <span class="en">View Our Results</span>
+          <span class="ja">実績を見る</span>
+          <svg xmlns="http://www.w3.org/2000/svg" width="17" height="17" viewBox="0 0 256 256" fill="currentColor" aria-hidden="true"><path d="M221.66,133.66l-72,72a8,8,0,0,1-11.32-11.32L196.69,136H40a8,8,0,0,1,0-16H196.69L138.34,61.66a8,8,0,0,1,11.32-11.32l72,72A8,8,0,0,1,221.66,133.66Z"/></svg>
+        </a>
+      </div>
+      <p class="cta-note">
+        <span class="en">Or email us directly: </span>
+        <span class="ja">またはメールでご連絡ください: </span>
+        <a href="mailto:contact@japan-connect-global.com">contact@japan-connect-global.com</a>
+      </p>
     </div>
   </div>
 </section>
